@@ -17,32 +17,104 @@
 
 <body>
       <header>
+            <a href="https://github.com/Gon82/docs">ver en github</a>
+            <nav>
+                  <li>01 esto es un coso</li>
+                  <li>02 esto es un coso</li>
+                  <li>03 esto es un coso</li>
+            </nav>
             <div id="slide">
-                  <a href="https://github.com/Gon82/docs">ver en github</a>
+                  <h1>docs</h1>
             </div>
       </header>
+      <div id="content">
+            <div class="sidebar">
+                  <ul>
+                        <li>01 esto es un coso</li>
+                        <li>02 esto es un coso</li>
+                        <li>03 esto es un coso</li>
+                        <li>04 esto es un coso</li>
+                        <li>05 esto es un coso</li>
+                        <li>06 esto es un coso</li>
+                        <li>07 esto es un coso</li>
+                        <li>08 esto es un coso</li>
+                        <li>09 esto es un coso</li>
+                        <li>10 esto es un coso</li>
+                        <li>11 esto es un coso</li>
+                        <li>12 esto es un coso</li>
+                        <li>13 esto es un coso</li>
+                        <li>14 esto es un coso</li>
+                        <li>15 esto es un coso</li>
+                        <li>16 esto es un coso</li>
+                        <li>17 esto es un coso</li>
+                        <li>18 esto es un coso</li>
+                        <li>19 esto es un coso</li>
+                        <li>20 esto es un coso</li>
+                        <li>21 esto es un coso</li>
+                        <li>22 esto es un coso</li>
+                        <li>23 esto es un coso</li>
+                        <li>24 esto es un coso</li>
+                        <li>25 esto es un coso</li>
+                        <li>26 esto es un coso</li>
+                        <li>27 esto es un coso</li>
+                        <li>28 esto es un coso</li>
+                        <li>29 esto es un coso</li>
+                        <li>30 esto es un coso</li>
+                  </ul>
+            </div>
+            
+            <div class="content">  
+                  
+                  <div class="block">
+                        <h2>Map</h2>
+                        <pre><code class="javascript">
 
-      <div class="content">
-            <h1>Esto es un test</h1>
-            <h2>Map</h2>
-            <pre><code class="javascript">
-
-                  //fn throttle
-                  let throttle = (func, limit) => {
-                        let inThrottle
-                        return function () {
-                              let args = arguments
-                              let context = this
-                              if (!inThrottle) {
-                                    func.apply(context, args)
-                                    inThrottle = true
-                                    setTimeout(() => inThrottle = false, limit)
+                              //fn throttle
+                              let throttle = (func, limit) => {
+                                    let inThrottle
+                                    return function () {
+                                          let args = arguments
+                                          let context = this
+                                          if (!inThrottle) {
+                                                func.apply(context, args)
+                                                inThrottle = true
+                                                setTimeout(() => inThrottle = false, limit)
+                                          }
+                                    }
                               }
-                        }
-                  }
-                  </script>
-            </code></pre>
+                              </script>
+                        </code></pre>
+                  </div>
+                  <div class="block">
+                              <h2>Map</h2>
+                              <pre><code class="javascript">
+      
+                                    //fn throttle
+                                    let throttle = (func, limit) => {
+                                          let inThrottle
+                                          return function () {
+                                                let args = arguments
+                                                let context = this
+                                                if (!inThrottle) {
+                                                      func.apply(context, args)
+                                                      inThrottle = true
+                                                      setTimeout(() => inThrottle = false, limit)
+                                                }
+                                          }
+                                    }
+                                    </script>
+                              </code></pre>
+                  </div>
+            
+            </div>
+
       </div>
+      <footer>
+            <p>footer</p>
+            <p>footer</p>
+
+      </footer>
+
 </body>
 
 </html>

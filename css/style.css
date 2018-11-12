@@ -1,12 +1,19 @@
 
+body{
+      /* background: #eaeaea; */
+}
+header{
+      background: #4f4f4f;
+      color:#fff
+}
 
-      body{
-            /* background: #eaeaea; */
-      }
-      .content{
-            max-width: 70vw;
-            margin: 0 auto;
-            background: #fff;
-            padding: 20px 40px;
-      }
+.content{
+      max-width: 70vw;
+      margin: 0 auto;
+      background: #fff;
+      padding: 20px 40px;
+}
 
+footer{
+      background: #4f4f4f
+}
