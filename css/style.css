@@ -1,0 +1,12 @@
+
+
+      body{
+            /* background: #eaeaea; */
+      }
+      .content{
+            max-width: 70vw;
+            margin: 0 auto;
+            background: #fff;
+            padding: 20px 40px;
+      }
+
