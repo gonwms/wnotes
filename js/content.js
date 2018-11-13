@@ -1,7 +1,5 @@
 'use strict'
 
-console.log(files);
-
 //desplumar html para que funcione con highlight.js
 var htmlPluck = (function(){
 
