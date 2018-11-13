@@ -13,6 +13,8 @@
       <link rel="stylesheet" href="js/highlight/styles/atom-one-dark.css">
       <script src="js/highlight/highlight.pack.js"></script>
 
+
+
 </head>
 
 <body>
@@ -74,32 +76,35 @@
             <div class="content">
 
                   <div class="block">
+
                         <h2>Map</h2>
-                        <pre>
-                              <code class="javascript">
-                              //fn throttle
-                              let throttle = (func, limit) => {
-                                    let inThrottle
-                                    return function () {
-                                          let args = arguments
-                                          let context = this
-                                          if (!inThrottle) {
-                                                func.apply(context, args)
-                                                inThrottle = true
-                                                setTimeout(() => inThrottle = false, limit)
-                                          }
-                                    }
-                              }
-                              </code>
-                        </pre>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad veritatis soluta quasi necessitatibus explicabo provident officia quisquam repellat molestiae? Temporibus!</p>
+
+<!-- ------------------------------------------------------------------- -->                   
+<pre><code class="javascript">
+      //fn throttle
+      let throttle = (func, limit) => {
+            let inThrottle
+            return function () {
+                  let args = arguments
+                  let context = this
+                  if (!inThrottle) {
+                        func.apply(context, args)
+                        inThrottle = true
+                        setTimeout(() => inThrottle = false, limit)
+                  }
+            }
+      }
+
+</code></pre>
+<!-- ------------------------------------------------------------------- -->
                   </div>
 
                   <div class="block">
                         <h2>Map</h2>
-                        <pre>
-                                    <code class="html">
-
-
+                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cupiditate, architecto. </p>  
+ <!-- ------------------------------------------------------------------- -->                       
+<pre><code class="html">
       <div id="lala"><h1>lala</h1></div>
       <div><h1>lala</h1></div>
       <ul>
@@ -108,9 +113,8 @@
             <li>3</li>
       </ul>
                                     
-
-                        </code>
-                        </pre>
+</code></pre>
+<!-- ------------------------------------------------------------------- -->
                   </div>
 
             </div>
@@ -124,7 +128,7 @@
 
 </body>
 
-      <script>hljs.initHighlightingOnLoad();</script>
+<script>hljs.initHighlightingOnLoad();</script>
 
 
 </html>

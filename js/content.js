@@ -1,4 +1,7 @@
 'use strict'
+
+console.log(files);
+
 //desplumar html para que funcione con highlight.js
 var htmlPluck = (function(){
 
@@ -22,3 +25,28 @@ var htmlPluck = (function(){
 	
 })()
 
+
+
+// TODO
+
+
+//function load json
+
+// json
+// {
+// 	"DOM":{
+// 		"name": 'name',
+// 		"contentUrl": "/docs/file.html",
+// 		"imgURL": "/docs/file.jpg",
+// 	}
+// 	"array":{
+// 		"name": 'name',
+// 		"contentUrl": "/docs/file.html",
+// 		"imgURL": "/docs/file.jpg",
+// 	}
+// 	"functional":{
+// 		"name": 'name',
+// 		"contentUrl": "/docs/file.html",
+// 		"imgURL": "/docs/file.jpg",
+// 	}
+// }

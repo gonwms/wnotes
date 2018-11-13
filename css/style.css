@@ -1,7 +1,7 @@
 /*:::::::::::::::::::::::::::::::::::::::::::: | gral | :::::::::::::::::::::::::::::::::::::::::::*/
 
 body, html {
-      background: #0602f3;
+      background: #e7e7e7;
       margin: 0;
       padding: 0;
       height: 100vh;
@@ -67,10 +67,5 @@ body, html {
 }
 
 #vpvk{
-      width: 13px;
-}
-
-.html h1, .html h2, .html h3, .html h4, .html h5, .html h6, .html p, .html span{
-      font-size: 1em;
-      line-height: 1;
+      width: 10px;
 }
