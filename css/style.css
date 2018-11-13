@@ -1,41 +1,76 @@
-body {
-      /* background: #eaeaea; */
+/*:::::::::::::::::::::::::::::::::::::::::::: | gral | :::::::::::::::::::::::::::::::::::::::::::*/
+
+body, html {
+      background: #0602f3;
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      font-family: sans-serif;
 }
 
-header {
+::-webkit-scrollbar { 
+      display: none; 
+  }
+ ::-moz-scrollbar { 
+      display: none; 
+  }
+  main-container div{
+        overflow: -moz-scrollbars-none
+      }
+
+/*:::::::::::::::::::::::::::::::::::::::::::: | header | :::::::::::::::::::::::::::::::::::::::::::*/
+#header {
+      margin:0;
+      padding: 0;
       float: left;
-      height: 95vh;
+      height: 100vh;
       width: 15%;
       background: red;
       display: block;
-      overflow: scroll;
+      overflow-y:scroll;
 }
-
-#content {
-      float: left;
-      height: 95vh;
+/*:::::::::::::::::::::::::::::::::::::::::::: | main-container | :::::::::::::::::::::::::::::::::::::::::::*/
+#main-container {
+      
+      height: 100vh;
       width: 85%;
-      /*     background:#a08585; */
+      float: left;
       display: block;
-      overflow: scroll;
+      overflow-y:hidden;
 }
-
+/*:::::::::::::::::::::::::::::::::::::::::::: | footer | :::::::::::::::::::::::::::::::::::::::::::*/
 .sidebar {
+      height: 100%;
       width: 15%;
-      height: 95vh;
       background: #949494;
       float: left;
-      overflow: scroll;
+      overflow-y:scroll;
 }
-
+/*:::::::::::::::::::::::::::::::::::::::::::: | content | :::::::::::::::::::::::::::::::::::::::::::*/
 .content {
+      height: 100%;
+      /* width: 85%; */
       background: #fff;
-      width: 85%;
-      height: 95vh;
-      overflow: scroll;
+      overflow-y:scroll;
+      padding: 20px 5vw;
+}
+/*:::::::::::::::::::::::::::::::::::::::::::: | footer | :::::::::::::::::::::::::::::::::::::::::::*/
+
+      
+#footer {
+      width: 100vw;
+      position: fixed;
+      bottom: 0px;
+      height: 10px;
+      padding: 20px;
+      background: #4f4f4f;
 }
 
-#footer {
-      height: 5vh;
-      background: #4f4f4f;
+#vpvk{
+      width: 13px;
+}
+
+.html h1, .html h2, .html h3, .html h4, .html h5, .html h6, .html p, .html span{
+      font-size: 1em;
+      line-height: 1;
 }

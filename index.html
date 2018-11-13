@@ -4,31 +4,39 @@
 <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta http-equiv="X-UA-Compatible" content="ie=edge">
-      <title>Docs</title>
-
-      <link rel="stylesheet" href="css/styles.css">
-
+      <title>docs</title>
+      <link rel="stylesheet" href="css/style.css">
+      <!-- app. -->
+      <script src="js/content.js"></script>
+      <script src="js/app.js"></script>
       <!-- highlight -->
       <link rel="stylesheet" href="js/highlight/styles/atom-one-dark.css">
       <script src="js/highlight/highlight.pack.js"></script>
-      <script>hljs.initHighlightingOnLoad();</script>
+
 </head>
 
 <body>
-      <header>
-            <a href="https://github.com/Gon82/docs">ver en github</a>
+      <div id="header">
+            <h1>Logo</h1>
+            <form action="">
+                  <input type="text" placeholder="Search">
+            </form>
             <nav>
                   <li>01 esto es un coso</li>
                   <li>02 esto es un coso</li>
                   <li>03 esto es un coso</li>
             </nav>
+            <a href="https://github.com/Gon82/docs">ver en github</a>
             <div id="slide">
-                  <h1>docs</h1>
+
             </div>
-      </header>
-      <div id="content">
+      </div>
+      <div id="main-container">
+
             <div class="sidebar">
+                  <form action="">
+                        <input type="text" placeholder="Search">
+                  </form>
                   <ul>
                         <li>01 esto es un coso</li>
                         <li>02 esto es un coso</li>
@@ -62,13 +70,13 @@
                         <li>30 esto es un coso</li>
                   </ul>
             </div>
-            
-            <div class="content">  
-                  
+
+            <div class="content">
+
                   <div class="block">
                         <h2>Map</h2>
-                        <pre><code class="javascript">
-
+                        <pre>
+                              <code class="javascript">
                               //fn throttle
                               let throttle = (func, limit) => {
                                     let inThrottle
@@ -82,39 +90,41 @@
                                           }
                                     }
                               }
-                              </script>
-                        </code></pre>
+                              </code>
+                        </pre>
                   </div>
+
                   <div class="block">
-                              <h2>Map</h2>
-                              <pre><code class="javascript">
-      
-                                    //fn throttle
-                                    let throttle = (func, limit) => {
-                                          let inThrottle
-                                          return function () {
-                                                let args = arguments
-                                                let context = this
-                                                if (!inThrottle) {
-                                                      func.apply(context, args)
-                                                      inThrottle = true
-                                                      setTimeout(() => inThrottle = false, limit)
-                                                }
-                                          }
-                                    }
-                                    </script>
-                              </code></pre>
+                        <h2>Map</h2>
+                        <pre>
+                                    <code class="html">
+
+
+      <div id="lala"><h1>lala</h1></div>
+      <div><h1>lala</h1></div>
+      <ul>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+      </ul>
+                                    
+
+                        </code>
+                        </pre>
                   </div>
-            
+
             </div>
 
       </div>
+
       <footer id="footer">
-            <p>footer</p>
-            <p>footer</p>
+            <span>wdocs - 2018 <img id="vpvk" src="img/vpvk.svg" alt=""></span>
 
       </footer>
 
 </body>
+
+      <script>hljs.initHighlightingOnLoad();</script>
+
 
 </html>
