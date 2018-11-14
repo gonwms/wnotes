@@ -61,32 +61,21 @@ var loadContent = (function () {
 })()
 
 var makeTree = function(){
-	var content = document.querySelector('.content')
-	var tree = document.querySelector('.tree')
-	var h2 = Array.from(content.querySelectorAll('H2'))
-	console.log(h2);
+	
+	var content = document.querySelector('.content');
+	var tree = document.querySelector('.tree');
+	var h2 = Array.from(content.querySelectorAll('H2'));
+	
+
 	h2.forEach(function(){
-		//
+
+		//agregarle id a los h2
+
+		//insetar link con nombre y url en el tree
+
+		//hacer segundo nivel de colapsable
+
+		// hacer 
 	})
 }
 
-//function load json
-
-// json
-// {
-// 	"DOM":{
-// 		"name": 'name',
-// 		"contentUrl": "/docs/file.html",
-// 		"imgURL": "/docs/file.jpg",
-// 	}
-// 	"array":{
-// 		"name": 'name',
-// 		"contentUrl": "/docs/file.html",
-// 		"imgURL": "/docs/file.jpg",
-// 	}
-// 	"functional":{
-// 		"name": 'name',
-// 		"contentUrl": "/docs/file.html",
-// 		"imgURL": "/docs/file.jpg",
-// 	}
-// }
