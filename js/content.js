@@ -33,7 +33,7 @@ var loadContent = (function () {
 	function request(place) {
 
 		var xhr = new XMLHttpRequest();
-		xhr.open('GET', 'docs/doc1.html');
+		xhr.open('GET', 'docs/doc2.html');
 		xhr.onload = function () {
 			if (xhr.status === 200) {
 
