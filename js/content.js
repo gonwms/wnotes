@@ -31,12 +31,16 @@ var loadContent = (function () {
 	}
 
 	function request(place) {
+
 		var xhr = new XMLHttpRequest();
-		xhr.open('GET', 'docs/md.md');
+		xhr.open('GET', 'docs/doc1.html');
 		xhr.onload = function () {
 			if (xhr.status === 200) {
-				// alert('User\'s name is ' + xhr.responseText);
+
 				place.innerHTML = xhr.responseText;
+				htmlPluck.init()
+				hljs.initHighlighting()
+
 			} else {
 				alert('fallo la carga che' + xhr.status);
 			}

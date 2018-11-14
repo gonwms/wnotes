@@ -1,0 +1,24 @@
+{
+	"lista":[
+		{
+			"name": "Dom",
+			"contentUrl": "/docs/file.html",
+			"imgURL": "/docs/file.jpg"
+		},
+		{
+			"name": "Arrays",
+			"contentUrl": "/docs/file.html",
+			"imgURL": "/docs/file.jpg"
+		},
+		{
+			"name": "Functional js",
+			"contentUrl": "/docs/file.html",
+			"imgURL": "/docs/file.jpg"
+		},
+		{
+			"name": "Observables",
+			"contentUrl": "/docs/file.html",
+			"imgURL": "/docs/file.jpg"
+		}
+	]
+}
