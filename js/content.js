@@ -40,14 +40,17 @@ var loadContent = (function () {
 				place.innerHTML = xhr.responseText;
 				htmlPluck.init()
 				hljs.initHighlighting()
+				makeTree()
 
 			} else {
 				alert('fallo la carga che' + xhr.status);
 			}
 		};
 		xhr.send();	
-	}
 
+
+
+	}
 	var content; 
 
 	return{
@@ -57,8 +60,15 @@ var loadContent = (function () {
 
 })()
 
-// TODO
-
+var makeTree = function(){
+	var content = document.querySelector('.content')
+	var tree = document.querySelector('.tree')
+	var h2 = Array.from(content.querySelectorAll('H2'))
+	console.log(h2);
+	h2.forEach(function(){
+		//
+	})
+}
 
 //function load json
 

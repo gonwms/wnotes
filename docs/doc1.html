@@ -7,19 +7,19 @@
 
 <!-- ------------------------------------------------------------------- -->                   
 <pre><code class="javascript">
-	//fn throttle
-	let throttle = (func, limit) => {
-		let inThrottle
-		return function () {
-			let args = arguments
-			let context = this
-			if (!inThrottle) {
-				func.apply(context, args)
-				inThrottle = true
-				setTimeout(() => inThrottle = false, limit)
-			}
+//fn throttle
+let throttle = (func, limit) => {
+	let inThrottle
+	return function () {
+		let args = arguments
+		let context = this
+		if (!inThrottle) {
+			func.apply(context, args)
+			inThrottle = true
+			setTimeout(() => inThrottle = false, limit)
 		}
 	}
+}
 
 </code></pre>
 <!-- ------------------------------------------------------------------- -->
@@ -31,17 +31,17 @@
 <!-- ------------------------------------------------------------------- -->                       
 <pre><code class="html">
 
-	<div id="lala">
-		<h1>lala</h1>
-	</div>
-	<div>
-		<h1>lala</h1>
-	</div>
-	<ul>
-		<li>1</li>
-		<li>2</li>
-		<li>3</li>
-	</ul>
+<div id="lala">
+	<h1>lala</h1>
+</div>
+<div>
+	<h1>lala</h1>
+</div>
+<ul>
+	<li>1</li>
+	<li>2</li>
+	<li>3</li>
+</ul>
 				
 </code></pre>
 <!-- ------------------------------------------------------------------- -->

@@ -592,7 +592,98 @@ elemento.getBoundingClientRect() DOMRect {x: 199, y: 191, width: 300, height: 10
 
 ```
 
+&nbsp;
 
+
+&nbsp;
+
+# OBJECTS
+
+[link](https://zellwk.com/blog/looping-through-js-objects/)
+
+
+## Object.keys
+```javascript
+
+    const fruits = {
+        apple: 28,
+        orange: 17,
+        pear: 54,
+    }
+
+    const keys = Object.keys(fruits)
+    console.log(keys) // [apple, orange, pear]
+
+```
+
+## Object.values
+```javascript
+
+    const fruits = {
+        apple: 28,
+        orange: 17,
+        pear: 54,
+    }
+
+    const values = Object.values(fruits)
+    console.log(values) // [28, 17, 54]
+
+```
+
+## Object.entries
+```javascript
+
+    const fruits = {
+        apple: 28,
+        orange: 17,
+        pear: 54,
+    }
+
+    const entries = Object.entries(fruits)
+    console.log(entries)
+    // [
+    //   [apple, 28],
+    //   [orange, 17],
+    //   [pear, 54]
+    // ]
+
+```
+
+
+## Looping through the array
+
+```javascript
+
+    // Looping through arrays created from Object.keys
+    const keys = Object.keys(fruits)
+   
+   for (const key of keys) {
+        console.log(key)
+    }
+
+    // Results:
+    // apple
+    // orange
+    // pear
+
+
+```
+
+## Looping through the array
+
+```javascript
+
+    for (const [fruit, count] of entries) {
+    console.log(`There are ${count} ${fruit}s`)
+    }
+
+    // Result
+    // There are 28 apples
+    // There are 17 oranges
+    // There are 54 pears
+
+
+```
 
 
 

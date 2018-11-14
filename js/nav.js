@@ -14,15 +14,15 @@ var createDocumentsNav = (function (){
 
 				if (xhr.status === 200){			
 					data = JSON.parse(xhr.responseText);
-
-					for (var [key,value] of data.lista) {
-						var obj = data.lista[key]
-						console.log(typeof obj)
-						console.log(typeof obj)
-						// 	console.log(item);
-						// }
-					}
+					console.log(data.lista);
+					data.lista.forEach(function(obj){
+						// console.log(Object.keys(obj));
+						// console.log(Object.values(obj));
+						console.log(Object.entries(obj));
+					});
 					
+						
+				
 					nav.innerHTML = 'la'
 				}
 				else{
