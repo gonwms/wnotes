@@ -1,69 +1,49 @@
 'use strict'
 
+//cargar documento
+var loadDocuments = (function () {
 
-/*
-loadDocuments:
-			nav listen "item clicked"
-			emit "content Loaded"
-*/
+	function init() {
+		container = document.querySelector('.content')		
+		//nav emit "item clicked" 
+		server.on("item-clicked", serverRequestDocument)
+	}
 
- var loadDocuments = (function () {
-
-		function init() {
-			container = document.querySelector('.content')		
-			server.on("item-clicked", serverRequestDocument)
-		}
-	
-	
-		function serverRequestDocument(link) {
-	
-			var xhr = new XMLHttpRequest();
-			xhr.open('GET', link);
-			xhr.onload = function () {
-				if (xhr.status === 200) {
-	
-					container.innerHTML = xhr.responseText						
-					htmlPluck.init();
-					// codeHighlight.init(container);
-
-					server.emit('content-Loaded', container)
-
-				} else {
-					console.error( xhr.status + '  no se pudo cargar el documento');
-				}
-			};
-			xhr.send();	
-	
-		}
-
-		function con() {console.log(code)};
+	function serverRequestDocument(link) {
 		
-		var container;
+		var xhr = new XMLHttpRequest();
+		xhr.open('GET', link);
+		xhr.onload = function () {
+			if (xhr.status === 200) {
+
+				container.innerHTML = xhr.responseText						
+				htmlPluck.init();
+				server.emit('content-Loaded', container)
+
+			} else {
+				console.error( xhr.status + '  no se pudo cargar el documento');
+			}
+		};
+		xhr.send();	
+
+	}
+
+	function content() {
+		console.log(code)
+	};
 	
+	var container;
 
-		return{
-			init:init,
-			con:con
-		}
-	
-	
-	})()
-
-//function formatContent :listen "content Loaded"
-
-	//DOM attach
-	//htmlPluck
-	//hightligt
-
-//CreateContentTree :listen "content Loaded"
-	//DOM attach
+	return{
+		init:init,
+		content:content
+	}
 
 
+})()
 
-//desplumar html para que funcione con highlight.js
+//Formatear documento
 var htmlPluck = (function () {
-	
-	
 	
 	function init() {
 
@@ -78,6 +58,7 @@ var htmlPluck = (function () {
 
 		
 	}
+
 	function htmlEntities(str) {
 		return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 	}
@@ -100,7 +81,7 @@ var codeHighlight = (function(){
 
 	function highlight(){
 		code.forEach(function(code){
-			console.log(code)
+			// console.log(code)
 			hljs.highlightBlock(code);
 
 		})
@@ -115,27 +96,38 @@ var codeHighlight = (function(){
 	}
 })()
 
+//crear content tree
+var CreateContentTree = (function(){
 
-var CreateContentTree = function(){
-	
-	// var content = document.querySelector('.content');
-	// var tree = document.querySelector('.tree');
-	// var h2 = Array.from(content.querySelectorAll('H2'));
-	
+	function init(contenido){
+		
+		tree = document.querySelector('.tree');
+		tree.innerHTML ='';
+		h2 = Array.from(contenido.querySelectorAll('H2'));
+		renderTree()
+	}
 
-	// h2.forEach(function(){
+	function renderTree(){
 
-	// 	//agregarle id a los h2
+		h2.forEach(function(item,index){
+			console.log(item.innerText);
+			
+			//agregarle id a los h2
+			item.setAttribute('id',index)
+			tree.innerHTML += `<div><a href="#${index}">${item.innerText}</a></div>`
 
-	// 	//insetar link con nombre y url en el tree
+			//hacer segundo nivel de colapsable
 
-	// 	//hacer segundo nivel de colapsable
+			// hacer 
+		})
+	}
 
-	// 	// hacer 
-	// })
+	var tree; var h2;
 
-	// return{
-	// 	init:init
-	// }
-}
+	server.on('content-Loaded', init)
+
+	return{
+		init:init
+	}
+})()
 

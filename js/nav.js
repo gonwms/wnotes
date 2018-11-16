@@ -9,7 +9,7 @@ var mainNav = (function(){
 	
 	//function createMainNav 
 	var createMainNav = function(contentList){
-		console.log(contentList)
+		// console.log(contentList)
 		nav = document.querySelector('#main_bar NAV')
 		contentList.list.forEach(function(o){
 			// console.log(Object.keys(o));  console.log(Object.values(o)); console.log(Object.entries(o)); console.log(o.name);
@@ -38,4 +38,3 @@ var mainNav = (function(){
 	};
 
 })();
-						
