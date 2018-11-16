@@ -1,22 +1,22 @@
 {
-	"lista":[
+	"list":[
 		{
-			"name": "Dom",
+			"name": "dom",
 			"contentUrl": "/docs/file.html",
 			"imgURL": "/docs/file.jpg"
 		},
 		{
-			"name": "Arrays",
+			"name": "array",
 			"contentUrl": "/docs/file.html",
 			"imgURL": "/docs/file.jpg"
 		},
 		{
-			"name": "Functional js",
+			"name": "functional-js",
 			"contentUrl": "/docs/file.html",
 			"imgURL": "/docs/file.jpg"
 		},
 		{
-			"name": "Observables",
+			"name": "observables",
 			"contentUrl": "/docs/file.html",
 			"imgURL": "/docs/file.jpg"
 		}

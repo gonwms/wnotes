@@ -1,25 +1,50 @@
-<h1>doc 01</h1>
+<h1>DOM</h1>
 
 <div class="block">
 
-<h2>Map</h2>
-<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad veritatis soluta quasi necessitatibus explicabo provident officia quisquam repellat molestiae? Temporibus!</p>
+<h2>Grid</h2>
+<h3>
+	Creating a grid
+</h3>
+Explicit:
+	<ol>
+	<li>grid-template-columns</li>
+	<li>grid-template-rows</li>
+	<li>grid-template-areas</li>
+</ol>
+Implicit:
+	<ol>
+		<li>grid-auto-columns</li>
+		<li>grid-auto-rows</li>
+	</ol>
+Gaps
+	<ol>
+		<li>grid-column-gap</li>
+		<li>grid-row-gap</li>
+		<li>grid-gap</li>
+	</ol>
+Positioning items in a grid
+	<ol>
+		<li>grid-column</li>
+		<li>grid-row</li>
+	</ol>
+
+Aligning things
+	<ol>
+		<li>justify-content</li>
+		<li>align-content</li>
+		<li>justify-items</li>
+		<li>align-items</li>
+		<li>justify-self</li>
+		<li>align-self</li>
+	</ol>
 
 <!-- ------------------------------------------------------------------- -->                   
-<pre><code class="javascript">
-//fn throttle
-let throttle = (func, limit) => {
-	let inThrottle
-	return function () {
-		let args = arguments
-		let context = this
-		if (!inThrottle) {
-			func.apply(context, args)
-			inThrottle = true
-			setTimeout(() => inThrottle = false, limit)
-		}
+<pre><code class="css">
+
+	.la{
+		grid-template-columns
 	}
-}
 
 </code></pre>
 <!-- ------------------------------------------------------------------- -->
