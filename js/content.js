@@ -39,7 +39,6 @@ var loadDocuments = (function () {
 		content:content
 	}
 
-
 })()
 
 //Formatear documento
