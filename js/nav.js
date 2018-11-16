@@ -24,7 +24,7 @@ var mainNav = (function(){
 		nav.addEventListener('click', function(e){
 			e.preventDefault()
 			var link = e.target['href']
-			server.emit("item-clicked", link)
+			if(link!=null){	server.emit("item-clicked", link) }
 			
 
 		});

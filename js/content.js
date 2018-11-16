@@ -10,7 +10,7 @@ loadDocuments:
  var loadDocuments = (function () {
 
 		function init() {
-			container = document.querySelector('.content')
+			container = document.querySelector('.content')		
 			server.on("item-clicked", serverRequestDocument)
 		}
 	
@@ -22,10 +22,11 @@ loadDocuments:
 			xhr.onload = function () {
 				if (xhr.status === 200) {
 	
-					container.innerHTML = xhr.responseText	
+					container.innerHTML = xhr.responseText						
 					htmlPluck.init();
-					hljs.initHighlighting();
-					server.emit('content-Loaded')
+					// codeHighlight.init(container);
+
+					server.emit('content-Loaded', container)
 
 				} else {
 					console.error( xhr.status + '  no se pudo cargar el documento');
@@ -34,11 +35,15 @@ loadDocuments:
 			xhr.send();	
 	
 		}
+
+		function con() {console.log(code)};
+		
+		var container;
 	
-		var container; 
-	
+
 		return{
-			init:init
+			init:init,
+			con:con
 		}
 	
 	
@@ -58,7 +63,7 @@ loadDocuments:
 //desplumar html para que funcione con highlight.js
 var htmlPluck = (function () {
 	
-	server.on('content Loaded', init )
+	
 	
 	function init() {
 
@@ -70,20 +75,45 @@ var htmlPluck = (function () {
 			code.innerHTML = htmlEntities(str)
 			
 		});
-		hljs.initHighlighting()
+
 		
 	}
 	function htmlEntities(str) {
 		return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 	}
 
+	server.on('content Loaded', init )
+	
 	return {
 		init: init
 	}
 
 })()
 
+var codeHighlight = (function(){
 
+	function init(container){
+		code = Array.from(container.querySelectorAll('CODE'))
+		highlight()
+		
+	}
+
+	function highlight(){
+		code.forEach(function(code){
+			console.log(code)
+			hljs.highlightBlock(code);
+
+		})
+	}
+
+	var code;
+
+	server.on('content-Loaded', init)
+
+	return{
+		init:init
+	}
+})()
 
 
 var CreateContentTree = function(){
