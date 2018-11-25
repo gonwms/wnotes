@@ -102,26 +102,122 @@ var CreateContentTree = (function(){
 		
 		tree = document.querySelector('.tree');
 		tree.innerHTML ='';
-		h2 = Array.from(contenido.querySelectorAll('H2'));
+		titles = Array.from(contenido.querySelectorAll('H2, H3, H4'));
+		DOMPosition = tree
 		renderTree()
+
 	}
 
-	function renderTree(){
+	var createNewNode = (function () {
 
-		h2.forEach(function(item,index){
-			console.log(item.innerText);
+		function init(el, p){
+			newNode = document.createElement('DIV')
+			newNode.innerHTML = `<a href="#${el.innerText}">${el.innerText}</a>` 
+			p.appendChild(newNode)
+		}
+
+		function returnPosition(el, p){
+			init(el, p)
+			return DOMPosition = newNode
+		}
+
+		var newNode;
+
+		return{
+			init:init,
+			returnPosition:returnPosition,
+		}
+	})()
+
+	function recurtion(p , t){
+		var position = p.parentNode		
+		if(t > 0){
+			recurtion(position,t-1)          
+		}
+		else{
+			return DOMPosition = position
+		}
+	}	
+
+		
+	function renderTree() {
+		titles.forEach(function(item, index, arr) {
+
+			//prevent error en next
+			if (index < arr.length - 1) {
+
+				var curr = item.tagName
+				var next = arr[index + 1].tagName
 			
-			//agregarle id a los h2
-			item.setAttribute('id',index)
-			tree.innerHTML += `<div><a href="#${index}">${item.innerText}</a></div>`
+				//[h3,h2]
+				if (curr > next) {
+					var rTimes = curr[1] - next[1]
+					createNewNode.returnPosition(item,DOMPosition)
+					recurtion(DOMPosition, rTimes)
+				}	  
+				//[h2,h3]
+				else if (curr < next) {	
+					createNewNode.returnPosition(item,DOMPosition)
 
-			//hacer segundo nivel de colapsable
+				}
+				//[h3,h3]
+				else {
+				//TODO hacer recursion 
+				createNewNode.init(item,DOMPosition)
+				// var newNode = document.createElement('DIV')
+				// newNode.textContent = item.innerText
+				// newNode.setAttribute('id', item.innerText)
+				// DOMPosition.appendChild(newNode)
+				}
 
-			// hacer 
+			}
+			else{
+				//ultimo item: next = null
+				createNewNode.init(item,DOMPosition)
+			}
+
 		})
+	}	
+
+	
+	
+	function renderTreeVieja(){
+		
+		// 	var titles = h2
+		// 	h2.forEach(function(item,index){
+		// 		// console.log(item.innerText);
+
+		// 		//agregarle id a los h2
+		// 		item.setAttribute('id',index)
+		// 		tree.innerHTML += `<div><a href="#${index}">${item.innerText}</a></div>`
+				
+				
+		// 		//hacer segundo nivel 
+		// 		var currentTitle = item.nextElementSibling
+		// 		// console.log(item.parentElement)
+				
+		// 		// var count = 1;
+		// 		// var recursive = function (current) {
+		// 		// 	if (current == null || current.tagName == 'H2' ) {
+		// 		// 		return 
+		// 		// 	}
+		// 		// 	if (current.tagName == 'H3'){
+		// 		// 		// titles.splice(index+count,0,current)
+		// 		// 		tree.innerHTML += `<li><a href="#${current.innerText}">${current.innerText}</a></li>`	
+		// 		// 		// console.log(current.innerText)
+		// 		// 		count = count+1
+		// 		// 		console.log(count)
+		// 		// 	}
+					
+		// 		// 	return recursive(current.nextElementSibling)
+		// 		// }
+		// 		// recursive(currentTitle)
+		// 		// hacer de colapsable 
+		// 	})
+
 	}
 
-	var tree; var h2;
+	var tree; var h2; var titles; var DOMPosition;
 
 	server.on('content-Loaded', init)
 

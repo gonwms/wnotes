@@ -19,6 +19,11 @@
 			"name": "observables",
 			"contentUrl": "/docs/file.html",
 			"imgURL": "/docs/file.jpg"
+		},
+		{
+			"name": "test",
+			"contentUrl": "/docs/test.html",
+			"imgURL": "/docs/file.jpg"
 		}
 	]
 }
