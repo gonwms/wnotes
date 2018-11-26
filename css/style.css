@@ -70,9 +70,9 @@ body, html {
 /*:::::::::::::::::::::::::::::::::::::::::::: | main_bar | :::::::::::::::::::::::::::::::::::::::::::*/
 #main_bar {
       height: calc(100vh - 50px);
-      /* width: 220px; */
+      width: 220px;
       margin:0;
-      /* padding: 20px; */
+      padding: 20px;
       float: left;
       background: #e2e2e2;
       display: block;
@@ -122,16 +122,94 @@ body, html {
       overflow-y:hidden;
       box-sizing: border-box;
 }
-/*:::::::::::::::::::::::::::::::::::::::::::: | footer | :::::::::::::::::::::::::::::::::::::::::::*/
+/*:::::::::::::::::::::::::::::::::::::::::::: | sidebar | :::::::::::::::::::::::::::::::::::::::::::*/
 .sidebar {
       height: 100%;
-      /* width: 250px; */
-      padding: 50px 20px;
+      width: 250px;
+      padding: 50px 0px;
       background: #eaeaea;
       float: left;
       overflow-y:scroll;
       box-sizing: border-box;
 }
+
+.tree-sub {
+      padding: 0;
+      margin: 0;
+}
+
+.tree-sub a{
+      text-decoration: none;
+      font-size:.9em;
+      color:black;
+      margin:0;
+      /* padding-left:10px; */
+      padding: 0 0 0 10px;
+      /* background: red; */
+      /* display: inline-block; */
+      
+      
+}
+
+.nav-item{
+      padding: 5px;
+      margin: 0;
+      position: relative;
+      /* transition: background .1s */
+}
+.nav-item:hover {
+      background: #efefef;
+      width: 100%;
+}
+
+/* .has-child > div:nth-of-type(2){
+      margin-top:5px
+}
+.has-child.visible{
+      margin-bottom:5px
+} */
+
+.tree-sub3 a{
+      margin-left:10px
+}
+.tree-sub4 a{
+      margin-left:20px
+}
+.tree-sub3{
+      background: #e6e6e6;
+ }
+.tree-sub4{
+     background: #e2e2e2;
+}
+
+
+.has-child {
+     transition: max-height .3s;
+     transition-timing-function: cubic-bezier();
+     overflow: hidden
+     
+}
+.has-child.collapse  {
+      max-height: 25px!important
+}
+
+.has-child > .nav-item > a:after{
+      content: "";
+      height: 8px;
+      width: 1em;
+      background:url('../img/right-arrow.svg') no-repeat;
+      background-size: contain;
+      display:inline-block;
+      margin-left:15px;
+      transform: rotate(90deg);
+      transform-origin: 30%;
+}
+
+.has-child.collapse > .nav-item > a:after{
+      transform: rotate(0deg);
+      
+}
+
 /*:::::::::::::::::::::::::::::::::::::::::::: | content | :::::::::::::::::::::::::::::::::::::::::::*/
 .content {
       height: 100%;
@@ -140,6 +218,9 @@ body, html {
       padding: 50px 5vw;
       box-sizing: border-box;
 }
+
+
+
 /*:::::::::::::::::::::::::::::::::::::::::::: | footer | :::::::::::::::::::::::::::::::::::::::::::*/
 
       

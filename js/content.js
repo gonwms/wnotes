@@ -1,24 +1,25 @@
 'use strict'
 
-//cargar documento
+
 var loadDocuments = (function () {
 
 	function init() {
-		container = document.querySelector('.content')		
+		content = document.querySelector('.content')
+		
 		//nav emit "item clicked" 
 		server.on("item-clicked", serverRequestDocument)
 	}
 
 	function serverRequestDocument(link) {
-		
+			
 		var xhr = new XMLHttpRequest();
 		xhr.open('GET', link);
 		xhr.onload = function () {
 			if (xhr.status === 200) {
 
-				container.innerHTML = xhr.responseText						
+				content.innerHTML = xhr.responseText						
 				htmlPluck.init();
-				server.emit('content-Loaded', container)
+				server.emit('content-Loaded', content)
 
 			} else {
 				console.error( xhr.status + '  no se pudo cargar el documento');
@@ -32,7 +33,7 @@ var loadDocuments = (function () {
 		console.log(code)
 	};
 	
-	var container;
+	var content;
 
 	return{
 		init:init,
@@ -41,7 +42,6 @@ var loadDocuments = (function () {
 
 })()
 
-//Formatear documento
 var htmlPluck = (function () {
 	
 	function init() {
@@ -71,7 +71,7 @@ var htmlPluck = (function () {
 })()
 
 var codeHighlight = (function(){
-
+	
 	function init(container){
 		code = Array.from(container.querySelectorAll('CODE'))
 		highlight()
@@ -93,9 +93,9 @@ var codeHighlight = (function(){
 	return{
 		init:init
 	}
+
 })()
 
-//crear content tree
 var CreateContentTree = (function(){
 
 	function init(contenido){
@@ -108,26 +108,32 @@ var CreateContentTree = (function(){
 
 	}
 
-	var createNewNode = (function () {
+	function createNewNode(el, p, returnPosition = true, hasAchild = false ) {
 
-		function init(el, p){
-			newNode = document.createElement('DIV')
-			newNode.innerHTML = `<a href="#${el.innerText}">${el.innerText}</a>` 
-			p.appendChild(newNode)
+		var linkformat = el.innerText.replace(/[^A-Za-z0-9-]/g, '-');
+		var newNode = document.createElement('DIV');
+
+		newNode.setAttribute('class',`tree-sub tree-sub${el.tagName[1]}`)
+		
+	
+
+		newNode.innerHTML = `<div class="nav-item"><a href="#${linkformat}">${el.innerText}</a></div>` 
+		p.appendChild(newNode)
+
+		//add id al doc tittles
+		el.setAttribute('id',linkformat)
+	
+		if(hasAchild == true ){
+			newNode.classList.add('has-child')
 		}
 
-		function returnPosition(el, p){
-			init(el, p)
+		if(returnPosition == true ){
 			return DOMPosition = newNode
 		}
 
-		var newNode;
 
-		return{
-			init:init,
-			returnPosition:returnPosition,
-		}
-	})()
+
+	}
 
 	function recurtion(p , t){
 		var position = p.parentNode		
@@ -138,91 +144,81 @@ var CreateContentTree = (function(){
 			return DOMPosition = position
 		}
 	}	
-
 		
 	function renderTree() {
-		titles.forEach(function(item, index, arr) {
 
-			//prevent error en next
+		titles.forEach(function(item, index, arr) {
+			
+			//prevent error on next
 			if (index < arr.length - 1) {
 
 				var curr = item.tagName
 				var next = arr[index + 1].tagName
-			
-				//[h3,h2]
-				if (curr > next) {
+						
+				if (curr > next) { //[h3,h2]
 					var rTimes = curr[1] - next[1]
-					createNewNode.returnPosition(item,DOMPosition)
+					createNewNode(item,DOMPosition,true,false)
 					recurtion(DOMPosition, rTimes)
-				}	  
-				//[h2,h3]
-				else if (curr < next) {	
-					createNewNode.returnPosition(item,DOMPosition)
-
+				}	  	
+				else if (curr < next) {		//[h2,h3]
+					createNewNode(item,DOMPosition,true,true)
+					
+				}	
+				else {//[h3,h3]
+					createNewNode(item,DOMPosition,false,false)
 				}
-				//[h3,h3]
-				else {
-				//TODO hacer recursion 
-				createNewNode.init(item,DOMPosition)
-				// var newNode = document.createElement('DIV')
-				// newNode.textContent = item.innerText
-				// newNode.setAttribute('id', item.innerText)
-				// DOMPosition.appendChild(newNode)
-				}
-
 			}
+
 			else{
-				//ultimo item: next = null
-				createNewNode.init(item,DOMPosition)
+				//last item: next = null
+				createNewNode(item,DOMPosition)
 			}
 
 		})
+		collapsable.init()
 	}	
 
-	
-	
-	function renderTreeVieja(){
+	var collapsable = (function () {
 		
-		// 	var titles = h2
-		// 	h2.forEach(function(item,index){
-		// 		// console.log(item.innerText);
+		function init(){
 
-		// 		//agregarle id a los h2
-		// 		item.setAttribute('id',index)
-		// 		tree.innerHTML += `<div><a href="#${index}">${item.innerText}</a></div>`
-				
-				
-		// 		//hacer segundo nivel 
-		// 		var currentTitle = item.nextElementSibling
-		// 		// console.log(item.parentElement)
-				
-		// 		// var count = 1;
-		// 		// var recursive = function (current) {
-		// 		// 	if (current == null || current.tagName == 'H2' ) {
-		// 		// 		return 
-		// 		// 	}
-		// 		// 	if (current.tagName == 'H3'){
-		// 		// 		// titles.splice(index+count,0,current)
-		// 		// 		tree.innerHTML += `<li><a href="#${current.innerText}">${current.innerText}</a></li>`	
-		// 		// 		// console.log(current.innerText)
-		// 		// 		count = count+1
-		// 		// 		console.log(count)
-		// 		// 	}
-					
-		// 		// 	return recursive(current.nextElementSibling)
-		// 		// }
-		// 		// recursive(currentTitle)
-		// 		// hacer de colapsable 
-		// 	})
+			var collapsables = Array.from(tree.querySelectorAll('.has-child'))
+			collapsables.forEach(function(item){
+				item.style.maxHeight = `${item.getBoundingClientRect().height}px`
+				item.classList.toggle('collapse')
+			})
+			
+			tree.addEventListener('click', toggleTree)	
+		}
 
-	}
+		function toggleTree(e){
+			// e.preventDefault()
+			console.log(e.target.getAttribute('class'));
+			
+			if(e.target.parentElement.classList.contains('has-child')){
+				e.target.parentElement.classList.toggle('collapse')
+				console.log(e.target.parentElement.getBoundingClientRect())
+			}
+		}
 
-	var tree; var h2; var titles; var DOMPosition;
+		function remove(){
+			document.removeEventListener('click', toggleTree)
+		}
+
+		server.on("item-clicked", remove)
+
+		return{
+			init:init
+		}
+	})()
+
+	var tree; var titles; var DOMPosition;
 
 	server.on('content-Loaded', init)
 
 	return{
 		init:init
 	}
+
 })()
 
