@@ -42,34 +42,37 @@ var loadDocuments = (function () {
 
 })()
 
-var mdToHTML = (function(){
-	function init(){
-		var content = document.querySelector('.content')
-		transform(content)
-	}
 
-	function transform(c){
-		var title  = /^(#*\s)([\d\wñÑ\s]+)\b/gm;
-		var wrapTitle = c.innerHTML.replace(title,'<h$1>$2</h$1>')
-		c.innerHTML = wrapTitle.replace(/#/,'1').replace(/##/,'2').replace(/###/,'3').replace(/####/,'4').replace(/#####/,'5')
-		transformList(c)
-	}
+//TODO nunca hice que sea MD
+// var mdToHTML = (function(){
 
-	function transformList(c){
-	var list  = /^(\d*\. )([.]*)/gm;
-	var wraplist = c.innerHTML.replace(list,'<li>$2</li>')
-	c.innerHTML = wraplist
-	}
+	// 	function init(){
+	// 		var content = document.querySelector('.content')
+	// 		transform(content)
+	// 	}
 
-	server.on('content-Loaded', init )
-	
-	return{
-		init:init,
-	}
+	// 	function transform(c){
+	// 		var title  = /^(#*\s)([\d\wñÑ\s]+)\b/gm;
+	// 		var wrapTitle = c.innerHTML.replace(title,'<h$1>$2</h$1>')
+	// 		c.innerHTML = wrapTitle.replace(/#/,'1').replace(/##/,'2').replace(/###/,'3').replace(/####/,'4').replace(/#####/,'5')
+	// 		transformList(c)
+	// 	}
 
-})()
+	// 	function transformList(c){
+	// 	var list  = /^(\d*\. )([.]*)/gm;
+	// 	var wraplist = c.innerHTML.replace(list,'<li>$2</li>')
+	// 	c.innerHTML = wraplist
+	// 	}
 
-var htmlPluck = (function () {
+	// 	server.on('content-Loaded', init )
+		
+	// 	return{
+	// 		init:init,
+	// 	}
+
+// })()
+
+	var htmlPluck = (function () {
 	
 	function init() {
 
