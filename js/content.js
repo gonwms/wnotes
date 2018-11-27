@@ -42,6 +42,33 @@ var loadDocuments = (function () {
 
 })()
 
+var mdToHTML = (function(){
+	function init(){
+		var content = document.querySelector('.content')
+		transform(content)
+	}
+
+	function transform(c){
+		var title  = /^(#*\s)([\d\wñÑ\s]+)\b/gm;
+		var wrapTitle = c.innerHTML.replace(title,'<h$1>$2</h$1>')
+		c.innerHTML = wrapTitle.replace(/#/,'1').replace(/##/,'2').replace(/###/,'3').replace(/####/,'4').replace(/#####/,'5')
+		transformList(c)
+	}
+
+	function transformList(c){
+	var list  = /^(\d*\. )([.]*)/gm;
+	var wraplist = c.innerHTML.replace(list,'<li>$2</li>')
+	c.innerHTML = wraplist
+	}
+
+	server.on('content-Loaded', init )
+	
+	return{
+		init:init,
+	}
+
+})()
+
 var htmlPluck = (function () {
 	
 	function init() {
@@ -51,18 +78,15 @@ var htmlPluck = (function () {
 
 		htmlCode.forEach(function (code) {
 			var str = code.innerHTML
-			code.innerHTML = htmlEntities(str)
-			
-		});
-
-		
+			code.innerHTML = htmlEntities(str)		
+		});		
 	}
 
 	function htmlEntities(str) {
 		return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 	}
 
-	server.on('content Loaded', init )
+	// server.on('content-Loaded', init )
 	
 	return {
 		init: init
@@ -74,8 +98,7 @@ var codeHighlight = (function(){
 	
 	function init(container){
 		code = Array.from(container.querySelectorAll('CODE'))
-		highlight()
-		
+		highlight()		
 	}
 
 	function highlight(){
