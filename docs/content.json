@@ -21,6 +21,11 @@
 			"imgURL": "/docs/file.jpg"
 		},
 		{
+			"name": "regex",
+			"contentUrl": "/docs/file.html",
+			"imgURL": "/docs/file.jpg"
+		},
+		{
 			"name": "test",
 			"contentUrl": "/docs/test.html",
 			"imgURL": "/docs/file.jpg"
