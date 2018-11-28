@@ -18,7 +18,7 @@ var loadDocuments = (function () {
 			if (xhr.status === 200) {
 
 				content.innerHTML = xhr.responseText						
-				htmlPluck.init();
+				// htmlPluck.init();
 				server.emit('content-Loaded', content)
 
 			} else {
@@ -43,34 +43,43 @@ var loadDocuments = (function () {
 })()
 
 
-//TODO nunca hice que sea MD
-// var mdToHTML = (function(){
+var mdToHTML = (function(){
 
-	// 	function init(){
-	// 		var content = document.querySelector('.content')
-	// 		transform(content)
-	// 	}
+		function init(){
+			var content = document.querySelector('.content')
+			transform(content)
+		}
 
-	// 	function transform(c){
-	// 		var title  = /^(#*\s)([\d\wñÑ\s]+)\b/gm;
-	// 		var wrapTitle = c.innerHTML.replace(title,'<h$1>$2</h$1>')
-	// 		c.innerHTML = wrapTitle.replace(/#/,'1').replace(/##/,'2').replace(/###/,'3').replace(/####/,'4').replace(/#####/,'5')
-	// 		transformList(c)
-	// 	}
+		function transform(c){
 
-	// 	function transformList(c){
-	// 	var list  = /^(\d*\. )([.]*)/gm;
-	// 	var wraplist = c.innerHTML.replace(list,'<li>$2</li>')
-	// 	c.innerHTML = wraplist
-	// 	}
+			var TitleMDRegEx  = /^(#+\s)(.+)/gm;
+			var codeMDRegEx  = /^\`\`\`(\w+)/gm;
+			var codeEndMDRegEx  = /^(\`\`\`)\W/gm;
 
-	// 	server.on('content-Loaded', init )
+			var str = c.innerHTML;
+			// var newArr = TitleMDRegEx.exec(str)
+			var titlesArr; var codeArr; var codeEndArr
+			while((titlesArr = TitleMDRegEx.exec(str)) !== null){
+				c.innerHTML = c.innerHTML.replace(titlesArr[0],`<h${titlesArr[1].length-1}>${titlesArr[2]}</h${titlesArr[1].length-1}>`)
+				// console.log(`<h${titlesArr[1].length-1}>${titlesArr[2]}</h${titlesArr[1].length-1}>`);
+			}
+			while((codeArr = codeMDRegEx.exec(str)) !== null){
+				c.innerHTML = c.innerHTML.replace(codeArr[0],`<pre><code class="${codeArr[1]}">`)
+			}
+			while((codeEndArr = codeEndMDRegEx.exec(str)) !== null){		
+				c.innerHTML = c.innerHTML.replace(codeEndArr[1],'</pre></code>')
+			}
+			htmlPluck.init()	
+		}
+
+
+		server.on('content-Loaded', init )
 		
-	// 	return{
-	// 		init:init,
-	// 	}
+		return{
+			init:init,
+		}
 
-// })()
+	})()
 
 	var htmlPluck = (function () {
 	
@@ -82,14 +91,13 @@ var loadDocuments = (function () {
 		htmlCode.forEach(function (code) {
 			var str = code.innerHTML
 			code.innerHTML = htmlEntities(str)		
-		});		
+		});	
+		server.emit('content-pluck')	
 	}
 
 	function htmlEntities(str) {
 		return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
-	}
-
-	// server.on('content-Loaded', init )
+	}	
 	
 	return {
 		init: init
@@ -99,8 +107,8 @@ var loadDocuments = (function () {
 
 var codeHighlight = (function(){
 	
-	function init(container){
-		code = Array.from(container.querySelectorAll('CODE'))
+	function init(){
+		code = Array.from(document.querySelectorAll('CODE'))
 		highlight()		
 	}
 
@@ -114,7 +122,7 @@ var codeHighlight = (function(){
 
 	var code;
 
-	server.on('content-Loaded', init)
+	server.on('content-pluck', init)
 
 	return{
 		init:init

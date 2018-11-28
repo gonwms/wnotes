@@ -1,56 +1,287 @@
-<h1>Array</h1>
-
-
-
 
 # ARRAY METHODS
 
+
 ## Filter
 
-### titulo H3
+filter 
+- Creates a new array with all elements that pass the test implemented 
+- var newArray = arr.filter(callback[, thisArg])
+- NO modifica el array original
+  
+```javascript
 
-#### H4 señores
+function esPar(numeros){
+   if(numeros%2 == 0){
+       return true;
+   }
+  }
+  console.log( "son pares: " + arr.filter(esPar))  //-> son pares: 2,4,6
+  
+  //-//
 
-1. hola
-2. como estas
-3. asdsad
-3. asdsad
-3.asdasd
+  function buscarPares(array){
+   var listaDePares = array.filter(function(numeros){
+       if (numeros%2 == 0){
+           return true
+       }
+   })
+   return listaDePares;
+  }
 
-<h2>titulo</h2>
-<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio cumque nam earum iure, ducimus dolorem debitis minus molestias animi reiciendis sequi dolorum exercitationem maiores impedit reprehenderit repudiandae. Consectetur, iure facere et officiis debitis neque voluptas harum ratione quidem necessitatibus ullam saepe reiciendis cumque obcaecati minus? Libero voluptate quos explicabo aspernatur ipsum ipsam quae. Dolorum eos facere neque dignissimos nostrum ea eveniet sed, perferendis, iste autem esse provident exercitationem cumque, possimus laborum earum ex harum ullam. Rerum temporibus odit sequi eius nihil modi hic asperiores ipsam quis adipisci neque dolore nam voluptates laboriosam debitis, sed voluptatum alias quaerat ipsa consequuntur voluptas magnam! Fugiat cumque sit delectus laboriosam deleniti. Fuga commodi amet ex, odit dolore voluptate aperiam earum neque quae dolores nam, similique incidunt sunt nisi assumenda veniam accusantium cum quo, non laborum! Non adipisci sapiente molestiae et aperiam a ullam laborum quas. Accusantium velit dolore fugiat. Sunt temporibus impedit labore quis ullam pariatur nostrum maxime nulla accusantium deserunt, cum nobis eveniet? Libero deserunt nemo, praesentium sint in tempore atque, illum cupiditate dolore magni pariatur veniam voluptatibus ducimus, beatae ipsa voluptatem tenetur maxime nobis sunt labore nulla quibusdam? Eos ipsa adipisci odit ea, suscipit eum quaerat pariatur officia dolores iusto placeat dolorum?</p>
+  console.log(buscarPares(arr));   //-> [2, 4, 6]
+  console.log(arr);  
 
-<pre><code class="html">
-	<form action="">
-		<input type="text">
-		<input type="submit">
-	</form>
+```
 
-</code></pre>
+## Map
+
+map() 
+
+    var new_array = arr.map(function callback(currentValue[, index[, array]]) {
+        // Return element for new_array
+    }[, thisArg])
+
+- Creates a new array with the results of calling a provided function on every element in the calling array.
+-   The map() method creates a new array with the results of calling a provided function on every element in the calling array.
+-   The filter method doesn't do the same as the map method. The map method is used to convert each item of an array,
+    while the filter method is used to select certain items of an array.  
+-   No modifica array original
+
+```javascript
+
+   var arr = [1,2,3]
+     
+     function exclama(array){
+       return array + "!";
+    };
+     
+    var arrMapped= arr.map(exclama)
+    console.log(arrMapped);       //-> ["1!", "2!", "3!"]
+    console.log(arr);   	 //-> ["1", "2", "3"]
+
+```
+
+## Splice
+
+splice() 
+
+    array.splice(startIndex, deleteCount, item1, item2, ...)
+
+Changes the contents of an array by removing existing elements and/or adding new elements.
+- el segundo valor no es el index, es una cuenta desde el index
+- SI modifica el array original
 
 
-<h2>tiyulo 2</h2>
-<h3>esto es un sub</h3>
-<h3>esto es un otro sub</h3>
-<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio cumque nam earum iure, ducimus dolorem debitis minus molestias animi reiciendis sequi dolorum exercitationem maiores impedit reprehenderit repudiandae. Consectetur, iure facere et officiis debitis neque voluptas harum ratione quidem necessitatibus ullam saepe reiciendis cumque obcaecati minus? Libero voluptate quos explicabo aspernatur ipsum ipsam quae. Dolorum eos facere neque dignissimos nostrum ea eveniet sed, perferendis, iste autem esse provident exercitationem cumque, possimus laborum earum ex harum ullam. Rerum temporibus odit sequi eius nihil modi hic asperiores ipsam quis adipisci neque dolore nam voluptates laboriosam debitis, sed voluptatum alias quaerat ipsa consequuntur voluptas magnam! Fugiat cumque sit delectus laboriosam deleniti. Fuga commodi amet ex, odit dolore voluptate aperiam earum neque quae dolores nam, similique incidunt sunt nisi assumenda veniam accusantium cum quo, non laborum! Non adipisci sapiente molestiae et aperiam a ullam laborum quas. Accusantium velit dolore fugiat. Sunt temporibus impedit labore quis ullam pariatur nostrum maxime nulla accusantium deserunt, cum nobis eveniet? Libero deserunt nemo, praesentium sint in tempore atque, illum cupiditate dolore magni pariatur veniam voluptatibus ducimus, beatae ipsa voluptatem tenetur maxime nobis sunt labore nulla quibusdam? Eos ipsa adipisci odit ea, suscipit eum quaerat pariatur officia dolores iusto placeat dolorum?</p>
+```javascript
 
-<pre><code class="html">
-	<form action="">
-		<input type="text">
-		<input type="submit">
-	</form>
+    var arr = [0,1,2,3,4,5,6,7];
 
-</code></pre>
+    arr.splice(1,4,"NO","SI") // return [1, 2, 3, 4] (elementos quitados)
 
-<h2>titular</h2>
-<h3>esto es un sub</h3>
-<h3>esto es un otro sub</h3>
-<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio cumque nam earum iure, ducimus dolorem debitis minus molestias animi reiciendis sequi dolorum exercitationem maiores impedit reprehenderit repudiandae. Consectetur, iure facere et officiis debitis neque voluptas harum ratione quidem necessitatibus ullam saepe reiciendis cumque obcaecati minus? Libero voluptate quos explicabo aspernatur ipsum ipsam quae. Dolorum eos facere neque dignissimos nostrum ea eveniet sed, perferendis, iste autem esse provident exercitationem cumque, possimus laborum earum ex harum ullam. Rerum temporibus odit sequi eius nihil modi hic asperiores ipsam quis adipisci neque dolore nam voluptates laboriosam debitis, sed voluptatum alias quaerat ipsa consequuntur voluptas magnam! Fugiat cumque sit delectus laboriosam deleniti. Fuga commodi amet ex, odit dolore voluptate aperiam earum neque quae dolores nam, similique incidunt sunt nisi assumenda veniam accusantium cum quo, non laborum! Non adipisci sapiente molestiae et aperiam a ullam laborum quas. Accusantium velit dolore fugiat. Sunt temporibus impedit labore quis ullam pariatur nostrum maxime nulla accusantium deserunt, cum nobis eveniet? Libero deserunt nemo, praesentium sint in tempore atque, illum cupiditate dolore magni pariatur veniam voluptatibus ducimus, beatae ipsa voluptatem tenetur maxime nobis sunt labore nulla quibusdam? Eos ipsa adipisci odit ea, suscipit eum quaerat pariatur officia dolores iusto placeat dolorum?</p>
+    console.log(arr) // ["NO", "SI", 5, 6]
 
-<pre><code class="html">
-	<form action="">
-		<input type="text">
-		<input type="submit">
-	</form>
+```
 
-</code></pre>
+## Slice
+
+slice() 
+    
+    arr.slice([startIndex, endIndex)
+
+- Returns a portion of an array into a new array selected from begin to end (end not included)
+- primer valor incluye el segundo está excluido
+- NO modifica el array original
+
+```javascript
+
+    var arr = [0,1,2,3,4,5,6,7];
+    arr.slice(2,5) // [2, 3, 4]
+
+```
+
+## Concat
+
+concat() 
+
+    var new_array = old_array.concat(value1[, value2[, ...[, valueN]]])
+
+- Merge two or more arrays and returns a new array
+- Los arrays originales no son afectados
+- NO modifica el array original
+
+```javascript
+
+    var arr1 = ["3","2","1"]  
+    var arr2 = ["si","no"]  
+    var arr3 = ["hola", "chau"] 
+
+    var arr4 = arr1.concat(arr2,arr3);
+    console.log(arr4); //->  ["3", "2", "1", "si", "no", "hola", "chau"]
+
+```
+
+## Push
+
+push()
+
+    arr.push(element1[, ...[, elementN]])
+
+- Adds one or more elements to the end of an array and returns the new length of the array
+- SI modifica el array original
+
+  
+ 
+```javascript
+
+    var arr = [1,2,3]
+    arr.push("x") //-> 4    // returns the new length of the array
+    console.log(arr); //-> [1,2,3,"x"]
+
+```
+
+## Reduce
+
+reduce()
+- Find is like filter, but instead returns just the one you are looking for 
+
+```javascript 
+
+    const comments = [
+    { text: 'Love this!', id: 523423 },
+    { text: 'Super good', id: 823423 },
+    { text: 'You are the best', id: 2039842 },
+    { text: 'Ramen is my fav food ever', id: 123523 },
+    { text: 'Nice Nice Nice!', id: 542328 }
+    ];
+
+    const comment = comments.find(comment => comment.id === 823423);
+
+ ```
+
+## Sort
+
+Sort()
+- Creates a new array with the results of calling a provided function on every element in the calling array. 
+
+```javascript
+
+   var arr = [ 40, 1, 5, 200 ];
+
+
+    function comparar( a, b ){ 
+        return a - b; 
+    };
+
+    arr.sort(comparar); // [1, 5, 40, 200]
+
+```
+
+## Some & Every
+
+some() 
+- at least one
+
+every() 
+- every
+
+
+```javascript
+
+    const people = [
+        { name: 'Wes', year: 1988 },
+        { name: 'Kait', year: 1986 },
+        { name: 'Irv', year: 1970 },
+        { name: 'Lux', year: 2015 },
+    ];
+
+    //     some;
+    const isAdult = people.some(person => ((new Date()).getFullYear()) - person.year >= 19);
+    console.log({isAdult});
+
+    //     every
+    const allAdults = people.every(person => ((new Date()).getFullYear()) - person.year >= 19);
+    console.log({allAdults});
+
+```
+
+## Find
+
+find() 
+-  Find is like filter, but instead returns just the one you are looking for 
+  
+```javascript
+
+    const comments = [
+        { text: 'Love this!', id: 523423 },
+        { text: 'Super good', id: 823423 },
+        { text: 'You are the best', id: 2039842 },
+        { text: 'Ramen is my fav food ever', id: 123523 },
+        { text: 'Nice Nice Nice!', id: 542328 }
+    ];
+
+    const comment = comments.find(comment => comment.id === 823423)
+
+```
+
+## Call and Apply
+
+call()
+- method calls a function with a given this value and arguments provided individually
+- provides a new value of this to the function/method. With call, you can write a method once and then inherit it in another object
+
+apply()
+- the fundamental difference is that call() accepts an argument list, while apply() accepts a single array of arguments.
+
+```javascript
+
+    function Product(name, price) {
+   		 this.name = name;
+   		 this.price = price;
+    }
+
+    function Food(name, price) {
+    	Product.call(this, name, price);
+    	this.category = 'food';
+    }
+
+    function Toy(name, price) {
+    Product.call(this, name, price);
+    this.category = 'toy';
+    }
+
+    var cheese = new Food('feta', 5);
+    var fun = new Toy('robot', 40);
+
+```
+
+## Bind
+
+bind()  
+- crea una nueva función, que cuando es llamada, asigna a su operador  this el valor entregado
+- el valor pasado es el this
+
+```javascript
+
+    this.x = 9;
+
+    var module = {
+        x: 81,
+        getX: function() { return this.x; }
+    };
+
+    module.getX(); // 81
+
+    var getX = module.getX;
+    getX(); // 9, porque en este caso, "this" apunta al objeto global
+
+    // Crear una nueva función con 'this' asociado al objeto original 'module'
+    var boundGetX = getX.bind(module);
+    boundGetX(); // 81
+
+```
+
+&nbsp;
+
+
+&nbsp;
