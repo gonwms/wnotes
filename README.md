@@ -5,11 +5,6 @@
 
 ---
 
-&nbsp;
-
-&nbsp;
-
-
 # ARRAY METHODS
 
 ## Filter

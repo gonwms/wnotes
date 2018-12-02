@@ -1,0 +1,34 @@
+# Objects
+
+```javascript
+	var myObj = {
+			"list":[
+				{
+					"name": "DOM",
+					"Url": "/docs/file.html",
+					"imgL": "/docs/file.jpg"
+				},
+				{
+					"name": "Array",
+					"content": "/docs/file.html",
+					"img": "/docs/file.jpg"
+				}
+				]
+		}
+
+	myObj.list.forEach(function(o){
+
+		console.log(Object.keys(o));	
+					// ["name", "Url", "imgL"]
+		console.log(Object.values(o));
+					// ["DOM", "/docs/file.html", "/docs/file.jpg"]
+		console.log(Object.entries(o));	
+					// 0: (2) ["name", "DOM"]
+					// 1: (2) ["Url", "/docs/file.html"]
+					// 2: (2) ["imgL", "/docs/file.jpg"]
+
+		console.log(o.name);
+					// DOM
+	});
+
+```		

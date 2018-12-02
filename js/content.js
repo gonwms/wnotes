@@ -42,51 +42,65 @@ var loadDocuments = (function () {
 
 })()
 
-
 var mdToHTML = (function(){
 
-		function init(){
-			var content = document.querySelector('.content')
-			transform(content)
-		}
+	function init(){
+		var content = document.querySelector('.content')
+		transform(content)
+	}
 
-		function transform(c){
+	function transform(c){
 
-			var TitleMDRegEx  = /^(#+\s)(.+)/gm;
-			var codeMDRegEx  = /^\`\`\`(\w+)/gm;
-			var codeEndMDRegEx  = /^(\`\`\`)\W/gm;
-
-			var str = c.innerHTML;
-			// var newArr = TitleMDRegEx.exec(str)
-			var titlesArr; var codeArr; var codeEndArr
-			while((titlesArr = TitleMDRegEx.exec(str)) !== null){
-				c.innerHTML = c.innerHTML.replace(titlesArr[0],`<h${titlesArr[1].length-1}>${titlesArr[2]}</h${titlesArr[1].length-1}>`)
-				// console.log(`<h${titlesArr[1].length-1}>${titlesArr[2]}</h${titlesArr[1].length-1}>`);
-			}
-			while((codeArr = codeMDRegEx.exec(str)) !== null){
-				c.innerHTML = c.innerHTML.replace(codeArr[0],`<pre><code class="${codeArr[1]}">`)
-			}
-			while((codeEndArr = codeEndMDRegEx.exec(str)) !== null){		
-				c.innerHTML = c.innerHTML.replace(codeEndArr[1],'</pre></code>')
-			}
-			htmlPluck.init()	
-		}
-
-
-		server.on('content-Loaded', init )
+		var TitleMDRegEx  = /^(#+\s)(.+)/gm;
+		var codeMDRegEx  = /^\`{3}(\w+)((.|\n+)*?)\`{3}/gm; //```
+		var listMDRegEx  = /(^((\-\s)|(\d+\.\s)).+?\n)+/gm
+		var textMDRegEx  = /^([\w\d]+[^\n]+)/gm;
 		
-		return{
-			init:init,
+		var str = c.innerHTML;
+		var titlesArr; var codeArr; var listArr; var textArr;
+
+		while((titlesArr = TitleMDRegEx.exec(str)) !== null){
+			c.innerHTML = c.innerHTML.replace(titlesArr[0],`<h${titlesArr[1].length-1}>${titlesArr[2]}</h${titlesArr[1].length-1}>`)
 		}
 
-	})()
+		while((codeArr = codeMDRegEx.exec(str)) !== null){
+			c.innerHTML = c.innerHTML.replace(codeArr[0],`<pre><code class="${codeArr[1]} HTML">${codeArr[2]}</pre></code>`)
+		}
 
-	var htmlPluck = (function () {
+		while((listArr = listMDRegEx.exec(str)) !== null){
+			var lis = 	listArr[0].split(/\n/).map(function(item){ 
+				if(item != ''){
+					return item = '<li>'+item.slice(2)+'</li>'
+				}
+			})
+			if(listArr[2] !='- '){
+			c.innerHTML = c.innerHTML.replace(listArr[0],`<ol>${lis.join('')}</ol>`)
+			}
+			else{
+			c.innerHTML = c.innerHTML.replace(listArr[0],`<ul>${lis.join('')}</ul>`)
+			}			
+		}
+
+		while((textArr = textMDRegEx.exec(str)) !== null){
+			c.innerHTML = c.innerHTML.replace(textArr[0],`<p>${textArr[1]}</p>`)
+		}			
+		htmlPluck.init()	
+	}
+
+	server.on('content-Loaded', init )
 	
+	return{
+		init:init,
+	}
+
+})()
+
+var htmlPluck = (function () {
+
 	function init() {
 
 		var content = document.querySelector('.content')
-		var htmlCode = Array.from(content.querySelectorAll('.html'))
+		var htmlCode = Array.from(content.querySelectorAll('.HTML'))
 
 		htmlCode.forEach(function (code) {
 			var str = code.innerHTML
@@ -97,6 +111,7 @@ var mdToHTML = (function(){
 
 	function htmlEntities(str) {
 		return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+		
 	}	
 	
 	return {
@@ -209,10 +224,10 @@ var CreateContentTree = (function(){
 			}
 
 		})
-		collapsable.init()
+		treeEvents.init()
 	}	
 
-	var collapsable = (function () {
+	var treeEvents = (function () {
 		
 		function init(){
 
@@ -222,16 +237,31 @@ var CreateContentTree = (function(){
 				item.classList.toggle('collapse')
 			})
 			
-			tree.addEventListener('click', toggleTree)	
+			tree.addEventListener('click', treeClicks)	
 		}
 
-		function toggleTree(e){
-			// e.preventDefault()
-			console.log(e.target.getAttribute('class'));
-			
+		function treeClicks(e){
+
 			if(e.target.parentElement.classList.contains('has-child')){
 				e.target.parentElement.classList.toggle('collapse')
-				console.log(e.target.parentElement.getBoundingClientRect())
+
+			}
+			if(e.target.hasAttribute('href')){
+				var titleTarget = document.querySelector(`${e.target.getAttribute('href')}`)
+				console.log(titleTarget.getBoundingClientRect().y);
+				
+				
+			} 
+
+		}
+
+
+		function toggleTree(e){
+			e.preventDefault()
+
+			if(e.target.parentElement.classList.contains('has-child')){
+				e.target.parentElement.classList.toggle('collapse')
+
 			}
 		}
 
