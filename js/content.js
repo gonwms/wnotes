@@ -55,9 +55,12 @@ var mdToHTML = (function(){
 		var codeMDRegEx  = /^\`{3}(\w+)((.|\n+)*?)\`{3}/gm; //```
 		var listMDRegEx  = /(^((\-\s)|(\d+\.\s)).+?\n)+/gm
 		var textMDRegEx  = /^([\w\d]+[^\n]+)/gm;
+		var imgsMDRegEx  = /^\!\[([.+]?)\]\((.+)".+"\)/gm;
+		var linkMDRegEx  = /^\[(.+)\]\((.+)\)/gm;
+		var strongMDRegEx = /\`(.+)\`/gm;
 		
 		var str = c.innerHTML;
-		var titlesArr; var codeArr; var listArr; var textArr;
+		var titlesArr; var codeArr; var listArr; var textArr; var imgArr; var linkArr; var strongkArr;
 
 		while((titlesArr = TitleMDRegEx.exec(str)) !== null){
 			c.innerHTML = c.innerHTML.replace(titlesArr[0],`<h${titlesArr[1].length-1}>${titlesArr[2]}</h${titlesArr[1].length-1}>`)
@@ -81,9 +84,20 @@ var mdToHTML = (function(){
 			}			
 		}
 
+		while((imgArr = imgsMDRegEx.exec(str)) !== null){
+			c.innerHTML = c.innerHTML.replace(imgArr[0],`<img src="${imgArr[2]}" alt="${imgArr[1]}">`)
+
+		}
+		while((linkArr = linkMDRegEx.exec(str)) !== null){
+			c.innerHTML = c.innerHTML.replace(linkArr[0],`<a href="${linkArr[2]}">${linkArr[1]}</a>`)
+		}
+		while((strongkArr = strongMDRegEx.exec(str)) !== null){
+			c.innerHTML = c.innerHTML.replace(strongkArr[0],`<strong>${strongkArr[1]}</strong>`)
+		}
 		while((textArr = textMDRegEx.exec(str)) !== null){
 			c.innerHTML = c.innerHTML.replace(textArr[0],`<p>${textArr[1]}</p>`)
-		}			
+		}
+
 		htmlPluck.init()	
 	}
 
