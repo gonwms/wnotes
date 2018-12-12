@@ -7,7 +7,7 @@ let contentList;
 (function loadcontentList(){
 
 	var xhr = new XMLHttpRequest();
-	xhr.open('GET', 'content.json',true);
+	xhr.open('GET', 'docs/content.json',true);
 	xhr.setRequestHeader('Content-Type', 'application/json');
 	xhr.send();	
 	xhr.onload = () => {
