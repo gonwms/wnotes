@@ -94,12 +94,17 @@
 	span{
 		color:#ffff00
 	}
+	#boton{
+		position: fixed;
+		top:100px;
+		right: 0
+	}
 	
 </style>
 <!-- :::::::::::::::::  HTML ::::::::::::::::::::  -->
 
 	<body id="my_body">
-
+		<input id="boton" type="submit" value="click scrollY ">
 		<div class="main_container">
 			<header>
 				<!-- header -->
@@ -175,7 +180,7 @@
 		},5))
 /*::::::::::::::::::::::::::::::::::::::::::::  / Eventlistener Mouse / ::::::::::::::::::::::::::::::::::::::::::: */
 
-
+		
 		document.addEventListener('mousemove', function point(e) {
 
 			var frompoint = document.elementFromPoint(e.clientX,e.clientY);
@@ -280,9 +285,21 @@
 		
 	}
 
+	var boton = document.querySelector("#boton")
+	boton.addEventListener("click", function(e){
+		e.preventDefault()
+		console.log(window.scrollY)
+		window.scroll(0,505)
+		console.log(window.scrollY)
+	})
+
+	
+
+	// Window.scrollTo() is effectively the same as the window.scroll(x,y) method. For scrolling a particular distance, use Window.scrollBy().
+	// Also see Window.scrollByLines(), Window.scrollByPages() and Element.scrollIntoView()
 
 
-/*::::::::::::::::::::::::::::::::::::::::::::  / style  / ::::::::::::::::::::::::::::::::::::::::::: */
+/*:::::::::::::::::::::::::::::::::::::::::::  / style  / ::::::::::::::::::::::::::::::::::::::::::: */
 
 
 </script>
