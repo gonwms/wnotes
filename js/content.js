@@ -98,7 +98,8 @@ var mdToHTML = (function(){
 			c.innerHTML = c.innerHTML.replace(textArr[0],`<p>${textArr[1]}</p>`)
 		}
 
-		htmlPluck.init()	
+		htmlPluck.init();
+		focusContent.init();
 	}
 
 	server.on('content-Loaded', init )
@@ -262,7 +263,7 @@ var CreateContentTree = (function(){
 			}
 			if(e.target.hasAttribute('href')){
 				var titleTarget = document.querySelector(`${e.target.getAttribute('href')}`)
-				console.log(titleTarget.getBoundingClientRect().y);
+				// console.log(titleTarget.getBoundingClientRect().y);
 				
 				
 			} 
@@ -300,3 +301,30 @@ var CreateContentTree = (function(){
 
 })()
 
+var focusContent = (function(){
+	
+	function init(){
+		var content = document.querySelector('.content')
+		var h2 = Array.from(document.querySelectorAll('H2'))
+		
+		content.addEventListener('scroll',function(){
+		
+			h2.forEach(function(el){
+				var windowScrollY = content.scrollTop ;
+				var positionY = el.getBoundingClientRect().top
+				// if(positionY >= windowScrollY ){
+				// 	h2.classList.toggle('visible')
+				// }
+				console.log(el.innerText  +" : "+ positionY + "  windowScrollY: " + windowScrollY)
+			})
+
+		})
+
+
+	}
+
+
+	return{
+		init:init
+	}
+})()

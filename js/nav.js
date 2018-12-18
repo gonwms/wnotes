@@ -14,7 +14,7 @@ var mainNav = (function(){
 		contentList.list.forEach(function(o){
 			// console.log(Object.keys(o));  console.log(Object.values(o)); console.log(Object.entries(o)); console.log(o.name);
 			nav.innerHTML += `<li><a href="docs/${o.name.toLowerCase()}.html">${o.name}</a></li>`
-			console.log(o.name.toLowerCase());
+			// console.log(o.name.toLowerCase());
 			
 		});
 		MainNavClicked()		

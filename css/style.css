@@ -46,9 +46,8 @@
 /* p{
       font-family: 'GothamRoundedBold'
 } */
-html {
-      scroll-behavior: smooth;
-    }
+
+
 
 body, html {
       background: #e7e7e7;
@@ -56,6 +55,7 @@ body, html {
       padding: 0;
       height: 100vh;
       font-family: sans-serif;
+     
 }
 
 
@@ -219,12 +219,16 @@ body, html {
 }
 
 /*:::::::::::::::::::::::::::::::::::::::::::: | content | :::::::::::::::::::::::::::::::::::::::::::*/
+/* #main-container{
+      scroll-behavior: smooth;
+} */
 .content {
       height: 100%;
       background: #f3f3f3;
-      overflow-y:scroll;
       padding: 50px 5vw;
       box-sizing: border-box;
+      scroll-behavior: smooth;
+      overflow-y:scroll;
 }
 
 .content strong{
@@ -232,6 +236,10 @@ body, html {
     color: #ffffff;
     background: #dbc177;
     padding: 0 5px;
+}
+
+.visible{
+      background: red;
 }
 
 /*:::::::::::::::::::::::::::::::::::::::::::: | footer | :::::::::::::::::::::::::::::::::::::::::::*/
