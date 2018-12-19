@@ -311,11 +311,15 @@ var focusContent = (function(){
 		
 			h2.forEach(function(el){
 				var windowScrollY = content.scrollTop ;
-				var positionY = el.getBoundingClientRect().top
-				// if(positionY >= windowScrollY ){
-				// 	h2.classList.toggle('visible')
-				// }
-				console.log(el.innerText  +" : "+ positionY + "  windowScrollY: " + windowScrollY)
+				var positionY = Math.round(el.getBoundingClientRect().y)
+				if(positionY > window.innerHeight*1/4 && positionY < window.innerHeight*3/4  ){
+					el.classList.add('visible')
+				}
+				else{
+					el.classList.remove('visible')
+				}
+				console.log(el.innerText +" "+positionY  +" > "+ window.innerHeight/2)
+
 			})
 
 		})
