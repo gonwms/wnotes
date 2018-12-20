@@ -237,9 +237,14 @@ body, html {
     background: #dbc177;
     padding: 0 5px;
 }
+.fade{
+      transition: all .5s;
 
-.visible{
-      background: red;
+}
+
+.viewport_not_visible{
+      opacity: 0;
+      transform: translateX(15px)
 }
 
 /*:::::::::::::::::::::::::::::::::::::::::::: | footer | :::::::::::::::::::::::::::::::::::::::::::*/

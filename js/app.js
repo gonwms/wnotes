@@ -22,20 +22,13 @@ let contentList;
 			console.error(xhr.status +': ' + 'No se encotraron documentos');
 		}
 	};
-
-
-
 })()
 
 
-document.addEventListener('DOMContentLoaded', function () {
-	
+document.addEventListener('DOMContentLoaded', function () {	
 	mainNav.init();
 	loadDocuments.init();
 	htmlPluck.init();
-
-	
-
 })
 
 

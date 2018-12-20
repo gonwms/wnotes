@@ -302,31 +302,52 @@ var CreateContentTree = (function(){
 })()
 
 var focusContent = (function(){
-	
-	function init(){
-		var content = document.querySelector('.content')
-		var h2 = Array.from(document.querySelectorAll('H2'))
-		
-		content.addEventListener('scroll',function(){
-		
-			h2.forEach(function(el){
-				var windowScrollY = content.scrollTop ;
-				var positionY = Math.round(el.getBoundingClientRect().y)
-				if(positionY > window.innerHeight*1/4 && positionY < window.innerHeight*3/4  ){
-					el.classList.add('visible')
-				}
-				else{
-					el.classList.remove('visible')
-				}
-				console.log(el.innerText +" "+positionY  +" > "+ window.innerHeight/2)
 
-			})
+	function debounce(func, wait = 20, immediate = true){
+	
+		var timeout;
+		return function () {
+			var context = this, args = arguments;
+			var later = function () {
+				timeout = null;
+				if (!immediate) func.apply(context, args);
+			};
+			var callNow = immediate && !timeout;
+			clearTimeout(timeout);
+			timeout = setTimeout(later, wait);
+			if (callNow) func.apply(context, args);
+		};		
+	}
+
+	function onViewportAnimation(){
+		
+		elementos.forEach(function(el){
+			var positionY = Math.round(el.getBoundingClientRect().y)
+			if(positionY < window.innerHeight &&  positionY > -100){
+				el.classList.remove('viewport_not_visible')
+			}
+			else{
+				el.classList.add('viewport_not_visible')
+			}
+			console.log(el.innerText +" "+positionY  +" > "+ window.innerHeight)
 
 		})
 
-
+	}
+	
+	function init(){
+		var content = document.querySelector('.content')
+		elementos = Array.from(content.querySelectorAll('*'))
+		
+		elementos.forEach(function(el){
+			el.classList.add('fade')
+		});
+		
+		content.addEventListener('scroll',debounce(onViewportAnimation(), 300))
 	}
 
+
+	var elementos;
 
 	return{
 		init:init
