@@ -302,21 +302,15 @@ var CreateContentTree = (function(){
 })()
 
 var focusContent = (function(){
-
-	function debounce(func, wait = 20, immediate = true){
-	
-		var timeout;
-		return function () {
-			var context = this, args = arguments;
-			var later = function () {
-				timeout = null;
-				if (!immediate) func.apply(context, args);
-			};
-			var callNow = immediate && !timeout;
-			clearTimeout(timeout);
-			timeout = setTimeout(later, wait);
-			if (callNow) func.apply(context, args);
-		};		
+	function init(){
+		var content = document.querySelector('.content')
+		elementos = Array.from(content.querySelectorAll('H3,H2'))
+		
+		elementos.forEach(function(el){
+			el.classList.add('fade')
+		});
+		
+		content.addEventListener('scroll',debounce(onViewportAnimation,20))
 	}
 
 	function onViewportAnimation(){
@@ -335,17 +329,6 @@ var focusContent = (function(){
 
 	}
 	
-	function init(){
-		var content = document.querySelector('.content')
-		elementos = Array.from(content.querySelectorAll('*'))
-		
-		elementos.forEach(function(el){
-			el.classList.add('fade')
-		});
-		
-		content.addEventListener('scroll',debounce(onViewportAnimation(), 300))
-	}
-
 
 	var elementos;
 
