@@ -145,8 +145,11 @@ parrafo.innerHTML = `string text ${expression} string text` //template literal
 ### Estilo y Clases
 
 ```javascript 
+
+
 parrafo.style.cssText = 'display: block; position: absolute;' // para remplazar =
 parrafo.style.cssText += 'display: block; position: absolute;' // para agregar +=
+getComputedStyle(parrafo).position //--> aboslute
 
 parrafo.style.color = 'red';
 parrafo.classList.add('parrafo');
