@@ -8,7 +8,7 @@ filter
 1. Creates a new array with all elements that pass the test implemented 
 2. var newArray = arr.filter(callback[, thisArg])
 3. NO modifica el array original
-  
+
 ```javascript
     function esPar(numeros){
         if(numeros%2 == 0){ return true; }
