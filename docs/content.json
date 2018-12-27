@@ -2,37 +2,30 @@
 	"list":[
 		{
 			"name": "DOM",
-			"contentUrl": "/docs/file.html",
 			"imgURL": "/docs/file.jpg"
 		},
 		{
-			"name": "Array",
-			"contentUrl": "/docs/file.html",
+			"name": "Array",	
 			"imgURL": "/docs/file.jpg"
 		},
 		{
-			"name": "Objects",
-			"contentUrl": "/docs/file.html",
+			"name": "Objects",	
 			"imgURL": "/docs/file.jpg"
 		},
 		{
-			"name": "Functional JS",
-			"contentUrl": "/docs/file.html",
+			"name": "Functional JS",	
 			"imgURL": "/docs/file.jpg"
 		},
 		{
-			"name": "Observables",
-			"contentUrl": "/docs/file.html",
+			"name": "Observables",	
 			"imgURL": "/docs/file.jpg"
 		},
 		{
 			"name": "RegEx",
-			"contentUrl": "/docs/file.html",
 			"imgURL": "/docs/file.jpg"
 		},
 		{
 			"name": "CSS",
-			"contentUrl": "/docs/test.html",
 			"imgURL": "/docs/file.jpg"
 		}
 	]

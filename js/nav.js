@@ -13,7 +13,7 @@ var mainNav = (function(){
 		nav = document.querySelector('#main_bar NAV')
 		contentList.list.forEach(function(o){
 			// console.log(Object.keys(o));  console.log(Object.values(o)); console.log(Object.entries(o)); console.log(o.name);
-			nav.innerHTML += `<li><a href="docs/${o.name.toLowerCase()}.html">${o.name}</a></li>`
+			nav.innerHTML += `<li><a href="docs/${o.name.toLowerCase()}.md">${o.name}</a></li>`
 			// console.log(o.name.toLowerCase());
 			
 		});
