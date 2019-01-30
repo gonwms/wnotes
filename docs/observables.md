@@ -23,6 +23,7 @@ Publish/Subscribe is a common pattern within JavaScript applications. The idea i
 ```
 
 ## Reactive Method
+
 How might one implement this using the Reactive Extensions for JavaScript? Using an Rx.Subject will solve this problem easily. As you may remember, an Rx.Subject is both an Observer and Observable, so it handles both publish and subscribe.
 
 ```javascript 
@@ -39,6 +40,7 @@ How might one implement this using the Reactive Extensions for JavaScript? Using
 Now that we have a basic understanding of publish and subscribe through onNext and subscribe, let's put it to work to handle multiple types of events at once. First, we'll create an Emitter class which has three main methods, emit, on and off which allows you to emit an event, listen to an event and stop listening to an event.
 
 ```javascript 
+
       var hasOwnProp = {}.hasOwnProperty;
 
       function createName (name) {
