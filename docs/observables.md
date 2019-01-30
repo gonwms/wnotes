@@ -6,6 +6,13 @@
 Publish/Subscribe is a common pattern within JavaScript applications. The idea is that you have a publisher that emits events and you have consumers which register their interest in a given event. Typically you may see something like the following where you listen for a 'data' event and then the event emitter publishes data to it.
 
 
+Due to changes to accommodate the ES7 Observable spec, the API has changed for observables:
+
+onNext -> `next`
+onError -> `error`
+onCompleted -> `complete`
+
+
 ```javascript 
       var emitter = new Emitter();
 
@@ -138,7 +145,8 @@ Now we can use this to rewrite our example such as the following:
 ```
 
 ```HTML
-      <script src="https://unpkg.com/@reactivex/rxjs@version/dist/global/Rx.umd.js"></script>
+      <script src="https://unpkg.com/@reactivex/rxjs@5.0.0/dist/global/Rx.js"></script>
+      <!-- version 5.0.0 -->
 ```
 
 
