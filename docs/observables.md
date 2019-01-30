@@ -90,7 +90,7 @@ Then we can use it much as we did above. As the call to subscribe returns a subs
       var hasOwnProp = {}.hasOwnProperty;
 
       function createName (name) {
-            return '$' + name;
+            return "$" + name;
       }
 
       function Emitter() {
@@ -135,7 +135,7 @@ Now we can use this to rewrite our example such as the following:
 
       // Destroy the subscription
       subscription.dispose();
-      
+
 ```html
       <script src="https://unpkg.com/@reactivex/rxjs@version/dist/global/Rx.umd.js"></script>
 ```
