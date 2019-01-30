@@ -8,9 +8,9 @@ Publish/Subscribe is a common pattern within JavaScript applications. The idea i
 
 Due to changes to accommodate the ES7 Observable spec, the API has changed for observables:
 
-onNext -> `next`
-onError -> `error`
-onCompleted -> `complete`
+- onNext -> `next`
+- onError -> `error`
+- onCompleted -> `complete`
 
 
 ```javascript 
