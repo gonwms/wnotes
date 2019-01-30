@@ -142,7 +142,10 @@ Now we can use this to rewrite our example such as the following:
 ```
 
 
-[post original ](https://github.com/Reactive-Extensions/RxJS/blob/master/doc/howdoi/eventemitter.md)
+[post original](https://github.com/Reactive-Extensions/RxJS/blob/master/doc/howdoi/eventemitter.md)
+
 [oficial docs](http://reactivex.io/rxjs/manual/overview.html#introduction)
-[referencias] (https://www.learnrxjs.io/)
+
+[referencias](https://www.learnrxjs.io/)
+
 [ayuda visual](https://rxmarbles.com/)
