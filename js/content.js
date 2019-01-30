@@ -120,7 +120,7 @@ var htmlPluck = (function () {
 		htmlCode.forEach(function (code) {
 			var str = code.innerHTML
 			code.innerHTML = htmlEntities(str)		
-		});	
+		});
 		server.emit('content-pluck')	
 	}
 

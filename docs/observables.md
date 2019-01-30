@@ -135,4 +135,13 @@ Now we can use this to rewrite our example such as the following:
 
       // Destroy the subscription
       subscription.dispose();
+      
+```html
+      <script src="https://unpkg.com/@reactivex/rxjs@version/dist/global/Rx.umd.js"></script>
 ```
+
+
+[post original ](https://github.com/Reactive-Extensions/RxJS/blob/master/doc/howdoi/eventemitter.md)
+[oficial docs](http://reactivex.io/rxjs/manual/overview.html#introduction)
+[referencias] (https://www.learnrxjs.io/)
+[ayuda visual](https://rxmarbles.com/)
