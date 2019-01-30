@@ -44,7 +44,7 @@ Now that we have a basic understanding of publish and subscribe through onNext a
       var hasOwnProp = {}.hasOwnProperty;
 
       function createName (name) {
-            return '$' + name;
+            return "$" + name;
       }
 
       function Emitter() {
