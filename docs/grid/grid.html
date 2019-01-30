@@ -6,110 +6,44 @@
       <meta http-equiv="X-UA-Compatible" content="ie=edge">
       <title>grid</title>
       <script src="../../js/utilities.js"></script>
+      <link rel="stylesheet" href="style.css">
 </head>
 <body>
+      <div id="container">
+            <div class="header">header</div>
+            <div class="content">Lorem ipsum dolor sit amet consectetur, rerum voluptates.</div>
+            <div class="footer">footer</div>
+            <div class="mainNav">menu principal</div>
+            <div class="navTree">menu secundario</div>
+            <!-- <div class="cosito">cosito</div> -->
+      </div>
       
+      <a href="https://devhints.io/css-grid">grid</a>
+      
+      
+      <script>
+      
+      
+      // var animgrid = setInterval(achicar, 20);
+      // function achicar() {
+      //       var container = document.querySelector('#container')
+      //       var currentVal = getComputedStyle(container).gridTemplateColumns               
+      //       var arrValueColumns = currentVal.split(/px\s?/g).filter(function(element){
+      //             return element != 0;
+      //       })
+      //       if(arrValueColumns[0] < 100){
+      //             clearInterval(animgrid)
+      //       }
+      //       else{
+      //             current = `${arrValueColumns[0]-10}px ${arrValueColumns[1]}px auto`;
+      //             container.style.gridTemplateColumns = current;
+      //             console.log(current);            
+      //       }
+      // };
+                  
+      </script>
 </body>
 </html>
-<style>
-
-body{
-      background: #c7c7c7
-}
-
-#container{
-      
-      display: grid;
-      height: 100vh;
-      width: 100vw;
-      background: #f1f1f1;
-      color:#fff;
-      grid-template:
-            "mainNav navTree header " 10%
-            "mainNav navTree content" 80%
-            "mainNav navTree footer " 10%
-            /15% 15% 70%
-      ;
-      /* grid-template-columns: 15% 15% 70%; */
-      /* grid-row-gap: 10px; */
-      /* grid-column-gap: 10px; */
-      box-sizing: border-box;
-      transition: all 1s;
-}
-
-#container > div{
-      display: grid;
-      align-content: center;
-      justify-content: center;
-}
-
-.mainNav{
-      grid-area: mainNav; 
-      background: #963434;
-      transition: all .5s;
-}
-
-
-.navTree{
-      grid-area: navTree; 
-      background: #868181;
-
-}
-
-.content{
-      background: #8d696b;
-      grid-area: content;
-}
-.header{
-      background: #acac67;
-      grid-area: header; 
-}
-
-.footer{
-      background: #333357;
-      grid-area: footer;
-      padding: 15px 10px;      
-}
-
-.cosito{
-      background: #8b6e8f;
-      grid-area: 3 / 3 / 3 / 4; /*Es lo mismo que grid-row-start: 2;  grid-column-start: 1;  grid-row-end: 4;  grid-column-end: 2;*/
-}
-
-</style>
 
 
 
-<div id="container">
-      <div class="header">header</div>
-      <div class="content">Lorem ipsum dolor sit amet consectetur, rerum voluptates.</div>
-      <div class="footer">footer</div>
-      <div class="mainNav">menu principal</div>
-      <div class="navTree">menu secundario</div>
-      <div class="cosito">cosito</div>
-</div>
-
-<a href="https://devhints.io/css-grid">grid</a>
-
-
-<script>
-
-
-var animgrid = setInterval(achicar, 20);
-function achicar() {
-      var container = document.querySelector('#container')
-      var currentVal = getComputedStyle(container).gridTemplateColumns               
-      var arrValueColumns = currentVal.split(/px\s?/g).filter(function(element){
-            return element != 0;
-      })
-      if(arrValueColumns[0] < 100){
-            clearInterval(animgrid)
-      }
-      else{
-            current = `${arrValueColumns[0]-10}px ${arrValueColumns[1]}px auto`;
-            container.style.gridTemplateColumns = current;
-            console.log(current);            
-      }
-};
-            
-</script>
