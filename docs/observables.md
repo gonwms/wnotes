@@ -135,8 +135,9 @@ Now we can use this to rewrite our example such as the following:
 
       // Destroy the subscription
       subscription.dispose();
+```
 
-```html
+```HTML
       <script src="https://unpkg.com/@reactivex/rxjs@version/dist/global/Rx.umd.js"></script>
 ```
 
