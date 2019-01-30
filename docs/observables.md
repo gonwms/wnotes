@@ -35,9 +35,10 @@ How might one implement this using the Reactive Extensions for JavaScript? Using
       subject.onNext('foo');
       // => data: foo
 ```
+
 Now that we have a basic understanding of publish and subscribe through onNext and subscribe, let's put it to work to handle multiple types of events at once. First, we'll create an Emitter class which has three main methods, emit, on and off which allows you to emit an event, listen to an event and stop listening to an event.
 
-      ```javascript 
+```javascript 
       var hasOwnProp = {}.hasOwnProperty;
 
       function createName (name) {
@@ -83,6 +84,7 @@ Now that we have a basic understanding of publish and subscribe through onNext a
 Then we can use it much as we did above. As the call to subscribe returns a subscription, we might want to hand that back to the user instead of providing an off method. So, we could rewrite the above where we call the on method to listen and we return a subscription handle to the user to stop listening.
 
 ```javascript 
+
       var hasOwnProp = {}.hasOwnProperty;
 
       function createName (name) {
@@ -115,7 +117,6 @@ Then we can use it much as we did above. As the call to subscribe returns a subs
 
             this.subjects = {};
       };
-
 ```
 
 Now we can use this to rewrite our example such as the following:
@@ -132,5 +133,4 @@ Now we can use this to rewrite our example such as the following:
 
       // Destroy the subscription
       subscription.dispose();
-
 ```
