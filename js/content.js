@@ -94,9 +94,9 @@ var mdToHTML = (function(){
 		while((strongkArr = strongMDRegEx.exec(str)) !== null){
 			c.innerHTML = c.innerHTML.replace(strongkArr[0],`<strong>${strongkArr[1]}</strong>`)
 		}
-		while((textArr = textMDRegEx.exec(str)) !== null){
-			c.innerHTML = c.innerHTML.replace(textArr[0],`<p>${textArr[1]}</p>`)
-		}
+		// while((textArr = textMDRegEx.exec(str)) !== null){
+		// 	c.innerHTML = c.innerHTML.replace(textArr[0],`<p>${textArr[1]}</p>`)
+		// }
 
 		htmlPluck.init();
 		focusContent.init();
