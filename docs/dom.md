@@ -69,7 +69,9 @@ HTML REFERENCE
 ```
 
 ### NOT
+
 :not()
+
 ```javascript
     // not
     var not =document.querySelector('.inner').closest(":not(.inner2)");
@@ -137,9 +139,9 @@ var parrafo = document.createElement('P');
 ### Contenido
 
 ```javascript
-parrafo.textContent = 'esto es contenido texto'; // texto plano
-parrafo.innerHTML = '<strong>esto es contenido enriquesido</strong>' //texto HTML
-parrafo.innerHTML = `string text ${expression} string text` //template literal
+    parrafo.textContent = 'esto es contenido texto'; // texto plano
+    parrafo.innerHTML = '<strong>esto es contenido enriquesido</strong>' //texto HTML
+    parrafo.innerHTML = `string text ${expression} string text` //template literal
 ```
 
 ### Estilo y Clases

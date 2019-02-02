@@ -6,11 +6,45 @@
       <meta http-equiv="X-UA-Compatible" content="ie=edge">
       <title>grid</title>
       <script src="../../js/utilities.js"></script>
+      <link rel="stylesheet" href="style.css">
 </head>
 <body>
+      <div id="container">
+            <div class="header">header</div>
+            <div class="content">Lorem ipsum dolor sit amet consectetur, rerum voluptates.</div>
+            <div class="footer">footer</div>
+            <div class="mainNav">menu principal</div>
+            <div class="navTree">menu secundario</div>
+            <!-- <div class="cosito">cosito</div> -->
+      </div>
       
+      <a href="https://devhints.io/css-grid">grid</a>
+      
+      
+      <script>
+      
+      
+      // var animgrid = setInterval(achicar, 20);
+      // function achicar() {
+      //       var container = document.querySelector('#container')
+      //       var currentVal = getComputedStyle(container).gridTemplateColumns               
+      //       var arrValueColumns = currentVal.split(/px\s?/g).filter(function(element){
+      //             return element != 0;
+      //       })
+      //       if(arrValueColumns[0] < 100){
+      //             clearInterval(animgrid)
+      //       }
+      //       else{
+      //             current = `${arrValueColumns[0]-10}px ${arrValueColumns[1]}px auto`;
+      //             container.style.gridTemplateColumns = current;
+      //             console.log(current);            
+      //       }
+      // };
+                  
+      </script>
 </body>
 </html>
+<<<<<<< HEAD
 <style>
 
 body{
@@ -92,25 +126,8 @@ body{
 
 <a href="https://devhints.io/css-grid">grid</a>
 
+=======
+>>>>>>> 0206326e0142adca4e5ca396d1964f5ccd225d16
 
-<script>
 
 
-var animgrid = setInterval(achicar, 20);
-function achicar() {
-      var container = document.querySelector('#container')
-      var currentVal = getComputedStyle(container).gridTemplateColumns               
-      var arrValueColumns = currentVal.split(/px\s?/g).filter(function(element){
-            return element != 0;
-      })
-      if(arrValueColumns[0] < 100){
-            clearInterval(animgrid)
-      }
-      else{
-            current = `${arrValueColumns[0]-10}px ${arrValueColumns[1]}px auto`;
-            container.style.gridTemplateColumns = current;
-            console.log(current);            
-      }
-};
-            
-</script>
