@@ -27,6 +27,10 @@
 		{
 			"name": "CSS",
 			"imgURL": "/docs/file.jpg"
+		},
+		{
+			"name": "git",
+			"imgURL": "/docs/file.jpg"
 		}
 	]
 }
