@@ -10,6 +10,13 @@
 6. borrar todo lo de index.html menos los imports del <head>
 7. crear un app.js al final del index
 
+## custom domain
+
+1. Hacer verificación TXT y esperar.
+2. Agregar DNS. `Siempre dejar los el Campo de nombre vacio.` Si no anda probar con:  TTL 14400
+3. 
+
+
 ## autenticación 
 
 1. authentication: elegir métodos.

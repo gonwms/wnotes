@@ -9,7 +9,7 @@
 ## Clonar repo de github en pc
 
 1. Crear repo en github.com
-2. k> git clone https://github.com/gonwms/[NOMBRE REPO].git
+2. $ git clone https://github.com/gonwms/[NOMBRE REPO].git
 
 ## or push an existing repository from the command line
 2. git remote add origin https://github.com/gonwms/[nombre de repo].git
