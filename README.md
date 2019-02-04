@@ -1,5 +1,5 @@
 ## Project Page 
-[click here](https://gonwms.github.io/docs/)
+[click here](https://gonwms.github.io/wnotes/)
 
 
 
