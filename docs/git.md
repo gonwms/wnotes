@@ -1,4 +1,4 @@
-## create a new repository on the command line
+## create new repository
 1. echo "# org-js" >> README.md
 2. git init
 3. git add README.md
@@ -6,7 +6,7 @@
 5. git remote add origin https://github.com/gonwms/[nombre de repo].git
 6. git push -u origin master
 
-## Clonar repo de github en pc
+## Clonar repo (download)
 
 1. Crear repo en github.com
 2. $ git clone https://github.com/gonwms/[NOMBRE REPO].git
