@@ -149,11 +149,18 @@ Now we can use this to rewrite our example such as the following:
       <!-- version 5.0.0 -->
 ```
 
+## eventemitter
+
+Pub/Sub es como un Observer pattern pero sin destinatario específico.
+Igual al  eventemiter de N0ode. El intermediario se llama `message broker` or `event bus`. 
+
+Un eventemiiter hecho con rxjs!!!
+[RxEmitter](https://github.com/a-jie/RxEmitter)
+
+[TUTORIAL-using-a-subject-as-an-event-bus](https://egghead.io/lessons/rxjs-using-a-subject-as-an-event-bus)
+
 
 [post original](https://github.com/Reactive-Extensions/RxJS/blob/master/doc/howdoi/eventemitter.md)
-
 [oficial docs](http://reactivex.io/rxjs/manual/overview.html#introduction)
-
 [referencias](https://www.learnrxjs.io/)
-
 [ayuda visual](https://rxmarbles.com/)

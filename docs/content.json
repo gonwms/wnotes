@@ -1,27 +1,7 @@
 {
 	"list":[
 		{
-			"name": "DOM",
-			"imgURL": "/docs/file.jpg"
-		},
-		{
 			"name": "Array",	
-			"imgURL": "/docs/file.jpg"
-		},
-		{
-			"name": "Objects",	
-			"imgURL": "/docs/file.jpg"
-		},
-		{
-			"name": "Functional JS",	
-			"imgURL": "/docs/file.jpg"
-		},
-		{
-			"name": "Observables",	
-			"imgURL": "/docs/file.jpg"
-		},
-		{
-			"name": "RegEx",
 			"imgURL": "/docs/file.jpg"
 		},
 		{
@@ -29,8 +9,40 @@
 			"imgURL": "/docs/file.jpg"
 		},
 		{
-			"name": "git",
+			"name": "DOM",
+			"imgURL": "/docs/file.jpg"
+		},
+		{
+			"name": "Firebase",
+			"imgURL": "/docs/file.jpg"
+		},
+		{
+			"name": "Functional JS",	
+			"imgURL": "/docs/file.jpg"
+		},
+		{
+			"name": "Git",
+			"imgURL": "/docs/file.jpg"
+		},
+		{
+			"name": "Objects",	
+			"imgURL": "/docs/file.jpg"
+		},
+		{
+			"name": "Observables",	
+			"imgURL": "/docs/file.jpg"
+		},
+		{
+			"name": "Patterns",	
+			"imgURL": "/docs/file.jpg"
+		},
+		{
+			"name": "RegEx",
+			"imgURL": "/docs/file.jpg"
+		},
+		{
+			"name": "TODO",
 			"imgURL": "/docs/file.jpg"
 		}
 	]
-}
+},
