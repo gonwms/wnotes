@@ -13,3 +13,5 @@ C.handleOnload = function () { V.render(M); }
 window.onload = C.handleOnLoad;
 
 ```
+[articulo penguin](https://www.sitepoint.com/mvc-design-pattern-javascript/)
+[todoMVC](https://github.com/tastejs/todomvc)
