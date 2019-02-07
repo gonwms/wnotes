@@ -1,4 +1,4 @@
-<h1>Functional Js</h1>
+## Functional Js
 
 <div class="block">
 
@@ -73,3 +73,27 @@ h1,h2,h3,h4,h5,h6{
 <!-- ------------------------------------------------------------------- -->
 
 <h3>esto es un otro sub</h3>
+
+## URL geo targetin
+
+```javascript
+
+      (function loadcontentList(){
+
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', 'https://ipinfo.io/json',true);
+            xhr.setRequestHeader('Content-Type', 'application/json');
+            xhr.send();	
+            xhr.onload = () => {
+                  if (xhr.status === 200){			                  
+                        contentList = JSON.parse(xhr.responseText);
+                        console.log(JSON.stringify(contentList) + '  ' + window.location.pathname )
+                        document.write (JSON.stringify(contentList) + ' <br><br> ' + window.location.pathname )
+                        return contentList
+                  }
+                  else{
+                        console.error(xhr.status +': ' + 'No se encotraron documentos');
+                  }
+            };
+      })()
+```
