@@ -1,4 +1,5 @@
 1. firebase user inserte en base de datos.
+1.enviar email
 
 1. ToDo list  TodoMVC  [link](https://github.com/tastejs/todomvc/tree/master/examples)
 1. https://www.awwwards.com/build-a-simple-javascript-app-the-mvc-way.html
