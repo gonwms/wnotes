@@ -1,6 +1,9 @@
 ## MVC
 `Model view controler`
 
+![](https://raw.githubusercontent.com/gonwms/wnotes/master/docs/imgs/MVC.png "asd")
+
+
 ```javascript
 var M = {}, V = {}, C = {};
 
@@ -24,4 +27,3 @@ window.onload = C.handleOnLoad;
 [Classic Front End MVC with Vanilla Javascript](https://medium.com/@patrickackerman/classic-front-end-mvc-with-vanilla-javascript-7eee550bc702)
 
 
-![](https://github.com/gonwms/wnotes/docs/imgs/MVC.png)
