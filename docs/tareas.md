@@ -13,5 +13,4 @@
 
 1. Using a Subject as an Event Bus . [ver curso](https://egghead.io/lessons/rxjs-using-a-subject-as-an-event-bus)
 
-
 1. Aprender React
