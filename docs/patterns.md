@@ -1,5 +1,9 @@
+#Patterns
+
 ## MVC
+
 `Model view controler`
+
 ![](https://raw.githubusercontent.com/gonwms/wnotes/master/docs/imgs/elements.webp "asd")
 ![](https://raw.githubusercontent.com/gonwms/wnotes/master/docs/imgs/MVC.webp "asd")
 
@@ -19,9 +23,7 @@ window.onload = C.handleOnLoad;
 
 [todoMVC](https://github.com/tastejs/todomvc)
 
-
 [mvc-design-pattern-javascript](https://www.sitepoint.com/mvc-design-pattern-javascript/)
-
 
 [Build A Simple Javascript App The MVC Way](https://www.awwwards.com/build-a-simple-javascript-app-the-mvc-way.html)
 
