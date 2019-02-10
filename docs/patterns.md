@@ -1,7 +1,7 @@
 ## MVC
 `Model view controler`
-![](https://raw.githubusercontent.com/gonwms/wnotes/master/docs/imgs/elements.jpg "asd")
-![](https://raw.githubusercontent.com/gonwms/wnotes/master/docs/imgs/MVC.png "asd")
+![](https://raw.githubusercontent.com/gonwms/wnotes/master/docs/imgs/elements.webp "asd")
+![](https://raw.githubusercontent.com/gonwms/wnotes/master/docs/imgs/MVC.webp "asd")
 
 
 ```javascript
