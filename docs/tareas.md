@@ -5,6 +5,10 @@
 
 	- hacer router  https://medium.com/@bryanmanuele/how-i-implemented-my-own-spa-routing-system-in-vanilla-js-49942e3c4573
 
+	- webpack 
+	- webpack https://stackoverflow.com/questions/35220470/best-way-to-make-accessible-api-with-es6-modules
+
+
 - armar todo app pokpok (básico!)
 
 - subir a firebase
