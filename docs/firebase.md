@@ -25,3 +25,36 @@
 
 [github.com/firebase](https://github.com/firebase)
 [chat hecho en firebase](https://github.com/othreecodes/friendlychat)
+
+## firestore
+
+###  add
+
+Crear colección es igual que agregar data.  Si la coleción no existe se crea sola.
+```javascript
+firebase.firestore().collection('lolo').add({
+	first: "lolo",
+	last: "lolololo",
+	born: 1815
+ })
+ .then(function(docRef) {
+	console.log("Document written with ID: ", docRef.id);
+ })
+ .catch(function(error) {
+	console.error("Error adding document: ", error);
+ });
+```
+
+### get 
+
+
+ ```javascript
+ firebase.firestore().collection('dataModel').get()
+ 
+ .then((querySnapshot) => {
+	querySnapshot.forEach((doc) => {
+	    console.log(`${doc.id} => ${doc.data()}`);
+	})
+ });
+
+```

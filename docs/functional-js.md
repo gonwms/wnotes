@@ -26,6 +26,21 @@ new Promise(function(resolver, rechazar){
 ```
 [ver más](https://developer.mozilla.org/es/docs/Web/JavaScript/Guide/Usar_promesas)
 
+
+## Fetch
+```javascript
+
+fetch('http://example.com/movies.json')
+  .then(function(response) {
+    return response.json();
+  })
+  .then(function(myJson) {
+    console.log(JSON.stringify(myJson));
+  });
+
+
+```
+
 ## URL geo targetin
 
 ```javascript
@@ -53,7 +68,7 @@ new Promise(function(resolver, rechazar){
 
 
 
-
+´´´javascript
 
 
 //*                                                                   *
@@ -596,3 +611,5 @@ new Promise(function(resolver, rechazar){
 	); // Let me introduce: hippo
 
 	foo.awesome(); // LET ME INTRODUCE: HIPPO
+
+	```
