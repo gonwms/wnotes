@@ -31,6 +31,7 @@
 ###  add
 
 Crear colección es igual que agregar data.  Si la coleción no existe se crea sola.
+
 ```javascript
 firebase.firestore().collection('lolo').add({
 	first: "lolo",
@@ -45,8 +46,12 @@ firebase.firestore().collection('lolo').add({
  });
 ```
 
-### get 
 
+set(), update() o delete()
+
+As opposed to the set() method, update() can be use to selectively update only the referenced properties at the current location (instead of replacing all the child properties at the current location).
+
+### get 
 
  ```javascript
  firebase.firestore().collection('dataModel').get()

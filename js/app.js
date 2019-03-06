@@ -26,7 +26,8 @@ var contentList;
 (function loadcontentList(){
 	fetch('docs/content.json')
 		.then((response) => {
-			response.json().then((parsedJson) => {
+			response.json()
+				.then((parsedJson) => {
 					console.log(`status: ${response.status}  --  statusText: ${response.statusText} --  json: ${parsedJson}`);
 					console.log(parsedJson);
 					contentList = parsedJson;

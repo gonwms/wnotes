@@ -1,6 +1,17 @@
 # Objects
 
 ```javascript
+		Object.keys(myobjeto)
+					// ["name", "Url", "imgL"]
+		Object.values(myobjeto)
+					// ["DOM", "/docs/file.html", "/docs/file.jpg"]
+		Object.entries(myobjeto)
+					// 0: (2) ["name", "DOM"]
+					// 1: (2) ["Url", "/docs/file.html"]
+					// 2: (2) ["imgL", "/docs/file.jpg"]
+
+
+
 	var myObj = {
 			"list":[
 				{
