@@ -14,21 +14,23 @@
 
 1. Hacer verificación TXT y esperar.
 2. Agregar DNS. `Siempre dejar los el Campo de nombre vacio.` Si no anda probar con:  TTL 14400
-3. 
-
 
 ## autenticación 
 
 1. authentication: elegir métodos.
-	- alala
 
 
+
+## links 
 [github.com/firebase](https://github.com/firebase)
 [chat hecho en firebase](https://github.com/othreecodes/friendlychat)
 
+
+
+
 ## firestore
 
-###  add
+### add
 
 Crear colección es igual que agregar data.  Si la coleción no existe se crea sola.
 
@@ -44,16 +46,34 @@ firebase.firestore().collection('lolo').add({
  .catch(function(error) {
 	console.error("Error adding document: ", error);
  });
+
 ```
 
 
-set(), update() o delete()
+### set
 
-As opposed to the set() method, update() can be use to selectively update only the referenced properties at the current location (instead of replacing all the child properties at the current location).
+set(), update() 
+
+set() replacing all the child properties at the current location
+update() can be use to selectively update only the referenced properties at the current location
+
+
+```javascript
+
+	var doc = db.collection('dataModel').doc(clickedItemId);
+	doc.get()
+		.then((object) => {
+				doc.update({
+						'priority':true
+				})
+		})
+
+```
 
 ### get 
 
- ```javascript
+```javascript
+
  firebase.firestore().collection('dataModel').get()
  
  .then((querySnapshot) => {
@@ -61,5 +81,34 @@ As opposed to the set() method, update() can be use to selectively update only t
 	    console.log(`${doc.id} => ${doc.data()}`);
 	})
  });
+
+
+```
+
+### delete
+
+```javascript
+
+	doc.delete()
+
+```
+
+### onSnapshot
+
+```javascript
+
+ db.collection('dataModel')
+
+	.where("soft_deleted", "==", false)
+	.where("account_ref_string", "==", "accounts/" + this.account_id)
+	.orderBy('date', "desc")
+
+	.onSnapshot((querySnapshot) => {
+		querySnapshot.forEach((doc) => {
+			console.log(doc);
+			
+			dataView.createAndInsertNew(doc)
+		});
+	});
 
 ```
