@@ -49,4 +49,11 @@ document.addEventListener('DOMContentLoaded', function () {
 	htmlPluck.init();
 })
 
+var hello = function(){
+	 return 'Hello'
+}
+console.log('primero:  ' + hello())
+
+module.exports = hello
+
 
