@@ -30,9 +30,11 @@
 
 ## firestore
 
+
 ### add
 
-Crear colección es igual que agregar data.  Si la coleción no existe se crea sola.
+add() Agrega a un doc a la colección. Encambio. set() y update() modifician el contenido del doc.
+Si la coleción no existe se crea sola.
 
 ```javascript
 firebase.firestore().collection('lolo').add({
@@ -50,9 +52,7 @@ firebase.firestore().collection('lolo').add({
 ```
 
 
-### set
-
-set(), update() 
+### set & update
 
 set() replacing all the child properties at the current location
 update() can be use to selectively update only the referenced properties at the current location
@@ -111,4 +111,24 @@ update() can be use to selectively update only the referenced properties at the 
 		});
 	});
 
+```
+### docChanges
+
+'modified' |'added' | 'removed'
+
+```javascript
+db.collection("cities").where("state", "==", "CA")
+    .onSnapshot(function(snapshot) {
+        snapshot.docChanges().forEach(function(change) {
+            if (change.type === "added") {
+                console.log("New city: ", change.doc.data());
+            }
+            if (change.type === "modified") {
+                console.log("Modified city: ", change.doc.data());
+            }
+            if (change.type === "removed") {
+                console.log("Removed city: ", change.doc.data());
+            }
+        });
+    });
 ```
