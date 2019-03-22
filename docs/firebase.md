@@ -107,7 +107,7 @@ update() can be use to selectively update only the referenced properties at the 
 		querySnapshot.forEach((doc) => {
 			console.log(doc);
 			
-			dataView.createAndInsertNew(doc)
+			dataView.createAndInsertItem(doc)
 		});
 	});
 
