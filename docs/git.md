@@ -1,10 +1,10 @@
 ## create new repository
-echo "# org-js" >> README.md
-git init
-git add README.md
-git commit -m "first commit"
-git remote add origin https://github.com/gonwms/TODO-es6.git
-git push -u origin master
+1. echo "# org-js" >> README.md
+1. git init
+1. git add README.md
+1. git commit -m "first commit"
+1. git remote add origin https://github.com/gonwms/TODO-es6.git
+1. git push -u origin master
 
 ## Clonar repo (download)
 1. Crear repo en github.com
