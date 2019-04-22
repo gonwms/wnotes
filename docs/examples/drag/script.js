@@ -65,6 +65,17 @@ document.addEventListener('DOMContentLoaded', dragAndDropAproach2)
 
 			// dragenter:  se dispara una sola vez al entrar.
 			zone.addEventListener('dragenter', function (e) {
+
+				/*
+					si o < t
+						si item < t && item > o
+							mover item 1 pos arriba
+
+					si o > t
+						si item > t y item < o
+							mover item 1 pos abajo
+
+				*/
 					e.preventDefault();
 
 					target = {
