@@ -3,12 +3,12 @@ body {
 	justify-content: center;
 	align-content: center;
 	height: 100vh;
-	position: relative;
+	/* position: relative; */
 }
 .dropzone {
 	width: 240px;
 	height: 40px;
-	background: #9e8f8f;
+	background: #e9e9e9;
 	margin-bottom: 10px;
 	user-select: none;
 	box-sizing: border-box;
@@ -17,7 +17,7 @@ body.dragstart .dropzone *{
 	pointer-events: none
 }
 .active_dropzone{
-	border:3px dotted #ccc
+	/* border:3px dotted #ccc */
 }
 .active_dropzone .item{
 	background: #6420a3;
@@ -31,9 +31,10 @@ body.dragstart .dropzone *{
 	user-select: none;
 	padding: 10px;
 	box-sizing: border-box;
-	transition: top .5s;
-	position: relative;
-	top:0
+	transition: transform .5s;
+	/* position: relative; */
+	/* top:0; */
+	/* transform: translateY(80px) */
 }
 
 .dragged{

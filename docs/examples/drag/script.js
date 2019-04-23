@@ -17,6 +17,7 @@ function debounce(func, wait = 0, immediate = true) {
 var origin = {};
 var target = {};
 
+
 // document.addEventListener('DOMContentLoaded', mouseEventsAproach)
 document.addEventListener('DOMContentLoaded', dragAndDropAproach2)
 
@@ -29,7 +30,7 @@ document.addEventListener('DOMContentLoaded', dragAndDropAproach2)
 
 
 		var allZones = Array.from(document.querySelectorAll('.dropzone'));
-		allZones.forEach((zone, index, arr) => {
+		allZones.forEach((zone, index, arrayOfZones) => {
 
 			// zone.childNodes[0].style.top = zone.getBoundingClientRect().top + 'px'
 			
@@ -37,15 +38,15 @@ document.addEventListener('DOMContentLoaded', dragAndDropAproach2)
 			zone.addEventListener('dragstart', function (e) {
 
 				origin = {
-					'el'    : arr[index],
+					'el'    : zone,
 					'index' : index,
-					'top'   : arr[index].getBoundingClientRect().top,
-					'child' : arr[index].childNodes[0]
+					'top'   : zone.getBoundingClientRect().top,
+					'child' : zone.childNodes[0]
 				}
 
 				//all childs off target ar unselectionables
 				document.body.classList.add('dragstart');
-	
+				
 				// style dragen
 				origin.child.classList.add('dragged');
 				
@@ -65,70 +66,110 @@ document.addEventListener('DOMContentLoaded', dragAndDropAproach2)
 
 			// dragenter:  se dispara una sola vez al entrar.
 			zone.addEventListener('dragenter', function (e) {
-
-				/*
-					si o < t
-						si item < t && item > o
-							mover item 1 pos arriba
-
-					si o > t
-						si item > t y item < o
-							mover item 1 pos abajo
-
-				*/
 					e.preventDefault();
 
 					target = {
-						'el'    : arr[ index],
+						'el'    : zone,
 						'index' : index,
-						'top'   : arr[index].getBoundingClientRect().top,
-						'child' : arr[index].childNodes[0]
+						'top'   : zone.getBoundingClientRect().top,
+						'base'  : zone.getBoundingClientRect().top - (zone.getBoundingClientRect().height),
+						'child' : zone.childNodes[0]
 					}
 					// mueve item a la positión del original
 					// origin.el.appendChild(target.child)
 					// target.el.appendChild(origin.child)
-					
-					arr.forEach((el, i, list) => {
-						if( i <= target.index){
-								// el.style.background = 'red';
-								el.childNodes[0].style.top = -el.getBoundingClientRect().height - 10 + 'px';
+					console.log 
+					arrayOfZones.forEach((el, i) => {
+						var item = {
+							'el'    : el,
+							'index' : i,
+							'top'   : el.getBoundingClientRect().top,
+							'base'  : el.getBoundingClientRect().top - (el.getBoundingClientRect().height),
+							'child' : el.childNodes[0],
+							'height': el.getBoundingClientRect().height + (window.getComputedStyle(target).marginBottom.slice(0,-2))
 						}
-					})
-						
-					
-					// target.child.style.top = origin.top + 'px'
-					// origin.child.style.top = target.top + 'px'
 
-					document.addEventListener('transitionend', function(){	
-						console.log('animationend');
+						if(origin.index < target.index){
+							// if(i <= target.index && i >= origin.index){
+							if(item.base <= target.top  && item.index > origin.index){		
+								item.child.style.transform = `translateY(${item.height}px)`;
+
+							}
+						}
+						else if(origin.index > target.index){
+							// if(i <= target.index && i >= origin.index){
+							if(item.top >= target.base  && item.index < origin.index){									
+								item.child.style.transform = `translateY(${item.height}px)`;
+								document.addEventListener('transitionend', function(){	
+									console.log('animationend', el.id);
+									// item.child.style.background = 'blue'									
+								})
+							}
+						}	
+					})
+					e.target.childNodes[0].addEventListener('transitionend', function(){	
+						console.log('animationend', e.target.id);
+						// item.child.style.background = 'red'	
+						// window.getComputedStyle(e.target)
+						e.target.childNodes[0].innerText += '-1'
 					})
 
 			});
 
-
-			//dragleave
 			zone.addEventListener('dragleave', function (e) {
 				e.preventDefault();
 				e.target.classList.remove('active_dropzone');
 
-				document.addEventListener('animationend', function(){})
-				
+				// origin.el.appendChild(el.childNodes[0])
+				// e.target.childNodes[0] .el.childNodes[0]
+
+				arrayOfZones.forEach((el, i) => {
+
+						var item = {
+							'el'    : el,
+							'index' : i,
+							'top'   : el.getBoundingClientRect().top,
+							'child' : el.childNodes[0]
+						}
+
+						if(origin.index < target.index){
+							// if(i <= target.index && i >= origin.index){
+							if(item.top >= target.top){		
+								item.child.style.transform = `translateY(0)`;
+								// document.addEventListener('transitionend', function(){	
+								// 	console.log('animationend', el.id);
+									item.child.style.background = '#6420a3'	
+								// })
+							}
+						}
+						else if(origin.index > target.index){
+							// if(i <= target.index && i >= origin.index){
+							if(item.top <= target.top){									
+								item.child.style.transform = `translateY(0)`
+								// document.addEventListener('transitionend', function(){	
+								// 	console.log('animationend', el.id);
+								// 	// el.childNodes[0].style.transform = `translateY(0)`
+									item.child.style.background = '#6420a3'									
+								// })
+							}
+						}	
+					})
 			});
 		
-			//drop
+
 			zone.addEventListener('drop', function (e) {
 				e.target.classList.remove('active_dropzone');
+				// origin.el.appendChild(target.child)
+				// target.el.appendChild(origin.child)
+				e.target.childNodes[0].style.transform = `translateY(0)`	
 			})
 			
-			// dragend
+
 			zone.addEventListener('dragend', function (e) {
-				e.preventDefault();
-				
+				e.preventDefault();		
 				document.body.classList.remove('dragstart');
 				e.target.classList.remove('dragged');		
-				window.requestAnimationFrame(function () {
-					e.target.style.visibility = 'visible';
-				});
+				window.requestAnimationFrame(() => e.target.style.visibility = 'visible');
 		
 			});
 		});
@@ -186,7 +227,7 @@ document.addEventListener('DOMContentLoaded', dragAndDropAproach2)
 						targetItem.style.transform = `translateY(${originZonePosition - targetZonePosition}px)`;
 						// console.log(`transform ${Math.abs(0.3*(originZonePosition - targetZonePosition))}s ease`);				
 					};	
-						// allZones.forEach((listOfZones,listOfIndex, arr)=>{
+						// allZones.forEach((listOfZones,listOfIndex, arrayOfZones)=>{
 						// // console.log(arr.length-1);
 						
 						// if(listOfIndex <= index && listOfIndex-index > -1){
