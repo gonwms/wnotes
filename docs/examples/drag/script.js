@@ -22,17 +22,11 @@ var target = {};
 document.addEventListener('DOMContentLoaded', dragAndDropAproach2)
 
 //*:::::::::::::::::::::::::::::::::::::::::::: | DRAG & DROP  2 | :::::::::::::::::::::::::::::::::::::::::::*/
-
+var allZones = Array.from(document.querySelectorAll('.dropzone'));
 	function dragAndDropAproach2() {
 
-		
-	
 
-
-		var allZones = Array.from(document.querySelectorAll('.dropzone'));
 		allZones.forEach((zone, index, arrayOfZones) => {
-
-			// zone.childNodes[0].style.top = zone.getBoundingClientRect().top + 'px'
 			
 			//dragstart
 			zone.addEventListener('dragstart', function (e) {
@@ -75,53 +69,45 @@ document.addEventListener('DOMContentLoaded', dragAndDropAproach2)
 						'base'  : zone.getBoundingClientRect().top - (zone.getBoundingClientRect().height),
 						'child' : zone.childNodes[0]
 					}
-					// mueve item a la positión del original
-					// origin.el.appendChild(target.child)
-					// target.el.appendChild(origin.child)
-					console.log 
+
 					arrayOfZones.forEach((el, i) => {
+
 						var item = {
 							'el'    : el,
 							'index' : i,
 							'top'   : el.getBoundingClientRect().top,
 							'base'  : el.getBoundingClientRect().top - (el.getBoundingClientRect().height),
 							'child' : el.childNodes[0],
-							'height': el.getBoundingClientRect().height + (window.getComputedStyle(target).marginBottom.slice(0,-2))
+							'height': el.getBoundingClientRect().height,
+							'margin': parseInt(window.getComputedStyle(zone).marginBottom, 10)
 						}
-
+						item.child.innerText = 'index: ' +item.index
 						if(origin.index < target.index){
 							// if(i <= target.index && i >= origin.index){
 							if(item.base <= target.top  && item.index > origin.index){		
-								item.child.style.transform = `translateY(${item.height}px)`;
-
+								item.child.style.transform = `translateY(${-item.height - item.margin}px)`;
 							}
 						}
 						else if(origin.index > target.index){
 							// if(i <= target.index && i >= origin.index){
 							if(item.top >= target.base  && item.index < origin.index){									
-								item.child.style.transform = `translateY(${item.height}px)`;
-								document.addEventListener('transitionend', function(){	
-									console.log('animationend', el.id);
-									// item.child.style.background = 'blue'									
-								})
+								item.child.style.transform = `translateY(${item.height + item.margin}px)`;
+								
 							}
 						}	
 					})
-					e.target.childNodes[0].addEventListener('transitionend', function(){	
-						console.log('animationend', e.target.id);
+					// e.target.childNodes[0].addEventListener('transitionend', function(){	
+						// console.log('animationend', e.target.id);
 						// item.child.style.background = 'red'	
 						// window.getComputedStyle(e.target)
-						e.target.childNodes[0].innerText += '-1'
-					})
+						// e.target.childNodes[0].innerText = item.index
+					// })
 
 			});
 
 			zone.addEventListener('dragleave', function (e) {
 				e.preventDefault();
 				e.target.classList.remove('active_dropzone');
-
-				// origin.el.appendChild(el.childNodes[0])
-				// e.target.childNodes[0] .el.childNodes[0]
 
 				arrayOfZones.forEach((el, i) => {
 
@@ -133,24 +119,14 @@ document.addEventListener('DOMContentLoaded', dragAndDropAproach2)
 						}
 
 						if(origin.index < target.index){
-							// if(i <= target.index && i >= origin.index){
 							if(item.top >= target.top){		
 								item.child.style.transform = `translateY(0)`;
-								// document.addEventListener('transitionend', function(){	
-								// 	console.log('animationend', el.id);
-									item.child.style.background = '#6420a3'	
-								// })
+
 							}
 						}
 						else if(origin.index > target.index){
-							// if(i <= target.index && i >= origin.index){
 							if(item.top <= target.top){									
-								item.child.style.transform = `translateY(0)`
-								// document.addEventListener('transitionend', function(){	
-								// 	console.log('animationend', el.id);
-								// 	// el.childNodes[0].style.transform = `translateY(0)`
-									item.child.style.background = '#6420a3'									
-								// })
+								item.child.style.transform = `translateY(0)`							
 							}
 						}	
 					})
@@ -159,18 +135,35 @@ document.addEventListener('DOMContentLoaded', dragAndDropAproach2)
 
 			zone.addEventListener('drop', function (e) {
 				e.target.classList.remove('active_dropzone');
-				// origin.el.appendChild(target.child)
-				// target.el.appendChild(origin.child)
-				e.target.childNodes[0].style.transform = `translateY(0)`	
+				// console.log(origin.el);
+				arrayOfZones.forEach((el, i) => {
+					el.childNodes[0].style.transition = 'none'
+					// el.childNodes[0].style.transform = `translateY(0)`
+					el.childNodes[0].style.removeProperty('transform')
+					// el.childNodes[0].addEventListener('transitionend', function(){	
+					// 	el.childNodes[0].style.removeProperty('transform')
+					// })
+				})		
+
+				if(origin.index < target.index){
+					target.el.insertAdjacentElement('afterend', origin.el)
+				}
+				else{
+					target.el.insertAdjacentElement('beforebegin', origin.el)
+				}
 			})
-			
+		
 
 			zone.addEventListener('dragend', function (e) {
 				e.preventDefault();		
 				document.body.classList.remove('dragstart');
 				e.target.classList.remove('dragged');		
 				window.requestAnimationFrame(() => e.target.style.visibility = 'visible');
-		
+				arrayOfZones.forEach((el, i) => {
+					el.childNodes[0].style.removeProperty('transition')
+				})
+				allZones = Array.from(document.querySelectorAll('.dropzone'));
+				console.log(allZones);
 			});
 		});
 		

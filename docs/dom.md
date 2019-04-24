@@ -146,21 +146,43 @@ var parrafo = document.createElement('P');
 
 ### Estilo y Clases
 
-```javascript 
 
+#### cssText
+
+```javascript 
 
 parrafo.style.cssText = 'display: block; position: absolute;' // para remplazar =
 parrafo.style.cssText += 'display: block; position: absolute;' // para agregar +=
-getComputedStyle(parrafo).position //--> aboslute
+
+``` 
+#### set, add, remove, toggle
+```javascript 
 
 parrafo.style.color = 'red';
 parrafo.classList.add('parrafo');
-contenedor.classList.add('container');
 contenedor.classList.remove('container');
 contenedor.classList.toggle('active');
 
+
+```
+#### get contains
+```javascript
 element.classList.contains('container'); // devuelve true si la contiene, false si no.
 ```
+
+#### get computed style
+```javascript
+var elemento = document.queryselector('DIV')
+window.getComputedStyle(elemento).position //--> devuelve estilos de elemento párrafo
+window.getComputedStyle(elemento).margin // devuelve string ej: '10px'
+```
+
+#### remove propiedad inline
+
+```javascript
+element.style.removeProperty('margin')
+```
+
 
 ### Insertar Node
 
