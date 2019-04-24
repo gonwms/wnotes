@@ -16,18 +16,18 @@ function debounce(func, wait = 0, immediate = true) {
 
 var origin = {};
 var target = {};
-
+var allZones
 
 // document.addEventListener('DOMContentLoaded', mouseEventsAproach)
 document.addEventListener('DOMContentLoaded', dragAndDropAproach2)
 
 //*:::::::::::::::::::::::::::::::::::::::::::: | DRAG & DROP  2 | :::::::::::::::::::::::::::::::::::::::::::*/
-var allZones = Array.from(document.querySelectorAll('.dropzone'));
+
 	function dragAndDropAproach2() {
 
+		allZones = Array.from(document.querySelectorAll('.dropzone'));
 
-		allZones.forEach((zone, index, arrayOfZones) => {
-			
+		allZones.forEach((zone, index, arrayOfZones) => {		
 			//dragstart
 			zone.addEventListener('dragstart', function (e) {
 
@@ -159,10 +159,12 @@ var allZones = Array.from(document.querySelectorAll('.dropzone'));
 				document.body.classList.remove('dragstart');
 				e.target.classList.remove('dragged');		
 				window.requestAnimationFrame(() => e.target.style.visibility = 'visible');
+				allZones = Array.from(document.querySelectorAll('.dropzone'));
 				arrayOfZones.forEach((el, i) => {
 					el.childNodes[0].style.removeProperty('transition')
+					el.childNodes[0].innerText = 'INDEX: ' + i
 				})
-				allZones = Array.from(document.querySelectorAll('.dropzone'));
+
 				console.log(allZones);
 			});
 		});

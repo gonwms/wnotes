@@ -247,10 +247,16 @@ elemento.getBoundingClientRect() DOMRect {x: 199, y: 191, width: 300, height: 10
 
 getClientRects() 
 - Similiar a getBoundingClientRect
-- Toma elementos por separado, por ejemplo un, lo tomaría todo junto sin poder analizar el span por separado. Los li ul 
-  
+- Toma elementos por separado, por ejemplo puede leer un SPAN dentro de un P, un Li dentro de un UL
+- The return value of Element.getClientRects() method is a collection of DOMRect objects, each associated with one CSS border-box around an element.
+-When elements have multiple border-boxes (like inline-elements), then Element.getClientRects() returns multiple DOMRect objects
+
 ```javascript
 
-elemento.getBoundingClientRect() DOMRect {x: 199, y: 191, width: 300, height: 108, top: 191, …} 
+let p = document.querySelector('p');
+let span = document.querySelector('span');
+
+console.log(p.getClientRects().length);
+console.log(span.getClientRects().length);
 
 ```
