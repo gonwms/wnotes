@@ -1,3 +1,4 @@
+'use strict';
 function debounce(func, wait = 0, immediate = true) {
 	var timeout;
 	return function () {
@@ -14,163 +15,336 @@ function debounce(func, wait = 0, immediate = true) {
 };
 
 
-var origin = {};
-var target = {};
-var allZones
+
 
 // document.addEventListener('DOMContentLoaded', mouseEventsAproach)
-document.addEventListener('DOMContentLoaded', dragAndDropAproach2)
+
 
 //*:::::::::::::::::::::::::::::::::::::::::::: | DRAG & DROP  2 | :::::::::::::::::::::::::::::::::::::::::::*/
+document.addEventListener('DOMContentLoaded', () => {
+	
+	dragAndDropAproach2.init()
+})
 
-	function dragAndDropAproach2() {
+var dragAndDropAproach2 = (function () {
+	//global var
+	var origin;	var target;	var allZones
 
-		allZones = Array.from(document.querySelectorAll('.dropzone'));
 
-		allZones.forEach((zone, index, arrayOfZones) => {		
-			//dragstart
-			zone.addEventListener('dragstart', function (e) {
 
-				origin = {
-					'el'    : zone,
-					'index' : index,
-					'top'   : zone.getBoundingClientRect().top,
-					'child' : zone.childNodes[0]
-				}
 
-				//all childs off target ar unselectionables
-				document.body.classList.add('dragstart');
-				
-				// style dragen
-				origin.child.classList.add('dragged');
-				
-				//hide original, keep only gosht
-				window.requestAnimationFrame(function () {
-					origin.child.style.visibility = 'hidden';
-				});
-				
-			});
 
-			// dragover:  se dispara cada  x segundos mientas dura el over.
-			zone.addEventListener('dragover', function (e) {
-					// prevent default to allow drop
-					event.preventDefault();
-					target.el.classList.add('active_dropzone');
-			})
+	function logZones(){
+		console.log(allZones);
+	}
 
-			// dragenter:  se dispara una sola vez al entrar.
-			zone.addEventListener('dragenter', function (e) {
-					e.preventDefault();
+	function init(){
+		console.log('init');
+		allZones = Array.from(document.querySelectorAll('.dropzone'))
+		handlerEvents(allZones)
+	}
 
-					target = {
-						'el'    : zone,
-						'index' : index,
-						'top'   : zone.getBoundingClientRect().top,
-						'base'  : zone.getBoundingClientRect().top - (zone.getBoundingClientRect().height),
-						'child' : zone.childNodes[0]
-					}
+	function handlerEvents(){
+		console.log('handlerEvents');
+		allZones.forEach((zone, index, arrayOfZones) => {
+			
+			var dragStartHandler = function (evt){ onDragStart(zone, index, arrayOfZones, evt) }
+			var dragOverHandler	 = function (evt){ onDragOver (zone, index, arrayOfZones, evt) }
+			var dragEnterHandler = function (evt){ onDragEnter(zone, index, arrayOfZones, evt) }
+			var dragLeaveHandler = function (evt){ onDragLeave(zone, index, arrayOfZones, evt) }
+			var dropHandler 	 = function (evt){ onDrop     (zone, index, arrayOfZones, evt) }
+			var dragEndHandler 	 = function (evt){ onDragEnd  (zone, index, arrayOfZones, evt) }
+			// metodo para pasar parametros en una callback function
+			zone.addEventListener( 'dragstart' , dragStartHandler )
+			zone.addEventListener( 'dragover'  , dragOverHandler )
+			zone.addEventListener( 'dragenter' , dragEnterHandler )
+			zone.addEventListener( 'dragleave' , dragLeaveHandler )
+			zone.addEventListener( 'drop'      , dropHandler 	 )
+			zone.addEventListener( 'dragend'   , dragEndHandler  )
+		})
+	}
 
-					arrayOfZones.forEach((el, i) => {
-
-						var item = {
-							'el'    : el,
-							'index' : i,
-							'top'   : el.getBoundingClientRect().top,
-							'base'  : el.getBoundingClientRect().top - (el.getBoundingClientRect().height),
-							'child' : el.childNodes[0],
-							'height': el.getBoundingClientRect().height,
-							'margin': parseInt(window.getComputedStyle(zone).marginBottom, 10)
-						}
-						item.child.innerText = 'index: ' +item.index
-						if(origin.index < target.index){
-							// if(i <= target.index && i >= origin.index){
-							if(item.base <= target.top  && item.index > origin.index){		
-								item.child.style.transform = `translateY(${-item.height - item.margin}px)`;
-							}
-						}
-						else if(origin.index > target.index){
-							// if(i <= target.index && i >= origin.index){
-							if(item.top >= target.base  && item.index < origin.index){									
-								item.child.style.transform = `translateY(${item.height + item.margin}px)`;
-								
-							}
-						}	
-					})
-					// e.target.childNodes[0].addEventListener('transitionend', function(){	
-						// console.log('animationend', e.target.id);
-						// item.child.style.background = 'red'	
-						// window.getComputedStyle(e.target)
-						// e.target.childNodes[0].innerText = item.index
-					// })
-
-			});
-
-			zone.addEventListener('dragleave', function (e) {
-				e.preventDefault();
-				e.target.classList.remove('active_dropzone');
-
-				arrayOfZones.forEach((el, i) => {
-
-						var item = {
-							'el'    : el,
-							'index' : i,
-							'top'   : el.getBoundingClientRect().top,
-							'child' : el.childNodes[0]
-						}
-
-						if(origin.index < target.index){
-							if(item.top >= target.top){		
-								item.child.style.transform = `translateY(0)`;
-
-							}
-						}
-						else if(origin.index > target.index){
-							if(item.top <= target.top){									
-								item.child.style.transform = `translateY(0)`							
-							}
-						}	
-					})
-			});
+	function removeHandlerEvents(){
+		console.log('removeListeners');
+		// console.log(allZones);
 		
+		allZones.forEach((zone, index, arrayOfZones) => {
+			console.log(zone);
+			
+			// metodo para pasar parametros en una callback function
+			zone.removeEventListener('dragstart' ,	dragStartHandler	)
+			zone.removeEventListener('dragover'  ,	dragOverHandler 	)
+			zone.removeEventListener('dragenter' ,	dragEnterHandler	)
+			zone.removeEventListener('dragleave' ,	dragLeaveHandler	)
+			zone.removeEventListener('drop'      ,	dropHandler     	)
+			zone.removeEventListener('dragend'   ,	dragEndHandler  	)
+		})
+	}
 
-			zone.addEventListener('drop', function (e) {
-				e.target.classList.remove('active_dropzone');
-				// console.log(origin.el);
-				arrayOfZones.forEach((el, i) => {
-					el.childNodes[0].style.transition = 'none'
-					// el.childNodes[0].style.transform = `translateY(0)`
-					el.childNodes[0].style.removeProperty('transform')
-					// el.childNodes[0].addEventListener('transitionend', function(){	
-					// 	el.childNodes[0].style.removeProperty('transform')
-					// })
-				})		
 
-				if(origin.index < target.index){
-					target.el.insertAdjacentElement('afterend', origin.el)
-				}
-				else{
-					target.el.insertAdjacentElement('beforebegin', origin.el)
-				}
-			})
+	var onDragStart = function (zone, index, arrayOfZones, evt) {
+			console.log(allZones);
+			
+			origin =  new ZoneParameters(zone, index) 
+			//all childs off target are unselectionables
+			document.body.classList.add('dragstart');
+			// style dragen
+			origin.child.classList.add('dragged');
+			//hide original, keep only gosht
+			window.requestAnimationFrame(function () {
+				origin.child.style.visibility = 'hidden';
+			});			
+	};
+
+	var onDragOver = function (zone, index, arrayOfZones,evt) {			
+			evt.preventDefault();// prevent default to allow drop
+	}
 		
+	var onDragEnter = function (zone, index, arrayOfZones,evt) {
+		evt.preventDefault();
+		target =  new ZoneParameters(zone, index) 
+		target.el.classList.add('active_dropzone');
 
-			zone.addEventListener('dragend', function (e) {
-				e.preventDefault();		
-				document.body.classList.remove('dragstart');
-				e.target.classList.remove('dragged');		
-				window.requestAnimationFrame(() => e.target.style.visibility = 'visible');
-				allZones = Array.from(document.querySelectorAll('.dropzone'));
-				arrayOfZones.forEach((el, i) => {
-					el.childNodes[0].style.removeProperty('transition')
-					el.childNodes[0].innerText = 'INDEX: ' + i
-				})
+		arrayOfZones.forEach((el, i) => {
+			var item =  new ZoneParameters(el, i) 
 
-				console.log(allZones);
-			});
-		});
-		
+			if(origin.index < target.index)
+			{
+				if(item.base <= target.top  && item.index > origin.index){		
+					item.child.style.transform = `translateY(${-item.height - item.margin}px)`;
+				}
+			}
+			else
+			{
+				if(item.top >= target.base  && item.index < origin.index){									
+					item.child.style.transform = `translateY(${item.height + item.margin}px)`;
+				}
+			}	
+		})
+	};
 
-	}//readyDOM -end
+	var onDragLeave = function(zone, index, arrayOfZones,evt) {
+		evt.preventDefault();
+		evt.target.classList.remove('active_dropzone');
+
+		arrayOfZones.forEach((el, i) => {
+				var item = new ZoneParameters(zone, index) 
+				item.child.style.transform = `translateY(0)`;		
+		})
+	};
+
+
+	var onDrop = function(zone, index, arr, evt) {
+		evt.target.classList.remove('active_dropzone');
+		arr.map((el, i) => {
+			el.childNodes[0].style.transition = 'none'
+			el.childNodes[0].style.removeProperty('transform')
+		})		
+		if(origin.index < target.index){
+			target.el.insertAdjacentElement('afterend', origin.el)
+			
+
+		}
+		else{
+			 target.el.insertAdjacentElement('beforebegin', origin.el)
+		} 
+	};
+
+	var onDragEnd = function(zone, index, arrayOfZones, evt) {
+		evt.preventDefault();		
+		document.body.classList.remove('dragstart');
+		origin.el.classList.remove('dragged');		
+		//unhide original dragged item
+		window.requestAnimationFrame(() => evt.target.style.visibility = 'visible');
+	
+		arrayOfZones.forEach((el, i) => {
+			el.childNodes[0].style.removeProperty('transition')
+		})
+		removeHandlerEvents()
+		// init()
+		console.dir(arrayOfZones)
+	}
+
+	function ZoneParameters (zone, index, el ) {
+		this.el     = zone;
+		this.index  = index;
+		this.top    = zone.getBoundingClientRect().top;
+		this.base   = zone.getBoundingClientRect().top - (zone.getBoundingClientRect().height);
+		this.child  = zone.childNodes[0];
+		this.height = zone.getBoundingClientRect().height;
+		this.margin = parseInt(window.getComputedStyle(zone).marginBottom, 10)
+	}
+
+	return{
+		init:init,
+		logZones:logZones
+	}
+
+})()
+
+
+
+
+
+
+
+
+
+// document.addEventListener('DOMContentLoaded', () => {
+	// 	allZones = Array.from(document.querySelectorAll('.dropzone'));
+	// 	dragAndDropAproach2()
+	// })
+
+	// //*:::::::::::::::::::::::::::::::::::::::::::: | DRAG & DROP  2 | :::::::::::::::::::::::::::::::::::::::::::*/
+
+	// 	function dragAndDropAproach2() {
+
+
+
+	// 		allZones.forEach((zone, index, arrayOfZones) => {		
+	// 			//dragstart
+	// 			zone.addEventListener('dragstart', function (e) {
+
+	// 				origin = {
+	// 					'el'    : zone,
+	// 					'index' : index,
+	// 					'top'   : zone.getBoundingClientRect().top,
+	// 					'child' : zone.childNodes[0]
+	// 				}
+
+	// 				//all childs off target ar unselectionables
+	// 				document.body.classList.add('dragstart');
+					
+	// 				// style dragen
+	// 				origin.child.classList.add('dragged');
+					
+	// 				//hide original, keep only gosht
+	// 				window.requestAnimationFrame(function () {
+	// 					origin.child.style.visibility = 'hidden';
+	// 				});
+					
+	// 			});
+
+	// 			// dragover:  se dispara cada  x segundos mientas dura el over.
+	// 			zone.addEventListener('dragover', function (e) {
+	// 					// prevent default to allow drop
+	// 					event.preventDefault();
+	// 					target.el.classList.add('active_dropzone');
+	// 			})
+
+	// 			// dragenter:  se dispara una sola vez al entrar.
+	// 			zone.addEventListener('dragenter', function (e) {
+	// 					e.preventDefault();
+
+	// 					target = {
+	// 						'el'    : zone,
+	// 						'index' : index,
+	// 						'top'   : zone.getBoundingClientRect().top,
+	// 						'base'  : zone.getBoundingClientRect().top - (zone.getBoundingClientRect().height),
+	// 						'child' : zone.childNodes[0]
+	// 					}
+
+	// 					arrayOfZones.forEach((el, i) => {
+
+	// 						var item = {
+	// 							'el'    : el,
+	// 							'index' : i,
+	// 							'top'   : el.getBoundingClientRect().top,
+	// 							'base'  : el.getBoundingClientRect().top - (el.getBoundingClientRect().height),
+	// 							'child' : el.childNodes[0],
+	// 							'height': el.getBoundingClientRect().height,
+	// 							'margin': parseInt(window.getComputedStyle(zone).marginBottom, 10)
+	// 						}
+	// 						item.child.innerText = 'index: ' +item.index
+	// 						if(origin.index < target.index){
+	// 							// if(i <= target.index && i >= origin.index){
+	// 							if(item.base <= target.top  && item.index > origin.index){		
+	// 								item.child.style.transform = `translateY(${-item.height - item.margin}px)`;
+	// 							}
+	// 						}
+	// 						else if(origin.index > target.index){
+	// 							// if(i <= target.index && i >= origin.index){
+	// 							if(item.top >= target.base  && item.index < origin.index){									
+	// 								item.child.style.transform = `translateY(${item.height + item.margin}px)`;
+									
+	// 							}
+	// 						}	
+	// 					})
+	// 					// e.target.childNodes[0].addEventListener('transitionend', function(){	
+	// 						// console.log('animationend', e.target.id);
+	// 						// item.child.style.background = 'red'	
+	// 						// window.getComputedStyle(e.target)
+	// 						// e.target.childNodes[0].innerText = item.index
+	// 					// })
+
+	// 			});
+
+	// 			zone.addEventListener('dragleave', function (e) {
+	// 				e.preventDefault();
+	// 				e.target.classList.remove('active_dropzone');
+
+	// 				arrayOfZones.forEach((el, i) => {
+
+	// 						var item = {
+	// 							'el'    : el,
+	// 							'index' : i,
+	// 							'top'   : el.getBoundingClientRect().top,
+	// 							'child' : el.childNodes[0]
+	// 						}
+
+	// 						if(origin.index < target.index){
+	// 							if(item.top >= target.top){		
+	// 								item.child.style.transform = `translateY(0)`;
+
+	// 							}
+	// 						}
+	// 						else if(origin.index > target.index){
+	// 							if(item.top <= target.top){									
+	// 								item.child.style.transform = `translateY(0)`							
+	// 							}
+	// 						}	
+	// 					})
+	// 			});
+			
+
+	// 			zone.addEventListener('drop', function (e) {
+	// 				e.target.classList.remove('active_dropzone');
+	// 				// console.log(origin.el);
+	// 				arrayOfZones.forEach((el, i) => {
+	// 					el.childNodes[0].style.transition = 'none'
+	// 					// el.childNodes[0].style.transform = `translateY(0)`
+	// 					el.childNodes[0].style.removeProperty('transform')
+	// 					// el.childNodes[0].addEventListener('transitionend', function(){	
+	// 					// 	el.childNodes[0].style.removeProperty('transform')
+	// 					// })
+	// 				})		
+
+	// 				if(origin.index < target.index){
+	// 					target.el.insertAdjacentElement('afterend', origin.el)
+	// 				}
+	// 				else{
+	// 					target.el.insertAdjacentElement('beforebegin', origin.el)
+	// 				}
+	// 			})
+			
+
+	// 			zone.addEventListener('dragend', function (e) {
+	// 				e.preventDefault();		
+	// 				document.body.classList.remove('dragstart');
+	// 				e.target.classList.remove('dragged');		
+	// 				window.requestAnimationFrame(() => e.target.style.visibility = 'visible');
+	// 				allZones = Array.from(document.querySelectorAll('.dropzone'));
+	// 				arrayOfZones.forEach((el, i) => {
+	// 					el.childNodes[0].style.removeProperty('transition')
+	// 					// el.childNodes[0].innerText = 'INDEX: ' + i
+	// 				})
+
+	// 				console.log(allZones);
+	// 			});
+	// 		});
+			
+
+	// 	}//readyDOM -end
 
 //*:::::::::::::::::::::::::::::::::::::::::::: | DRAG & DROP | :::::::::::::::::::::::::::::::::::::::::::*/
 
