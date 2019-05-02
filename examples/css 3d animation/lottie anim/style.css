@@ -1,0 +1,10 @@
+body{
+      background: #e4e4e4;
+}
+.animation{
+      background:green;
+      position:absolute;
+      width:300px;
+      height:800px
+
+}

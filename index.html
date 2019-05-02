@@ -6,54 +6,51 @@
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <title>notes</title>
             <link rel="shortcut icon" href="https://cdn.iconscout.com/public/images/icon/premium/png-128/lightning-weather-forecast-cloud-cloudy-358f3dde3d2c5468-128x128.png" type="image/x-icon">
-            <link rel="stylesheet" href="css/style.css">
+            <link rel="stylesheet" href="/src/css/style.css">
             
             <!-- highlight -->
-            <script src="js/highlight/highlight.pack.js"></script>
-            <link rel="stylesheet" href="js/highlight/styles/atom-one-dark.css">
+            <script src="/src/js/highlight/highlight.pack.js"></script>
+            <link rel="stylesheet" href="/src/js/highlight/styles/atom-one-light.css">
             <!-- eventEmiter2 -->
-            <script src="js/eventemitter2/eventemitter2.js"></script>
+            <script src="/src/js/eventemitter2/eventemitter2.js"></script>
             <!-- app. -->
-            <script src="js/app.js"></script>
-            <script src="js/utilities.js"></script>   
-            <script src="js/nav.js"></script>     
-            <script src="js/content.js"></script>
+            <script src="/src/js/app.js"></script>
+            <script src="/src/js/utilities.js"></script>   
+            <script src="/src/js/nav.js"></script>     
+            <script src="/src/js/content.js"></script>
             
 
       </head>
 
 <body>
-      <div id="main_bar">
-            <h1>note</h1>
-            <input type="text" placeholder="Search">
-            <nav>
-                  <!-- nav -->
-            </nav>
-            
-            <li><a href="https://github.com/gonwms/wnotes">ver github</a></li>
-            <li><a href="https://gonwms.github.io/wnotes/">ver online</a></li>
-            <div id="slide">
-                  
-            </div>
-      </div>
       <div id="main-container">
+
+            <div id="main_nav" data-id="main_nav">
+                  <h1>apuntes</h1>
+                  <nav>
+                        <!-- nav -->
+                  </nav>
+            </div>
+      
             
-            <div class="sidebar">
-                  <input type="text" placeholder="Search">
+            <div class="index_nav" data-id="index_nav">
                   <div class="tree">
                         <!-- tree nav -->
                   </div>
             </div>
             
-            <div class="content"></div>
-      </div>
-      <footer id="footer">
-            <span>notes1
-                  
-                  <!-- - 2018 <img id="vpvk" src="img/vpvk.svg" alt=""> -->
-            </span>
+            <div class="content">
+                  <!-- content -->
+            </div>
+            <div id="art">
+                  <!-- art -->
+            </div>
+            <footer id="footer">
+                  <a href="https://github.com/gonwms/wnotes">ver github</a>
+                  <a href="https://gonwms.github.io/wnotes/">ver online</a>                       
+            </footer>
             
-      </footer>
+      </div>
       
 </body>
 	

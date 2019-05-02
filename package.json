@@ -1,21 +1,21 @@
-{
-  "name": "wnotes",
-  "version": "1.0.0",
-  "description": "notas de estudio",
-  "main": "./js",
+// {
+//   "name": "wnotes",
+//   "version": "1.0.0",
+//   "description": "notas de estudio",
+//   "main": "./js",
 
-  "devDependencies": {
-    "jest": "^24.3.1"
-  },
-  "scripts": {
-    "start":"http-server",
-    "test": "jest --watchAll"
-  },
+//   "devDependencies": {
+//     "jest": "^24.3.1"
+//   },
+//   "scripts": {
+//     "start":"http-server",
+//     "test": "jest --watchAll"
+//   },
 
-  "jest": {
-    "verbose": true,
-    "testURL": "http://192.168.1.5:8080"
-  },
+//   "jest": {
+//     "verbose": true,
+//     "testURL": "http://192.168.1.5:8080"
+//   },
 
-  "author": "GAW"
-}
+//   "author": "GAW"
+// }
