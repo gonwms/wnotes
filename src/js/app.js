@@ -44,14 +44,14 @@ var contentList;
 document.addEventListener('DOMContentLoaded', function () {	
 	mainNav.init();
 	loadDocuments.init();
-	htmlPluck.init();
+	// htmlPluck.init();
 })
 
-var hello = function(){
-	 return 'Hello'
-}
-console.log('primero:  ' + hello())
+// var hello = function(){
+// 	 return 'Hello'
+// }
+// console.log('primero:  ' + hello())
 
-module.exports = hello
+// module.exports = hello
 
 

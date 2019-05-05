@@ -1,44 +1,39 @@
 # CSS
 
-
 ## animation keyframe
-´´´css
-      
-      .mi_objeto{
-		animation-name: my_animation;
-		animation-duration: 12s;
-		animation-iteration-count: 1;
-		animation-fill-mode: forwards;
-		/* animation-delay: 2s; */
 
-	}
+```css
 
+.mi_objeto{
+	animation-name: my_animation;
+	animation-duration: 12s;
+	animation-iteration-count: 1;
+	animation-fill-mode: forwards;
+	/* animation-delay: 2s; */
+}
 
-	@keyframes my_animation {
-		
-		0%,15% {transform:    translateZ(-130px) rotateY(0deg)    ;}
-		25%,40% {transform:   translateZ(-130px) rotateY(-180deg) ;}
-		50%,90% {transform:   translateZ(-130px) rotateX(-90deg)  ;}
-		100% {transform:  translateZ(-130px) rotateX(90deg)   ;}
-	}
-´´´
+@keyframes my_animation {
+	0%,15% {transform:    translateZ(-130px) rotateY(0deg)    ;}
+	25%,40% {transform:   translateZ(-130px) rotateY(-180deg) ;}
+	50%,90% {transform:   translateZ(-130px) rotateX(-90deg)  ;}
+	100% {transform:  translateZ(-130px) rotateX(90deg)   ;}
+}
+```
 
 ## 3D
 
-´´´css
+```css
 .scene {
-		width: 300px;
-		height: 250px;
-		perspective: 300px;
+	width: 300px;
+	height: 250px;
+	perspective: 300px;
       }
 .mi_objeto{
       transform-style: preserve-3d;
 	transform: translateZ(-100px);
 }
+```
 
-
-## 3d + animation keyframe
-´´´
 <style>
       .scene {
 		width: 500px;
@@ -84,17 +79,17 @@
 
 	}
 	@keyframes my_animation {
-		0%,15%      {transform: translateZ(-100px)       rotateY(0deg)    ;}
-		25%,40%     {transform: translateZ(-100px)       rotateY(-180deg) ;}
-		50%,90%     {transform: translateZ(-100px)       rotateX(-90deg)  ;}
-		100%        {transform: translateZ(-100px)       rotateX(90deg)   ;}
+		0%,15%      {transform: translateZ(-100px)   rotateY(0deg)    ;}
+		25%,40%     {transform: translateZ(-100px)   rotateY(-180deg) ;}
+		50%,90%     {transform: translateZ(-100px)   rotateX(-90deg)  ;}
+		100%        {transform: translateZ(-100px)   rotateX(90deg)   ;}
 	}
 
 	@keyframes my_animation2 {
-		0%,15%      {transform: translate3d(100px,0, 100px)       rotateY(0deg)    ;}
-		25%,40%     {transform: translate3d(100px,0, 100px)       rotateY(-180deg) ;}
-		50%,90%     {transform: translate3d(100px,0, 100px)       rotateX(-90deg)  ;}
-		100%        {transform: translate3d(100px,0, 100px)       rotateX(90deg)   ;}
+		0%,15%      {transform: translate3d(100px,0, 100px)  rotateY(0deg)    ;}
+		25%,40%     {transform: translate3d(100px,0, 100px)  rotateY(-180deg) ;}
+		50%,90%     {transform: translate3d(100px,0, 100px)  rotateX(-90deg)  ;}
+		100%        {transform: translate3d(100px,0, 100px)  rotateX(90deg)   ;}
 	}
 </style>
 
@@ -102,7 +97,7 @@
       <div class="mi_objeto_1">Objeto 1</div>
       <div class="mi_objeto_2">objeto 2 backface hiden</div>
 </div>
-´´´
+
 
 
 ## Grid

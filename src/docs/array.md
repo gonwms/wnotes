@@ -162,15 +162,10 @@ Sort()
 
 ## Some & Every
 
-some() 
-- at least one
-
-every() 
-- every
-
+some - at least one
+every - every
 
 ```javascript
-
     const people = [
         { name: 'Wes', year: 1988 },
         { name: 'Kait', year: 1986 },
@@ -185,7 +180,6 @@ every()
     //     every
     const allAdults = people.every(person => ((new Date()).getFullYear()) - person.year >= 19);
     console.log({allAdults});
-
 ```
 
 ## Call and Apply
