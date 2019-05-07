@@ -2,6 +2,8 @@
 
 
 var loadDocuments = (function () {
+	//global variables
+
 
 	function init() {
 		content = document.querySelector('.content')
@@ -17,7 +19,8 @@ var loadDocuments = (function () {
 		xhr.onload = function () {
 			if (xhr.status === 200) {
 
-				content.innerHTML =  marked(xhr.responseText)						
+				content.innerHTML =  marked(xhr.responseText)	
+				formatH2()
 				// htmlPluck.init();
 				server.emit('content-Loaded', content)
 
@@ -136,7 +139,7 @@ var loadDocuments = (function () {
 	// })()
 
 var codeHighlight = (function(){
-	
+	var code;
 	function init(){
 		code = Array.from(document.querySelectorAll('CODE'))
 		highlight()		
@@ -146,11 +149,9 @@ var codeHighlight = (function(){
 		code.forEach(function(code){
 			// console.log(code)
 			hljs.highlightBlock(code);
-
+			
 		})
 	}
-
-	var code;
 
 	server.on('content-Loaded', init)
 
@@ -160,179 +161,13 @@ var codeHighlight = (function(){
 
 })()
 
-// var CreateContentTree = (function(){
 
-// 	function init(contenido){
-		
-// 		tree = document.querySelector('.tree');
-// 		tree.innerHTML ='';
-// 		titles = Array.from(contenido.querySelectorAll('H2, H3, H4'));
-// 		DOMPosition = tree
-// 		renderTree()
-
-// 	}
-
-// 	function createNewNode(el, p, returnPosition = true, hasAchild = false ) {
-
-// 		var linkformat = el.innerText.replace(/[^A-Za-z0-9-]/g, '-');
-// 		var newNode = document.createElement('DIV');
-
-// 		newNode.setAttribute('class',`tree-sub tree-sub${el.tagName[1]}`)
-		
+var formatH2 = function(){
 	
-
-// 		newNode.innerHTML = `<div class="nav-item"><a href="#${linkformat}">${el.innerText}</a></div>` 
-// 		p.appendChild(newNode)
-
-// 		//add id al doc tittles
-// 		el.setAttribute('id',linkformat)
+	var content = document.querySelectorAll('H2')
+	console.log(content);
 	
-// 		if(hasAchild == true ){
-// 			newNode.classList.add('has-child')
-// 		}
-
-// 		if(returnPosition == true ){
-// 			return DOMPosition = newNode
-// 		}
+	content.forEach(lala => lala.insertAdjacentHTML('beforebegin', '<hr>'))
 
 
-
-// 	}
-
-// 	function recurtion(p , t){
-// 		var position = p.parentNode		
-// 		if(t > 0){
-// 			recurtion(position,t-1)          
-// 		}
-// 		else{
-// 			return DOMPosition = position
-// 		}
-// 	}	
-		
-// 	function renderTree() {
-
-// 		titles.forEach(function(item, index, arr) {
-			
-// 			//prevent error on next
-// 			if (index < arr.length - 1) {
-
-// 				var curr = item.tagName
-// 				var next = arr[index + 1].tagName
-						
-// 				if (curr > next) { //[h3,h2]
-// 					var rTimes = curr[1] - next[1]
-// 					createNewNode(item,DOMPosition,true,false)
-// 					recurtion(DOMPosition, rTimes)
-// 				}	  	
-// 				else if (curr < next) {		//[h2,h3]
-// 					createNewNode(item,DOMPosition,true,true)
-					
-// 				}	
-// 				else {//[h3,h3]
-// 					createNewNode(item,DOMPosition,false,false)
-// 				}
-// 			}
-
-// 			else{
-// 				//last item: next = null
-// 				createNewNode(item,DOMPosition)
-// 			}
-
-// 		})
-// 		treeEvents.init()
-// 	}	
-
-// 	var treeEvents = (function () {
-		
-// 		function init(){
-
-// 			var collapsables = Array.from(tree.querySelectorAll('.has-child'))
-// 			collapsables.forEach(function(item){
-// 				item.style.maxHeight = `${item.getBoundingClientRect().height}px`
-// 				item.classList.toggle('collapse')
-// 			})
-			
-// 			tree.addEventListener('click', treeClicks)	
-// 		}
-
-// 		function treeClicks(e){
-
-// 			if(e.target.parentElement.classList.contains('has-child')){
-// 				e.target.parentElement.classList.toggle('collapse')
-
-// 			}
-// 			if(e.target.hasAttribute('href')){
-// 				var titleTarget = document.querySelector(`${e.target.getAttribute('href')}`)
-// 				// console.log(titleTarget.getBoundingClientRect().y);
-				
-				
-// 			} 
-
-// 		}
-
-
-// 		function toggleTree(e){
-// 			e.preventDefault()
-
-// 			if(e.target.parentElement.classList.contains('has-child')){
-// 				e.target.parentElement.classList.toggle('collapse')
-
-// 			}
-// 		}
-
-// 		function remove(){
-// 			document.removeEventListener('click', toggleTree)
-// 		}
-
-// 		server.on("item-clicked", remove)
-
-// 		return{
-// 			init:init
-// 		}
-// 	})()
-
-// 	var tree; var titles; var DOMPosition;
-
-// 	server.on('content-Loaded', init)
-
-// 	return{
-// 		init:init
-// 	}
-
-// })()
-
-// var focusContent = (function(){
-// 	function init(){
-// 		var content = document.querySelector('.content')
-// 		elementos = Array.from(content.querySelectorAll('H3,H2'))
-		
-// 		elementos.forEach(function(el){
-// 			el.classList.add('fade')
-// 		});
-		
-// 		content.addEventListener('scroll',debounce(onViewportAnimation,20))
-// 	}
-
-// 	function onViewportAnimation(){
-		
-// 		elementos.forEach(function(el){
-// 			var positionY = Math.round(el.getBoundingClientRect().y)
-// 			if(positionY < window.innerHeight &&  positionY > -100){
-// 				el.classList.remove('viewport_not_visible')
-// 			}
-// 			else{
-// 				el.classList.add('viewport_not_visible')
-// 			}
-// 			console.log(el.innerText +" "+positionY  +" > "+ window.innerHeight)
-
-// 		})
-
-// 	}
-	
-
-// 	var elementos;
-
-// 	return{
-// 		init:init
-// 	}
-// })()
+}

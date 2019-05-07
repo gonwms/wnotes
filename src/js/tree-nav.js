@@ -57,7 +57,6 @@ var CreateContentTree = (function(){
 
 				var curr = item.tagName
 				var next = arr[index + 1].tagName
-						
 				if (curr > next) { //[h3,h2]
 					var rTimes = curr[1] - next[1] // vueltas de recursion. ej: h4-h1 = 3 vueltas.
 					createNewNode(item,DOMPosition,true,false)
@@ -115,7 +114,7 @@ var CreateContentTree = (function(){
 					
 					if(content.scrollTop == pos || content.scrollTop == 0 || content.scrollTop == content.scrollHeight){
 						titleTarget.classList.add('focus')
-						setTimeout(()=>	titleTarget.classList.remove('focus'),200)
+						setTimeout(()=>	titleTarget.classList.remove('focus'),250)
 						content.removeEventListener('scroll', paint);
 						
 					}

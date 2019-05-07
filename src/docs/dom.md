@@ -1,5 +1,6 @@
 # DOM MANIPULATION
 
+
 ## Debouncing
 
 eventsListener como scroll que pueden consumir muchos recursos
@@ -30,7 +31,10 @@ window.addEventListener('scroll', debounce(myfunction(), 300)); //300 es el argu
 ```
 
 
+
+
 ## Selectors
+
 ### getElementsBy
 
 ```javascript
@@ -64,13 +68,20 @@ var data2 = document.querySelectorAll('[data-nombre="numero3"]')
 var alt = document.querySelector('img[alt]')
 ```
 
-### get & set attributes
+### get & set attributes & has
 
 ```javascript 
 // Get
 alt.getAttribute('alt')
 //Set
 alt.setAttribute('alt','glegle')
+//has
+alt.hasAttribute('class')
+```
+### contains
+
+```javascript 
+el.classList.contains('active') 
 ```
 
 ### dataset attributes

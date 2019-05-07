@@ -24,6 +24,14 @@ var mainNav = (function(){
 	function MainNavClicked(){
 		nav.addEventListener('click', function(e){
 			e.preventDefault()
+
+			var navLi = Array.from(document.querySelectorAll('#main_nav LI'))
+			navLi.forEach( (i) => {
+				i.classList.remove('active')
+			})
+			
+			e.target.closest('LI').classList.add('active');
+
 			var link = e.target['href']
 			if(link!=null){	server.emit("item-clicked", link) }
 		});
