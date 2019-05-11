@@ -102,6 +102,16 @@ Devuelve el ascendiente más cercano al elemento
 var closest = document.querySelector('IMG').closest('.inner')
 ```
 
+### childNodes
+```javascript
+// childNodes
+var divFirstChild = document.querySelector('DIV').childNodes[0] // select first child Element
+//firstChild & lastChild
+var divFirstChild = document.querySelector('DIV').firstChild // select first child Element
+
+```
+
+
 ### match
 
 devuelve el ascendiente más cercano al elemento 

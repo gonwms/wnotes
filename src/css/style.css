@@ -54,7 +54,10 @@
             /* margin:0; */
             padding: 0
       }
-
+      a{
+            user-select: none
+      }
+      
       body, html {
             margin: 0;
             padding: 0;
@@ -95,13 +98,13 @@
             font-weight: 400;
             font-size: 16px;
             padding-left:0;
-            transition: background .3s, color .3s, padding-left .5s ease
+            transition: background .3s, color .3s, padding-left .3s ease
             
       }
       .focus{
-            background:#aaf6ff;
-            color:#fff;
-            padding-left:20px
+            /* background:#aaf6ff; */
+            /* color:#fff; */
+            padding-left:25px
             /* transform:translateX(30px); */
             /* transform-origin: left; */
             
@@ -193,7 +196,7 @@
       }
 
 
-      /*:::::::::::::::::::::::::::::::::::::::::::: | main_bar | :::::::::::::::::::::::::::::::::::::::::::*/
+      /*:::::::::::::::::::::::::::::::::::::::::::: | main_Nav | :::::::::::::::::::::::::::::::::::::::::::*/
       #main_nav {
             display: grid;
             grid-template-rows: 110px auto;
@@ -211,13 +214,15 @@
             align-self: center
       }
       #main_nav nav{
-            grid-row: 2
+            grid-row: 2;
+            z-index:2
       }
 
       #main_nav nav li{
             margin:10px 0;
             list-style: none;
             text-decoration: none;
+            cursor: pointer;
       }
 
 
@@ -225,27 +230,39 @@
             text-decoration: none;
             font-size:.9em;
             color:black;
+            user-select: none
       }
       #main_nav nav .active{
             background: #aaf6ff;
             width: fit-content;
       }
 
-      #main_nav nav li a:after{
+      /* #main_nav nav li a:after{
             content: "";
             height: 8px;
             width: 1em;
-            /* background:url('../img/right-arrow.svg') no-repeat; */
+            background:url('../img/right-arrow.svg') no-repeat;
             background-size: contain;
             display:inline-block;
             margin-left:10px
-
-      }
+      } */
 
       #main_nav nav li a:visited{
             color:black;
 
       }
+
+
+
+      #main_nav .highlight{
+            position:absolute;
+            width: 0px;
+            height: 0px;
+            background: #79ebff;
+            /* transition: all .3s ease; */
+            z-index: 1;
+      }
+
 /*:::::::::::::::::::::::::::::::::::::::::::: | index_nav | :::::::::::::::::::::::::::::::::::::::::::*/
       .index_nav {
             display: grid;
@@ -370,7 +387,7 @@
 /*:::::::::::::::::::::::::::::::::::::::::::: | CODE  | :::::::::::::::::::::::::::::::::::::::::::*/
 code {
       padding:30px 30px 30px 30px !important;
-      background: #ffffff88 !important
+      background: #ffffff88 !important;
 }
 
 
@@ -388,9 +405,12 @@ code {
                   grid-row:2;
             }
             .content{
-                  grid-row:3
+                  grid-row:3;
             }
             #footer{
-                  grid-row:4
+                  grid-row:4;
             }
       }
+
+
+
