@@ -1,4 +1,10 @@
-##ToDo
+# Notas 
+
+## Links
+- [MarkDown Quick Guide](https://www.markdownguide.org/basic-syntax/)
+- [Javascript cheetSheet](http://overapi.com/javascript)
+
+## ToDo
 
 ![](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "asd")
 [click aqui](https://www.mozilla.org)

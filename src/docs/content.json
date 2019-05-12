@@ -1,11 +1,11 @@
 {
-	"list":[
+	"list": [
 		{
-			"name": "Array",	
+			"name": "Array",
 			"imgURL": "/docs/file.jpg"
 		},
 		{
-			"name": "CSS",
+			"name": "Objects",
 			"imgURL": "/docs/file.jpg"
 		},
 		{
@@ -13,11 +13,19 @@
 			"imgURL": "/docs/file.jpg"
 		},
 		{
+			"name": "CSS",
+			"imgURL": "/docs/file.jpg"
+		},
+		{
+			"name": "Node",
+			"imgURL": "/docs/file.jpg"
+		},
+		{
 			"name": "Firebase",
 			"imgURL": "/docs/file.jpg"
 		},
 		{
-			"name": "Functional-JS",	
+			"name": "Functional-JS",
 			"imgURL": "/docs/file.jpg"
 		},
 		{
@@ -25,15 +33,11 @@
 			"imgURL": "/docs/file.jpg"
 		},
 		{
-			"name": "Objects",	
+			"name": "Rxjs",
 			"imgURL": "/docs/file.jpg"
 		},
 		{
-			"name": "Observables",	
-			"imgURL": "/docs/file.jpg"
-		},
-		{
-			"name": "Patterns",	
+			"name": "Patterns",
 			"imgURL": "/docs/file.jpg"
 		},
 		{

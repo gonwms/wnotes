@@ -249,7 +249,3 @@ function repeatOften() {
 }
 requestAnimationFrame(repeatOften);
 ```
-
-```javascript
-
-```
