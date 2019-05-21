@@ -3,7 +3,8 @@
 
 var loadDocuments = (function () {
     //global variables
-    function init() {
+    var content;
+        function init() {
         content = document.querySelector('.content');
 
         //nav emit "item clicked" 
@@ -18,7 +19,7 @@ var loadDocuments = (function () {
             if (xhr.status === 200) {
 
                 content.innerHTML = marked(xhr.responseText);
-                formatH2();
+                titleH2defineChapter();
                 // htmlPluck.init();
                 server.emit('content-Loaded', content);
 
@@ -30,18 +31,12 @@ var loadDocuments = (function () {
 
     }
 
-    function content() {
-        console.log(code);
-    };
-
-    var content;
-
     return {
         init: init,
         content: content
-    }
+    };
 
-})()
+})();
 
 // var mdToHTML = (function () {
 
@@ -141,32 +136,48 @@ var codeHighlight = (function () {
     var code;
     function init() {
         code = Array.from(document.querySelectorAll('CODE'));
-        highlight()
+        highlight();
     }
-
     function highlight() {
         code.forEach(function (code) {
             // console.log(code)
             hljs.highlightBlock(code);
 
-        })
+        });
     }
-
     server.on('content-Loaded', init);
 
     return {
         init: init
+    };
+})();
+
+
+var titleH2defineChapter = function () {
+    var contentFirstElement = document.querySelector('.content').firstElementChild;
+    iterate(contentFirstElement);
+
+    var currChapterContainerDiv;
+    function iterate(currElement){
+  
+        if(currElement.tagName == 'H2'){
+            currChapterContainerDiv = document.createElement('DIV');
+            currChapterContainerDiv.classList.add('capitulo');
+            currElement.insertAdjacentElement('beforebegin', currChapterContainerDiv);
+        }
+
+        if(currChapterContainerDiv != undefined){
+            currChapterContainerDiv.insertAdjacentElement('beforeend', currElement);   
+            currElement = currChapterContainerDiv;
+        }
+
+        //recursive
+        if (currElement.nextElementSibling != undefined){
+            iterate(currElement.nextElementSibling);
+        }
+        else{
+            return;
+        } 
     }
 
-})()
-
-
-var formatH2 = function () {
-
-    var content = document.querySelectorAll('H2');
-    // console.log(content);
-
-    content.forEach(lala => lala.insertAdjacentHTML('beforebegin', '<hr>'));
-
-
-}
+};

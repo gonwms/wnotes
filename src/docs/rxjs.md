@@ -1,55 +1,43 @@
 # RxJs - Subjets event emitter
 Reactive Extensions (Rx) Library for Javascript. 
 
-## Operate colections
+## Collections Operations 
 Most of the operations you perform on collections can be accomplished with five simple functions
 
-- map
-- arr.filter
-- concatAll
-
-### map
-
+### map & 
 ```javascript
 arr = [3,3,2]
 arr.map((item)=> item + 1)  // arr = [4,4,3]
 ```
-### concatMap
-
 ### filter
 ```javascript
 arr = [3,3,2]
-arr.filter(item => {
-      if(item > 2){
-            return item
-      }
-})
+arr.filter(item => { if(item > 2){ return item } })
 ```
-
 ### concatAll
-
+usando **concatMap** en vez de map, se ahorra hacer el concatAll al final.
 ```javascript
-obj.map(item =>item}).concatAll();
+arr.map(item =>item}).concatAll();
 ```
-
 ### reduce
-
 ```javascript
-arr = [3,3,2]
+arr = [3,3,3]
 initialValue = 1
-
 arr.reduce((acc, curr) =>{
-	return acc + curr
+	return acc + curr //10
 },initialValue)
-
 ```
-
 ### zip
-
 ```javascript
-},initialValue)
-
+var arrA = ['a','b','c'];
+var arrB = ['1','2','3'];
+Array.zip(arrA, arrB, function(a,b){
+      return [a, b] //[["a", "1"],["b", "2"],["c", "3"]]
+});
 ```
+
+
+
 
 ## RxJs - Subjets event emitter
 how do I create a custom event emitter like eventemitter2.js

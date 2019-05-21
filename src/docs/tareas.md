@@ -3,28 +3,25 @@
 ## Links
 - [MarkDown Quick Guide](https://www.markdownguide.org/basic-syntax/)
 - [Javascript cheetSheet](http://overapi.com/javascript)
+- [JavaScript Design Patterns](https://github.com/Badacadabra/JavaScript-Design-Patterns)
 
 ## ToDo
 
-![](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "asd")
-[click aqui](https://www.mozilla.org)
-
-- [x] Aprender MVC
+- [x] MVC [link](https://www.awwwards.com/build-a-simple-javascript-app-the-mvc-way.html)
 - [x] ToDo list  TodoMVC  [link](https://github.com/tastejs/todomvc/tree/master/examples)
-- [x] https://www.awwwards.com/build-a-simple-javascript-app-the-mvc-way.html
-- [ ] Udacity design pattens [link](https://classroom.udacity.com/courses/ud989)
-- [ ] webpack 
 - [ ] webpack https://stackoverflow.com/questions/35220470/best-way-to-make-accessible-api-with-es6-modules
-- [x] armar todo app pokpok (básico!)
 - [x] subir a firebase
-- [x] convertir en WPA
-- [ ] convertir en WPA - Tutorial PWA 130 capitulos
+- [x] convertir en WPA [Demo PWA](https://github.com/gokulkrishh/demo-progressive-web-app)
+- [x] convertir en WPA - Tutorial PWA 130 capitulos
+- [ ] Design Pattens [link 1](https://classroom.udacity.com/courses/ud989), [link 2](https://github.com/Badacadabra/JavaScript-Design-Patterns)
 
-[Demo PWA](https://github.com/gokulkrishh/demo-progressive-web-app) en github
-
+## Animación
+[chris gannon](https://gannon.tv/)  
+[GSAP](https://greensock.com/)  
 
 ## Aprender:
 
 1. Using a Subject as an Event Bus . [ver curso](https://egghead.io/lessons/rxjs-using-a-subject-as-an-event-bus)
 1. Unit Test Jester or Mocha
+1. Rxjs
 1. Aprender React

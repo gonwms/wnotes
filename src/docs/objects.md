@@ -77,7 +77,7 @@ var perro = {
 	relacion  :'mejor amigo' ,
 	ladrar    :function(){console.log('guau guau!!')},
 	}
-	var firulais = Object.assign(pichu,firulais)
+var firulais = Object.assign(pichu,firulais)
 
 ```
 

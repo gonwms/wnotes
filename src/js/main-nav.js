@@ -33,7 +33,7 @@ var mainNav = (function () {
             //UI
             if (e.target.tagName == 'LI' || e.target.tagName == 'A') {
                 var tiempo = 0.0077;
-                console.log(e.target.closest('LI').childNodes[0]);
+                // console.log(e.target.closest('LI').childNodes[0]);
 
                 var t = e.target.closest('LI').firstChild;
 
@@ -50,7 +50,7 @@ var mainNav = (function () {
                     v: Math.abs((targetShape.y - currShape.y) * tiempo / 2).toFixed(2),
                     h: Math.abs((targetShape.w - currShape.w) * tiempo / 2).toFixed(1)
                 }
-                console.log(velocidad.h);
+                // console.log(velocidad.h);
 
                 var highlight = document.querySelector('.highlight');
                 highlight.style.cssText += `
@@ -68,7 +68,7 @@ var mainNav = (function () {
                 //logic
                 e.preventDefault();
                 var link = t['href'];
-                if (link != null) { server.emit("item-clicked", link) };
+                if (link != null) { server.emit("item-clicked", link) }
             }
         });
     };

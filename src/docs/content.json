@@ -1,6 +1,14 @@
 {
 	"list": [
 		{
+			"name": "DOM",
+			"imgURL": "/docs/file.jpg"
+		},
+		{
+			"name": "GSAP",
+			"imgURL": "/docs/file.jpg"
+		},
+		{
 			"name": "Array",
 			"imgURL": "/docs/file.jpg"
 		},
@@ -9,9 +17,22 @@
 			"imgURL": "/docs/file.jpg"
 		},
 		{
-			"name": "DOM",
+			"name": "Math",
 			"imgURL": "/docs/file.jpg"
 		},
+		{
+			"name": "Strings",
+			"imgURL": "/docs/file.jpg"
+		},
+		{
+			"name": "RegEx",
+			"imgURL": "/docs/file.jpg"
+		},
+		{
+			"name": "Es6",
+			"imgURL": "/docs/file.jpg"
+		},
+
 		{
 			"name": "CSS",
 			"imgURL": "/docs/file.jpg"
@@ -25,10 +46,6 @@
 			"imgURL": "/docs/file.jpg"
 		},
 		{
-			"name": "Functional-JS",
-			"imgURL": "/docs/file.jpg"
-		},
-		{
 			"name": "Git",
 			"imgURL": "/docs/file.jpg"
 		},
@@ -38,10 +55,6 @@
 		},
 		{
 			"name": "Patterns",
-			"imgURL": "/docs/file.jpg"
-		},
-		{
-			"name": "RegEx",
 			"imgURL": "/docs/file.jpg"
 		},
 		{

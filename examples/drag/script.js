@@ -1,4 +1,4 @@
-'use strict';
+"use strict"
 
 
 function debounce(func, wait = 0, immediate = true) {
@@ -14,7 +14,7 @@ function debounce(func, wait = 0, immediate = true) {
 		timeout = setTimeout(later, wait);
 		if (callNow) func.apply(context, args);
 	};
-};
+}
 
 
 
@@ -23,9 +23,9 @@ function debounce(func, wait = 0, immediate = true) {
 //*:::::::::::::::::::::::::::::::::::::::::::: | DRAG & DROP  2 | :::::::::::::::::::::::::::::::::::::::::::*/
 document.addEventListener('DOMContentLoaded', () => {
 	
-	dragAndDropAproach.init()
+	dragAndDropAproach.init();
 	// mouseEventsAproach()
-})
+});
 
 var dragAndDropAproach = (function () {
 	//global var
@@ -36,9 +36,9 @@ var dragAndDropAproach = (function () {
 
 
 	function init(){
-		nodes = document.querySelectorAll('.dropzone')
+		nodes = document.querySelectorAll('.dropzone');
 		
-		handlerEvents()
+		handlerEvents();
 		
 		// console.log('NEW-----------------------');
 		// console.table(allZones,'id');	
@@ -62,26 +62,26 @@ var dragAndDropAproach = (function () {
 			//remove
 			
 			if (count > 0){
-				zone.removeEventListener('dragstart' ,	dragStartHandler ,false)
-				zone.removeEventListener('dragover'  ,	dragOverHandler  ,false)
-				zone.removeEventListener('dragenter' ,	dragEnterHandler ,false)
-				zone.removeEventListener('dragleave' ,	dragLeaveHandler ,false)
-				zone.removeEventListener('drop'      ,	dropHandler      ,false)
-				zone.removeEventListener('dragend'   ,	dragEndHandler   ,false)
+				zone.removeEventListener('dragstart' ,	dragStartHandler ,false);
+				zone.removeEventListener('dragover'  ,	dragOverHandler  ,false);
+				zone.removeEventListener('dragenter' ,	dragEnterHandler ,false);
+				zone.removeEventListener('dragleave' ,	dragLeaveHandler ,false);
+				zone.removeEventListener('drop'      ,	dropHandler      ,false);
+				zone.removeEventListener('dragend'   ,	dragEndHandler   ,false);
 			}
 
 			//add
-			zone.addEventListener( 'dragstart' , dragStartHandler	,false)
-			zone.addEventListener( 'dragover'  , dragOverHandler 	,false)
-			zone.addEventListener( 'dragenter' , dragEnterHandler	,false)
-			zone.addEventListener( 'dragleave' , dragLeaveHandler	,false)
-			zone.addEventListener( 'drop'      , dropHandler 	 	,false)
-			zone.addEventListener( 'dragend'   , dragEndHandler  	,false)
+			zone.addEventListener( 'dragstart' , dragStartHandler	,false);
+			zone.addEventListener( 'dragover'  , dragOverHandler 	,false);
+			zone.addEventListener( 'dragenter' , dragEnterHandler	,false);
+			zone.addEventListener( 'dragleave' , dragLeaveHandler	,false);
+			zone.addEventListener( 'drop'      , dropHandler 	 	,false);
+			zone.addEventListener( 'dragend'   , dragEndHandler  	,false);
 		
 
 			
-		})
-		count ++
+		});
+		count ++;
 		
 		
 	}
@@ -90,7 +90,7 @@ var dragAndDropAproach = (function () {
 
 		Array.from(nodes).forEach((zone, index, arr) => {
 			///...		
-		})
+		});
 	}
 
 
@@ -110,7 +110,7 @@ var dragAndDropAproach = (function () {
 
 	var onDragOver = function (zone, index, arr,evt) {			
 			evt.preventDefault();// prevent default to allow drop
-	}
+	};
 		
 	var onDragEnter = function (zone, index, arr ,evt) {
 		evt.preventDefault();
@@ -142,25 +142,25 @@ var dragAndDropAproach = (function () {
 		evt.target.classList.remove('active_dropzone');
 
 		arr.forEach((el, i) => {
-				var item = new ZoneParameters(zone, index) 
-				item.child.style.transform = `translateY(0)`;		
-		})
+				var item = new ZoneParameters(zone, index);
+				item.child.style.transform = `translateY(0)`
+		});
 	};
 
 
 	var onDrop = function(zone, index, arr, evt) {
 		evt.target.classList.remove('active_dropzone');
 		arr.map((el, i) => {
-			el.childNodes[0].style.transition = 'none'
-			el.childNodes[0].style.removeProperty('transform')
+			el.childNodes[0].style.transition = 'none';
+			el.childNodes[0].style.removeProperty('transform');
 		})		
 		if(origin.index < target.index){
-			target.el.insertAdjacentElement('afterend', origin.el)
+			target.el.insertAdjacentElement('afterend', origin.el);
 
 
 		}
 		else{
-			 target.el.insertAdjacentElement('beforebegin', origin.el)
+			 target.el.insertAdjacentElement('beforebegin', origin.el);
 		} 
 
 	};
@@ -172,25 +172,25 @@ var dragAndDropAproach = (function () {
 		//unhide original dragged item
 		window.requestAnimationFrame(() => evt.target.style.visibility = 'visible');
 		arr.forEach((el, i) => {
-			el.childNodes[0].style.removeProperty('transition')
-		})
+			el.childNodes[0].style.removeProperty('transition');
+		});
 
 
 
-		removeHandlerEvents()
-		handlerEvents()
+		removeHandlerEvents();
+		handlerEvents();
 		// init()
 		nodes = document.querySelectorAll('.dropzone')
-		arr = Array.from(nodes)
+		arr = Array.from(nodes);
 
 
-		console.log('fin')
+		console.log('fin');
 		// console.table(arr,'id');
 
 	}
 
 	function logZones(){
-		console.log(allZones);
+
 	}
 
 	function ZoneParameters (zone, index, el ) {
@@ -206,9 +206,9 @@ var dragAndDropAproach = (function () {
 	return{
 		init:init,
 		logZones:logZones
-	}
+	};
 
-})()
+})();
 
 
 

@@ -1,7 +1,22 @@
-# Functional Js
+# es6
+
+## This
+```javascript
+//#1
+foo(); //-> Simple función. "this" == global objet (window)
+
+//#2
+miObjeto.foo();//-> Función en el contexto de un objeto. "this" == miObjeto
+
+//#3
+new foo();//-> New, "this" == nuevo objeto creado por la función
+
+//#4
+foo.call(objeto)// call. "this" == lo define call 
+```
+
 
 ## promises
-
 ```javascript
 var N = [0,1,2,3]
 var L = ["A","m", "n"]
