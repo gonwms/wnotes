@@ -1,3 +1,6 @@
 # Node
+## set proyect JSON
+`npm init`
 
-> $ http-server
+## server
+`$ http-server`
