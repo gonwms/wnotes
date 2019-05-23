@@ -1,21 +1,33 @@
-// {
-//   "name": "wnotes",
-//   "version": "1.0.0",
-//   "description": "notas de estudio",
-//   "main": "./js",
-
-//   "devDependencies": {
-//     "jest": "^24.3.1"
-//   },
-//   "scripts": {
-//     "start":"http-server",
-//     "test": "jest --watchAll"
-//   },
-
-//   "jest": {
-//     "verbose": true,
-//     "testURL": "http://192.168.1.5:8080"
-//   },
-
-//   "author": "GAW"
-// }
+{
+  "name": "wnotes",
+  "version": "1.0.0",
+  "description": "markdown notes index notes",
+  "main": "src/js/app.js",
+  "directories": {
+    "example": "examples"
+  },
+  "dependencies": {
+    "eventemitter2": "^5.0.1"
+  },
+  "devDependencies": {
+    "highlightjs": "^9.12.0"
+  },
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gonwms/wnotes.git"
+  },
+  "keywords": [
+    "markdow",
+    "github-page",
+    "notes"
+  ],
+  "author": "gwms",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gonwms/wnotes/issues"
+  },
+  "homepage": "https://github.com/gonwms/wnotes#readme"
+}

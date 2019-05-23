@@ -1,5 +1,11 @@
-# RxJs - Subjets event emitter
-Reactive Extensions (Rx) Library for Javascript. 
+# Reactive programing RxJs
+Reactive Extensions (Rx) Library for Javascript.  
+[RxEmitter](https://github.com/a-jie/RxEmitter)  
+[TUTORIAL-using-a-subject-as-an-event-bus](https://egghead.io/lessons/rxjs-using-a-subject-as-an-event-bus)  
+[post original](https://github.com/Reactive-Extensions/RxJS/blob/master/doc/howdoi/eventemitter.md)  
+[oficial docs](http://reactivex.io/rxjs/manual/overview.html#introduction)  
+[referencias](https://www.learnrxjs.io/)  
+[ayuda visual](https://rxmarbles.com/)  
 
 ## Collections Operations 
 Most of the operations you perform on collections can be accomplished with five simple functions
@@ -195,9 +201,3 @@ Igual al  eventemiter de N0ode. El intermediario se llama message broker or even
 
 Un eventemiiter hecho con rxjs!!!
 
-- [RxEmitter](https://github.com/a-jie/RxEmitter)
-- [TUTORIAL-using-a-subject-as-an-event-bus](https://egghead.io/lessons/rxjs-using-a-subject-as-an-event-bus)
-- [post original](https://github.com/Reactive-Extensions/RxJS/blob/master/doc/howdoi/eventemitter.md)
-- [oficial docs](http://reactivex.io/rxjs/manual/overview.html#introduction)
-- [referencias](https://www.learnrxjs.io/)
-- [ayuda visual](https://rxmarbles.com/)

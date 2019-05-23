@@ -1,5 +1,5 @@
 'use strict'
-
+// import {EventEmitter2} from '../../node_modules/eventemitter2/index.js';  
 let server = new EventEmitter2();
 var contentList;
 

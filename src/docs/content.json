@@ -25,10 +25,6 @@
 			"imgURL": "/docs/file.jpg"
 		},
 		{
-			"name": "RegEx",
-			"imgURL": "/docs/file.jpg"
-		},
-		{
 			"name": "Es6",
 			"imgURL": "/docs/file.jpg"
 		},
@@ -50,11 +46,15 @@
 			"imgURL": "/docs/file.jpg"
 		},
 		{
-			"name": "Rxjs",
+			"name": "Reactive RxJs",
 			"imgURL": "/docs/file.jpg"
 		},
 		{
 			"name": "Patterns",
+			"imgURL": "/docs/file.jpg"
+		},
+		{
+			"name": "RegEx",
 			"imgURL": "/docs/file.jpg"
 		},
 		{

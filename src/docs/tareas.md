@@ -22,7 +22,7 @@
 ## Aprender:
 
 1. RXJS - Subject as an Event Bus . [ver curso](https://egghead.io/lessons/rxjs-using-a-subject-as-an-event-bus)
-1. Unit Test Jester or Mocha 
+1. Unit Test: Jester or Mocha 
 1. Webpack: 
 	- [First Principles](https://www.youtube.com/watch?v=WQue1AN93YU)
 	- [webpack ease ](https://medium.com/@aganglada/webpack-is-easy-44fef4619a06)
