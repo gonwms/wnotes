@@ -133,4 +133,30 @@
 - justify-self
 - align-self
 
+
+## align Justify CONTENT
+
+- normal
+- start
+- end
+- center
+- stretch
+- space-around
+- space-between
+- space-evenly
+- baseline
+- first baseline
+- last baseline
+
+## Align Justify ITEMS
+- auto
+- normal
+- start
+- end
+- center
+- stretch
+- baseline
+- first baseline
+- last baseline
+
 [click grid](wwww.wgon.tk/docs/grid/grid.html)
