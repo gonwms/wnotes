@@ -24,7 +24,7 @@
 1. RXJS - Subject as an Event Bus . [ver curso](https://egghead.io/lessons/rxjs-using-a-subject-as-an-event-bus)
 1. Unit Test: Jester or Mocha 
 1. Webpack: 
-	- [First Principles](https://www.youtube.com/watch?v=WQue1AN93YU)
+	- [First Principles (video)](https://www.youtube.com/watch?v=WQue1AN93YU)
 	- [webpack ease ](https://medium.com/@aganglada/webpack-is-easy-44fef4619a06)
 	- [webpack ease: Loaders and plugins](https://medium.com/@aganglada/webpack-is-easy-loaders-and-plugins-7bddd166c652)
 1. Rxjs

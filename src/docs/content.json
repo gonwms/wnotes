@@ -46,6 +46,10 @@
 			"imgURL": "/docs/file.jpg"
 		},
 		{
+			"name": "Webpack",
+			"imgURL": "/docs/file.jpg"
+		},
+		{
 			"name": "Reactive RxJs",
 			"imgURL": "/docs/file.jpg"
 		},
