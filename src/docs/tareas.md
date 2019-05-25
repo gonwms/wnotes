@@ -18,6 +18,8 @@
 	- [chris gannon](https://gannon.tv/)
 - Rxjs
 	- [RxJS oficial docs](http://reactivex.io/rxjs/manual/overview.html#introduction)
+	- [learnrx - ejercicios](http://reactivex.io/learnrx/)
+	- [RxJS Marbles](https://rxmarbles.com/#concatMap)
 	- [learnRxJS.io](https://www.learnrxjs.io/)
 	- [Subjet as event bus](https://egghead.io/lessons/rxjs-using-a-subject-as-an-event-bus)
 - Design Pattens
