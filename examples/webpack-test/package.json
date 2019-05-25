@@ -1,17 +1,18 @@
 {
-  "name": "webpack-test",
-  "version": "1.0.0",
-  "description": "webpack test",
-  "main": "js/app.js",
-  "scripts": {
-      "test": "echo \"Error: no test specified\" && exit 1",
-      "dev": "webpack-dev-server --env.development", 
-      "prod": "webpack --env.production"
-  },
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
-      "webpack": "^4.32.2",
-      "webpack-dev-server": "^3.4.1"
-  }
+    "name": "webpack-test",
+    "version": "1.0.0",
+    "description": "webpack test",
+    "private": true,
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "dev": "webpack-dev-server --env.development",
+        "prod": "webpack --env.production"
+    },
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "webpack": "^4.32.2",
+        "webpack-cli": "^3.3.2",
+        "webpack-dev-server": "^3.4.1"
+    }
 }
