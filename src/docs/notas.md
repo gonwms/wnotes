@@ -29,9 +29,7 @@
 - Aprender React
 
 
-
 ## ToDo app
-
 - [x] MVC [link](https://www.awwwards.com/build-a-simple-javascript-app-the-mvc-way.html)  
 - [x] ToDo list  TodoMVC  [link](https://github.com/tastejs/todomvc/tree/master/examples)  
 - [x] subir a firebase  
