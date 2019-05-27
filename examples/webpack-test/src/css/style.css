@@ -35,11 +35,11 @@ div.der{
     background:#cb138c;
 }
 
-h1{
+.titulo{
     color:#fff;
     font-family:sans-serif;
     left:calc(50% - 150px);
     width:300px;
-    font-size:50px;
+    font-size:80px;
     text-align:center
 }
