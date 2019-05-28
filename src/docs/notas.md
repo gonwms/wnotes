@@ -14,6 +14,7 @@
 	- [GSAP](https://greensock.com/)
 	- [GreenSock 101 -playlist](https://www.youtube.com/watch?v=LRLt0T1CFIQ&list=PLkEZWD8wbltlSS_d_7tx_H_FBNVro8918&index=11&frags=wn)
 	- [Inline SVG is Best SVG](https://www.youtube.com/watch?v=af4ZQJ14yu8)
+	- [organize animation](https://css-tricks.com/writing-smarter-animation-code/#article-header-id-5)
 	- [Advanced SVG: writing SVG code](https://www.youtube.com/watch?v=q_3Q9HHcXuA)
 	- [chris gannon](https://gannon.tv/)
 - Rxjs
