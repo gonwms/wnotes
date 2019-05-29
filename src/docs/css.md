@@ -102,13 +102,13 @@
 
 ## Grid
 
-### Explicit:
+### Explicit
 	
 - grid-template-columns
 - grid-template-rows
 - grid-template-areas
 
-### Implicit:
+### Implicit
 
 - grid-auto-columns
 - grid-auto-rows
@@ -134,7 +134,7 @@
 - align-self
 
 
-## align Justify CONTENT
+### align Justify CONTENT
 
 - normal
 - start
@@ -148,7 +148,7 @@
 - first baseline
 - last baseline
 
-## Align Justify ITEMS
+### Align Justify ITEMS
 - auto
 - normal
 - start
