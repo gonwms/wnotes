@@ -13,16 +13,21 @@
 - GSAP
 	- [GSAP](https://greensock.com/)
 	- [GreenSock 101 -playlist](https://www.youtube.com/watch?v=LRLt0T1CFIQ&list=PLkEZWD8wbltlSS_d_7tx_H_FBNVro8918&index=11&frags=wn)
-	- [Inline SVG is Best SVG](https://www.youtube.com/watch?v=af4ZQJ14yu8)
 	- [organize animation](https://css-tricks.com/writing-smarter-animation-code/#article-header-id-5)
-	- [Advanced SVG: writing SVG code](https://www.youtube.com/watch?v=q_3Q9HHcXuA)
 	- [chris gannon](https://gannon.tv/)
+- SVG
+	- [svg practical guide](https://svgontheweb.com/)
+	- [hand code svg](https://webdesign.tutsplus.com/tutorials/how-to-hand-code-svg--cms-30368)
+	- [Advanced SVG: writing SVG code](https://www.youtube.com/watch?v=q_3Q9HHcXuA)
+	- [Inline SVG is Best SVG](https://www.youtube.com/watch?v=af4ZQJ14yu8)
+- Lottie  
+	- [Lottie Documentation](https://github.com/airbnb/lottie-web)  
 - Rxjs
 	- [RxJS oficial docs](http://reactivex.io/rxjs/manual/overview.html#introduction)
 	- [learnrx - ejercicios](http://reactivex.io/learnrx/)
 	- [RxJS Marbles](https://rxmarbles.com/#concatMap)
 	- [learnRxJS.io](https://www.learnrxjs.io/)
-	- [Subjet as event bus](https://egghead.io/lessons/rxjs-using-a-subject-as-an-event-bus)
+	- [Subjet as event bus](https://egghead.io/lessons/rxjs-using-a-subject-as-an-event-bus) 
 - Design Pattens
 	- [github - JavaScript-Design-Patterns](https://github.com/Badacadabra/JavaScript-Design-Patterns)
 	- [MVC udacity](https://classroom.udacity.com/courses/ud989)
