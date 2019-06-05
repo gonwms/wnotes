@@ -7,7 +7,7 @@
       "private": true,
       "scripts": {
             "server": "webpack-dev-server",
-            "build": "webpack"
+            "build": "webpack --watch"
       },
       "devDependencies": {
             "css-loader": "^2.1.1",
