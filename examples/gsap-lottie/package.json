@@ -4,9 +4,7 @@
       "description": "animación test",
       "main": "/js/app.js",
       "author": "GAW",
-          
       "private": true,
-
       "scripts": {
             "server": "webpack-dev-server",
             "build": "webpack"

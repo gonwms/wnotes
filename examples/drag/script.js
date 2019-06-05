@@ -53,12 +53,12 @@ var dragAndDropAproach = (function () {
 		console.log(count);
 		Array.from(nodes).forEach((zone, index, arr) => {
 
-			function dragStartHandler (evt){ onDragStart (zone, index, arr, evt) }
-			function dragOverHandler  (evt){ onDragOver  (zone, index, arr, evt) }
-			function dragEnterHandler (evt){ onDragEnter (zone, index, arr, evt) }
-			function dragLeaveHandler (evt){ onDragLeave (zone, index, arr, evt) }
-			function dropHandler      (evt){ onDrop      (zone, index, arr, evt) }
-			function dragEndHandler   (evt){ onDragEnd   (zone, index, arr, evt) }
+			function dragStartHandler (evt){ onDragStart (zone, index, arr, evt) };
+			function dragOverHandler  (evt){ onDragOver  (zone, index, arr, evt) };
+			function dragEnterHandler (evt){ onDragEnter (zone, index, arr, evt) };
+			function dragLeaveHandler (evt){ onDragLeave (zone, index, arr, evt) };
+			function dropHandler      (evt){ onDrop      (zone, index, arr, evt) };
+			function dragEndHandler   (evt){ onDragEnd   (zone, index, arr, evt) };
 			//remove
 			
 			if (count > 0){

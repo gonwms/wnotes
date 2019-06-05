@@ -1,16 +1,20 @@
-// import {TweenMax, CSSPlugin, ScrollToPlugin, Draggable, Elastic} from "gsap/all";
 var lottie = require('lottie-web');
-var ltControl = require('./ltcontrol');
-var log = ltControl.log;
-var clickHandler = ltControl.clickHandler;
+require ('../css/style.css');
+// import '../css/style.css';
+const { enterFrameHandler, dataReadyHandler, clickHandler } = require('./ltcontrol');
+// import { lottie } from 'lottie-web';
+// import { TweenLite, CSSPlugin, ScrollToPlugin, Draggable, Elastic} from "gsap/all";
+var {TweenLite, CSSPlugin} =require('gsap/all');
+// var gsap = require('gsap/all');
+// import { enterFrameHandler, dataReadyHandler, clickHandler } from './ltcontrol';
 
 addEventListener('DOMContentLoaded', DOMContentLoadedFn);
-
 function DOMContentLoadedFn() {
-	log();
+	
+	/*LOTTIE*/ 
+	
 	var container = document.querySelector('BODY');
-	// container.innerHTML = '<li>hola</li>';
-
+	var list = document.querySelector('UL');
 	var animation = lottie.loadAnimation({
 		container: container, // the dom element that will contain the animation
 		renderer: 'svg',
@@ -19,11 +23,15 @@ function DOMContentLoadedFn() {
 		path: 'src/img/bluebar_anim.json', // the path to the animation json
 		name: 'hola mundo',
 	});
-
-	// animation.addEventListener('enterFrame', ltControl.enterFrameHandler);
-	// animation.addEventListener('data_ready', ltControl.dataReadyHandler);
 	var direction = 1;
-	container.addEventListener('click', clickHandler(animation));
+	animation.addEventListener('enterFrame', enterFrameHandler);
+	animation.addEventListener('data_ready', dataReadyHandler);
+	container.addEventListener('click', clickHandler.bind(animation));
+
+
+	/*GSAP*/
+	TweenLite.from(list,1,{opacity:0.0, x:80});
+	// TweenLite.fromTO(list,1,{opacity:0.0, x:80,});
 
 }
 

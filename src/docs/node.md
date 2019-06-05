@@ -1,4 +1,7 @@
 # Node
+## list of globally installed packages
+`npm list -g --depth 0` 
+
 ## set proyect JSON
 `npm init`
 
@@ -30,6 +33,9 @@ Simply change every dependency's version to *, then run update
 ```javascript
 var lottie = require('lottie-web'); // busca en la carpeta node_modules.
 var myfunction = require('./myfunction'); // busca en la carpeta actual.
+
+// destructing 
+const { enterFrameHandler, dataReadyHandler, clickHandler } = require('./ltcontrol'); 
 ```
 
 ### Exports
@@ -44,6 +50,25 @@ module.exports = {
   sayBye: sayBye
 }
 
+```
+
+## import & export
+
+### import
+```javascript
+import { loadAnimation } from 'lottie-web';
+import { myfunction1, myfunction2, myfunction3 } from './myscript';
+```
+
+### Exports
+```javascript
+function myfunction1(){  //....}
+function myfunction2(){  //....}
+
+export{
+  myfunction1,
+  myfunction2,
+}
 ```
 
 ## server
