@@ -1,0 +1,33 @@
+{
+  "name": "wnotes",
+  "version": "1.0.0",
+  "description": "markdown notes index notes",
+  "main": "src/js/app.js",
+  "directories": {
+    "example": "examples"
+  },
+  "dependencies": {
+    "eventemitter2": "^5.0.1"
+  },
+  "devDependencies": {
+    "highlightjs": "^9.12.0"
+  },
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gonwms/wnotes.git"
+  },
+  "keywords": [
+    "markdow",
+    "github-page",
+    "notes"
+  ],
+  "author": "gwms",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gonwms/wnotes/issues"
+  },
+  "homepage": "https://github.com/gonwms/wnotes#readme"
+}

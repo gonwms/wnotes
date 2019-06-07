@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="ie=edge">
+      <link rel="stylesheet" href="style.css">
+      <title>::::: Lottie Js ::::</title>
+
+</head>
+
+<body>
+      <div class="container">acá </div>
+      <div class="container2">aqui </div>
+</body>
+
+
+</html>
+
+<script src="lottie.js" type="text/javascript"></script>
+
+<script>
+
+var container = document.querySelector('.container')
+var container2 = document.querySelector('.container2')
+var animation = lottie.loadAnimation({
+      container: container, // the dom element that will contain the animation
+      renderer: 'svg',
+      loop: false,
+      autoplay: true,
+      path: 'data.json', // the path to the animation json
+      name: 'hola mundo',
+
+});
+var direction = 1
+animation.setSpeed(3)
+animation.addEventListener('enterFrame', enterFrameHandler);
+animation.addEventListener('data_ready', dataReadyHandler) 
+container.addEventListener('click', clickHandler) 
+
+
+
+
+
+function dataReadyHandler(){
+      // console.log('animation un frames:', animation.getDuration(true),'f',      '-  animation in seconds:', animation.getDuration(false)+'s' )
+      console.log('dataready');   
+      console.dir(animation)
+      console.dir(lottie) 
+}
+function enterFrameHandler(data) {
+	console.log(data);
+}
+
+function clickHandler(){
+      direction = direction * -1
+      animation.setDirection(direction)
+      animation.play();     
+}
+</script>
