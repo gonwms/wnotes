@@ -10,7 +10,7 @@ function enterFrameHandler(data) {
 
 var direction = 1;
 function clickHandler(){
-	console.log('pércido curtido');
+	console.log('sosa curtido');
 	direction = direction * -1;
 	this.setDirection(direction);
 	this.play();    
