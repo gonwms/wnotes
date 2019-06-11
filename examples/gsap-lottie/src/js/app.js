@@ -1,12 +1,12 @@
 var lottie = require('lottie-web');
 require ('../css/style.css');
 // import '../css/style.css';
-const { enterFrameHandler, dataReadyHandler, clickHandler } = require('./ltcontrol');
+const { enterFrameHandler, dataReadyHandler, clickHandler } = require('./loose/ltcontrol');
 // import { lottie } from 'lottie-web';
 // import { TweenLite, CSSPlugin, ScrollToPlugin, Draggable, Elastic} from "gsap/all";
 var {TweenLite, CSSPlugin} =require('gsap/all');
 // var gsap = require('gsap/all');
-// import { enterFrameHandler, dataReadyHandler, clickHandler } from './ltcontrol';
+// import { enterFrameHandler, dataReadyHandler, clickHandler } from './loose/ltcontrol';
 
 addEventListener('DOMContentLoaded', DOMContentLoadedFn);
 function DOMContentLoadedFn() {
@@ -20,7 +20,7 @@ function DOMContentLoadedFn() {
 		renderer: 'svg',
 		loop: false,
 		autoplay: true,
-		path: 'src/img/bluebar_anim.json', // the path to the animation json
+		path: '/img/bluebar_anim.json', // the path to the animation json
 		name: 'hola mundo',
 	});
 	var direction = 1;
@@ -30,7 +30,7 @@ function DOMContentLoadedFn() {
 
 
 	/*GSAP*/
-	TweenLite.from(list,1,{opacity:0.0, x:80});
+	// TweenLite.from(list,1,{opacity:0.0, x:80});
 	// TweenLite.fromTO(list,1,{opacity:0.0, x:80,});
 
 }
