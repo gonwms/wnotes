@@ -8,8 +8,8 @@
       "scripts": {
             "server": "webpack-dev-server",
             "build": "webpack",
-            "start": "babel-node --presets es2015 app.js",
-            "watch": "webpack --watch"
+            "watch": "webpack --watch",
+            "start": "babel-node --presets es2015 app.js"
       },
       "devDependencies": {
             
