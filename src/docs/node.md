@@ -12,9 +12,12 @@ npm install <package-name> -D //instala as dev-dependencies
 ```
 
 ## Install All Dependencies
-1. Complete the package.json with all dependencies and devDependencies.
-1. then run   
+ Complete the package.json with all dependencies and devDependencies. then:
 `$ npm install`
+
+## Unistall all unused depencies
+`$ npm prune`
+`$ npm prune --production`
 
 ## Update all dependencies
 Simply change every dependency's version to *, then run update
@@ -34,7 +37,7 @@ Simply change every dependency's version to *, then run update
 var lottie = require('lottie-web'); // busca en la carpeta node_modules.
 var myfunction = require('./myfunction'); // busca en la carpeta actual.
 
-// destructing 
+ // destructing 
 const { enterFrameHandler, dataReadyHandler, clickHandler } = require('./ltcontrol'); 
 ```
 

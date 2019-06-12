@@ -20,7 +20,7 @@ function DOMContentLoadedFn() {
 		renderer: 'svg',
 		loop: false,
 		autoplay: true,
-		path: '/img/bluebar_anim.json', // the path to the animation json
+		path: 'img/bluebar_anim.json', // the path to the animation json
 		name: 'hola mundo',
 	});
 	var direction = 1;
