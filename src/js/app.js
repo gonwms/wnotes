@@ -17,9 +17,9 @@ var contentList;
 
 				.catch(function (err) {
 					console.log("[Error] ********************* ", err + " ********************* /");
-				})
-		})
-})()
+				});
+		});
+})();
 
 	// (function loadcontentList() {
 
