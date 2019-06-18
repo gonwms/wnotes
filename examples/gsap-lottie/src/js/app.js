@@ -15,6 +15,7 @@ function DOMContentLoadedFn() {
 	
 	var container = document.querySelector('BODY');
 	var list = document.querySelector('UL');
+	
 	var animation = lottie.loadAnimation({
 		container: container, // the dom element that will contain the animation
 		renderer: 'svg',
@@ -31,7 +32,7 @@ function DOMContentLoadedFn() {
 
 	/*GSAP*/
 	// TweenLite.from(list,1,{opacity:0.0, x:80});
-	// TweenLite.fromTO(list,1,{opacity:0.0, x:80,});
+	TweenLite.fromTO(list,1,{opacity:0.0, x:80,});
 
 }
 

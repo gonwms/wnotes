@@ -3,7 +3,7 @@
       "version": "1.0.0",
       "description": "animación test",
       "main": "/src/js/app.js",
-      "author": "GAW",
+      "author": "gonwms",
       "private": true,
       "scripts": {
             "server": "webpack-dev-server",
