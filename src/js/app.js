@@ -4,7 +4,7 @@ let server = new EventEmitter2();
 var contentList;
 
 (function loadcontentList() {
-	fetch('src/docs/content.json')
+	fetch('../docs/content.json')
 		.then((response) => {
 			response.json()
 				.then((parsedJson) => {

@@ -207,7 +207,7 @@ d1.insertAdjacentHTML('afterend', '<div id="two">two</div>');
 
 ## Geometria
 
-![](src/docs/imgs/geometry.png "geometry")
+![](docs/imgs/geometry.png "geometry")
 
 ```javascript
 element.scrollHeight // ENTIRE  content & padding (visible or not)
