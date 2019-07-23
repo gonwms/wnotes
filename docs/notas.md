@@ -34,6 +34,7 @@
 	- [MVC udacity](https://classroom.udacity.com/courses/ud989)
 - Unit Test: Jester or Mocha 
 - Aprender React
+- Aprender Stripe (plataforma de pagos)
 
 
 ## ToDo app
