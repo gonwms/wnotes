@@ -120,3 +120,15 @@ db.collection("cities").where("state", "==", "CA")
         });
     });
 ```
+### batch
+Ejemplo que me pasó Fer
+```javascript
+updateAllCampaignsDate: function(newValue, field, campaigns){
+          var batch = db.batch();
+          campaigns.forEach((camp) => {
+            var temp = db.collection("campaigns").doc(camp.id);
+            batch.update(temp, {[field]: newValue});
+          });
+          batch.commit();
+        },
+```
