@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Clipboar</title>
+    <link rel="shortcut icon" href="https://cdn.iconscout.com/public/images/icon/premium/png-128/lightning-weather-forecast-cloud-cloudy-358f3dde3d2c5468-128x128.png"
+        type="image/x-icon">
+
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            text-align: center;
+
+        }
+
+        .container {
+            /* height: 100vh;  */
+            display: grid;
+            /* grid-template-columns: 3;
+        grid-template-rows: 3; */
+            align-items: center;
+            align-content: center;
+            justify-items: center;
+            /* overflow: hidden; */
+        }
+
+        h1 {
+            font-size: 34px;
+            line-height: 20px;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+
+        p {
+            font-size: 17px;
+            margin: 0
+        }
+
+
+        #main {
+            /* background: #f3f3f3;
+        width: 100vw;
+        height: 200px;
+        position: fixed;
+        border-bottom: 1px solid #e4e4e4;
+        top: 0;
+        align-items:center;
+        align-content:center;
+        justify-items:center; */
+        }
+
+        textarea {
+            height: 150px;
+            width: 600px;
+            outline: none;
+            overflow: hidden;
+            transition: all .2s;
+            transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
+            transform-origin: center;
+            margin-top: 50px;
+            color: rgb(212, 212, 212);
+            border: 1px solid #ececec;
+        }
+
+        textarea:focus {
+            outline: none;
+        }
+
+        textarea::placeholder {
+            font-size: 20px;
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .colapse {
+            height: 0px;
+            width: 600px;
+        }
+
+        .listo {
+            display: block;
+            text-align: center;
+            padding: 12px 30px;
+            border-radius: 2px;
+            background: #85bc80;
+            color: #fff;
+            position: relative;
+            top: 0px;
+            transition: all .5s;
+        }
+
+        .hide {
+            top: 20px;
+            visibility: hidden;
+            width: 200px;
+            height: 30px;
+        }
+
+        table {
+            /* height: 600px; */
+            top: 200px;
+            margin-top: 30px;
+            border-collapse: collapse;
+            overflow-y: scroll;
+        }
+
+        .Theader td {
+            font-size: 14px;
+            font-weight: 600;
+            padding: 20px 10px;
+            text-align: center;
+
+        }
+
+        td,th {
+            text-align: left;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 12px;
+            border: 1px solid #e7e7e7;
+            color: #313131;
+            padding: 11px 5px;
+            outline: 1px
+        }
+
+        th {
+            background: #f7f7f7;
+            border: 1px solid #eaeaea;
+            font-weight: 400;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <div id="main">
+            <h1>YANI V0.1</h1>
+            <p>Pegar tabla de Google</p>
+            <textarea placeholder="cmd + v"></textarea>
+            <h3 class="listo hide">listo!</h3>
+        </div>
+        <table cellspacing="0" cellpadding="0" border="0">
+        </table>
+    </div>
+
+    <script>
+        'use strict'
+        document.addEventListener('DOMContentLoaded', function () {
+
+            const inputZone = document.querySelector('textarea');
+            inputZone.addEventListener('input', spliter)
+
+            function spliter() {
+                var lista = [];
+                const arr = inputZone.value.split(/\n/gm);
+                arr.forEach(function (linea, i) {
+                    arr[i] = linea.split(/\x09/);
+
+                    var prod =
+                        new Producto(
+                            arr[i][0],
+                            arr[i][1],
+                            arr[i][2],
+                            arr[i][3],
+                            arr[i][4],
+                            arr[i][5],
+                            arr[i][6].split(','),
+                            arr[i][7],
+                        )
+                    lista.push(prod)
+                })
+                hideInputZone()
+                render(lista)
+
+            }
+
+            function Producto(pSku, pImg, pCategoria, pDesc, pTela, pTalles, pVar, pPrecio) {
+                this.pSku = pSku;
+                this.pImg = pImg;
+                this.pCategoria = pCategoria;
+                this.pDesc = pDesc;
+                this.pTela = pTela;
+                this.pTalles = pTalles;
+                this.pVar = pVar;
+                this.pPrecio = pPrecio;
+            }
+
+
+            // UI render
+            function hideInputZone() {
+                inputZone.classList.add('colapse')
+
+                inputZone.addEventListener('transitionend', function () {
+                    inputZone.style.display = 'none';
+                    document.querySelector('.listo').classList.remove('hide')
+                })
+            }
+
+
+            //Render Tabla
+            function render(lista) {
+                const tabla = document.querySelector('table');
+
+                // header de tabla
+                const row = document.createElement('tr');
+
+                row.classList.add('Theader')
+
+                row.innerHTML = `
+                                <td>ID</td>
+                                <td>Tipo</td>
+                                <td>SKU</td>
+                                <td>Nombre</td>
+                                <td>Superior</td>
+                                <td>Imágenes</td>
+                                <td>Categorías</td>
+                                <td>¿En inventario?</td>
+                                <td>Descripción</td>
+                                <td>Valor(es) del atributo 1</td>
+                                <td>Precio normal</td>
+                                <td>Atributo visible 1</td>
+                                <td>Nombre del atributo 1</td>
+                                <td>Atributo global 1</td>
+                                <td>Estado del impuesto</td>
+                            `
+
+                tabla.appendChild(row);
+
+                //rows th
+                lista.forEach(function (item, i) {
+
+                    function listarImagenes(i) {
+                        var str = ''
+                        for (let j = 0; j < lista[i].pImg; j++) {
+                            str = str + `www.x.com/img/${lista[i].pSku}_${j}<br>`;
+                        }
+                        return str;
+                    }
+
+                    const row = document.createElement('tr');
+
+                    row.innerHTML = `          
+                                    <th>ID</th>
+                                    <th>variable</th>
+                                    <th>${lista[i].pSku}</th>
+                                    <th>${lista[i].pSku}</th>
+                                    <th></th>
+                                    <th>${listarImagenes(i)}</th>
+                                    <th>${lista[i].pCategoria}</th>
+                                    <th>1</th>
+                                    <th><strong>Nombre: </strong>${lista[i].pDesc}<br>
+                                        <strong>Tela: </strong>${lista[i].pTela}<br>
+                                        <strong>Talles: </strong>${lista[i].pTalles}<br>
+                                        <strong>Colores: </strong>${lista[i].pVar}    
+                                    </th>
+                                    <th>${lista[i].pVar}</th>
+                                    <th>${lista[i].pPrecio}</th>
+                                    <th>1</th>
+                                    <th>Color</th>
+                                    <th>0</th>
+                                    <th>taxable</th>
+                                    `
+
+                    tabla.appendChild(row);
+
+
+
+                    //rows internas
+                    lista[i].pVar.forEach(function (item, j) {
+
+                        const row = document.createElement('tr');
+
+                        row.innerHTML = `
+
+                                        <td>ID</td>
+                                        <td>variation</td>
+                                        <td></td>
+                                        <td>${lista[i].pSku + '_' + lista[i].pVar[j]}</td>
+                                        
+                                        <td>${lista[i].pSku}</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td>1</td>
+                                        <td></th>
+                                        <td>${lista[i].pVar[j]}</td>
+                                        <td>${lista[i].pPrecio}</td>
+                                        <td>1</td>
+                                        <td>Color</td>
+                                        <td>0</td>
+                                        <td>taxable</td>
+                                        `
+                        tabla.appendChild(row);
+                    })
+                })
+            }
+
+        })
+
+    </script>
+
+</body>
+
+</html>
