@@ -7,7 +7,7 @@
 1. **$ firebase serve** - crea localhost en puerto 5000  - ctrl + c para terminar ejecución
 1. **$ firebase deploy** - sube la app a internet 
 1. Borrar todo lo de index.html menos los imports del Head
-1. crear un app.js al final del index.html
+1. crear archivo app.js y agregarlo al final del index.html
 
 ## custom domain
 
@@ -119,4 +119,16 @@ db.collection("cities").where("state", "==", "CA")
             }
         });
     });
+```
+### batch
+Ejemplo que me pasó Fer
+```javascript
+updateAllCampaignsDate: function(newValue, field, campaigns){
+          var batch = db.batch();
+          campaigns.forEach((camp) => {
+            var temp = db.collection("campaigns").doc(camp.id);
+            batch.update(temp, {[field]: newValue});
+          });
+          batch.commit();
+        },
 ```

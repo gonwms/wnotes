@@ -1,10 +1,10 @@
-'use strict'
+'use strict';
 // import {EventEmitter2} from '../../node_modules/eventemitter2/index.js';  
 let server = new EventEmitter2();
 var contentList;
 
 (function loadcontentList() {
-	fetch('src/docs/content.json')
+	fetch('../docs/content.json')
 		.then((response) => {
 			response.json()
 				.then((parsedJson) => {
@@ -17,9 +17,9 @@ var contentList;
 
 				.catch(function (err) {
 					console.log("[Error] ********************* ", err + " ********************* /");
-				})
-		})
-})()
+				});
+		});
+})();
 
 	// (function loadcontentList() {
 
@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', function () {
 	mainNav.init();
 	loadDocuments.init();
 	// htmlPluck.init();
-})
+});
 
 // var hello = function(){
 //  return 'Hello'

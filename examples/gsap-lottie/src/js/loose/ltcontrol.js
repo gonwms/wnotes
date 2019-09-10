@@ -1,4 +1,3 @@
-
 function dataReadyHandler(){
 	// console.log('animation un frames:', animation.getDuration(true),'f', '-  animation in seconds:', animation.getDuration(false)+'s' )
 	console.log('dataready');   
@@ -11,7 +10,7 @@ function enterFrameHandler(data) {
 
 var direction = 1;
 function clickHandler(){
-	console.log('mandraca');
+	console.log('sosa curtido');
 	direction = direction * -1;
 	this.setDirection(direction);
 	this.play();    

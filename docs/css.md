@@ -160,3 +160,4 @@
 - last baseline
 
 [click grid](wwww.wgon.tk/docs/grid/grid.html)
+[ejemplo](https://github.com/gonwms/wnotes/blob/master/examples/grid/style.css)

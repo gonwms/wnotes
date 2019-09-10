@@ -8,6 +8,7 @@
 ## Aprender:
 
 - Webpack
+	- [webpack examples github](https://github.com/webpack/webpack/tree/master/examples)
 	- [Getting Started (oficial docs)](https://webpack.js.org/guides/getting-started)
 	- [First Principles (video)](https://www.youtube.com/watch?v=WQue1AN93YU)
 - GSAP
@@ -33,6 +34,7 @@
 	- [MVC udacity](https://classroom.udacity.com/courses/ud989)
 - Unit Test: Jester or Mocha 
 - Aprender React
+- Aprender Stripe (plataforma de pagos)
 
 
 ## ToDo app

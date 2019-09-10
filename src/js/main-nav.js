@@ -20,12 +20,12 @@ var mainNav = (function () {
 
         contentList.list.forEach(function (o) {
             // console.log(Object.keys(o));  console.log(Object.values(o)); console.log(Object.entries(o)); console.log(o.name);
-            nav.innerHTML += `<li><a href="/src/docs/${o.name.toLowerCase()}.md">${o.name}</a></li>`
+            nav.innerHTML += `<li><a href="docs/${o.name.toLowerCase()}.md">${o.name}</a></li>`;
             // console.log(o.name.toLowerCase());
         });
-        MainNavClicked()
+        MainNavClicked();
     };
-    var currShape = { y: 0, x: 0, h: 30, w: 150, }
+    var currShape = { y: 0, x: 0, h: 30, w: 150, };
     
     //function MainNavClicked :: Server emit nav "item clicked"
     function MainNavClicked() {
