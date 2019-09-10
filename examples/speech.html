@@ -7,11 +7,11 @@
 </head>
 
 <body>
-	<h3>Speech Recognition</h3>
-	<div class="words" contenteditable>
+	<h3>¿Qué tu quieres comer?</h3>
+	<div class="container" contenteditable>
 	</div>
 
-	<script>
+<script>
 
 		var comidas = [
 			{
@@ -40,63 +40,96 @@
 		window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 
 		const recognition = new SpeechRecognition();
-		// recognition.interimResults = true;
+		recognition.interimResults = true;
 		recognition.lang = 'es-ES';
-
-		let p = document.createElement('p');
-		const words = document.querySelector('.words');
-		words.appendChild(p);
-
-		recognition.addEventListener('result', e => {
-
-			const transcript = Array.from(e.results)
-			.map(result => result[0])
-			.map(result => result.transcript)
-			.join('');
-
-
-			// const poopScript = transcript.replace(/caca|sorete|tereso|deposición/gi, '💩');
-			// p.textContent = poopScript;
-			
-			
-
-
-			if (e.results[0].isFinal) { 
-				var match = comidas.find(comida =>{
-					return comida.nombre == transcript;
-				})
-				if(match){
-					p.textContent = match.nombre + " " + match.KCALxGR +" calorias " 
-
-				}
-				else{
-					p.textContent = "qué lo que?"
-				}
-				p = document.createElement('p');
-					words.appendChild(p);
-			}
-		});
-	
-		recognition.addEventListener('end', recognition.start);	//empezar de nuevo automaticamente
-
-		recognition.start();
-
-
+		
+		//on error
 		recognition.onerror = function (event) {
 			console.log(event.error);
 		};
-	</script>
 
 
-	<style>
+		let p = document.createElement('p');
+		const container = document.querySelector('.container');
+		container.appendChild(p);
+		let matchFlag = false
+
+		recognition.addEventListener('result', e => {
+			
+				const transcript = Array.from(e.results)
+				.map(result => result[0])
+				.map(result => result.transcript)
+				.join('');
+
+				p.textContent = transcript;		
+
+				if (e.results[0].isFinal) {
+					
+					var match = comidas.find(comida =>{
+						return comida.nombre == transcript;
+					})
+					
+					if(match && !matchFlag){
+						foodMached(match)
+						console.log(matchFlag)	
+					}
+					else if  (matchFlag){
+						
+						if (transcript == 'calorías' || transcript == 'caloría'){
+							console.log('kcal')
+						}
+						if (transcript == 'gramos' || transcript == 'gramo'){
+							console.log('gramos')
+						}
+						matchFlag = false
+					}
+					else{
+						nofoodMached()		
+					}	
+				}
+		});
+
+		recognition.start();
+		recognition.addEventListener('end', recognition.start);
+
+		
+
+		function foodMached(match){
+
+			p.textContent = match.nombre + " " + match.KCALxGR +" calorias "
+			matchFlag = true;
+
+			//render
+			p.classList.add('match')
+			p = document.createElement('p');
+			container.appendChild(p);	
+		}
+	
+		function nofoodMached(){
+			p.textContent = "⚠️ No encontrado"
+			//render
+			container.appendChild(p);
+
+		}
+
+</script>
+
+
+
+
+
+<style>
 		body{
 			background: #dddddd
 		}
-		.words {
+		.container {
 			max-width: 500px;
 			padding: 10px;
 		}
-	</style>
+		.match{
+			color: green
+		}
+</style>
 
 </body>
 
