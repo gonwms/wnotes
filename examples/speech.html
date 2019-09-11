@@ -1,15 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 	<meta charset="UTF-8">
-	<title>Speech</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="stylesheet" href="style.css">
+	<title>🍏 KCAL</title>
 </head>
-
 <body>
-	<h3>¿Qué tu quieres comer?</h3>
-	<div class="container" contenteditable>
+
+	<p class="question">¿Qué tu quieres comer?</p>
+	<div class="feebackSpeech">
 	</div>
+	<ul class="list">
+		<!-- content -->
+	</ul>
 
 <script>
 
@@ -17,23 +22,23 @@
 			{
 				nombre:"brócoli",
 				KCALxGR:20,
-				proteinaGR:5,
-				hidratosGR:80,
-				grasaGR:0
+				proteina100gr:5,
+				hidratos100gr:80,
+				grasa100gr:0
 			},
 			{
 				nombre:"pollo",
 				KCALxGR:100,
-				proteinaGR:80,
-				hidratosGR:5,
-				grasaGR:0
+				proteina100gr:80,
+				hidratos100gr:5,
+				grasa100gr:0
 			},
 			{
 				nombre:"aceite",
 				KCALxGR:100,
-				proteinaGR:0,
-				hidratosGR:0,
-				grasaGR:100
+				proteina100gr:0,
+				hidratos100gr:0,
+				grasa100gr:100
 			}
 		]
 
@@ -47,46 +52,54 @@
 		recognition.onerror = function (event) {
 			console.log(event.error);
 		};
-
-
+		//steps flags
+		let step1ok = false;
+		let step2ok = false;
+		let step3ok = false;
+		
+		//Attach speech  to DOM 
+		const feebackSpeech = document.querySelector('.feebackSpeech');
+		const question = document.querySelector('.question');
+		const lista = document.querySelector('.list');
 		let p = document.createElement('p');
-		const container = document.querySelector('.container');
-		container.appendChild(p);
-		let matchFlag = false
+		var li = document.createElement('LI');
+		feebackSpeech.appendChild(p);
+		
+
 
 		recognition.addEventListener('result', e => {
 			
-				const transcript = Array.from(e.results)
-				.map(result => result[0])
-				.map(result => result.transcript)
-				.join('');
+			const transcript = Array.from(e.results).map(result => result[0]).map(result => result.transcript).join('');		
+			var match = comidas.find(comida =>{
+					return comida.nombre == transcript;
+			})
+			
+			//feedback speech
+			p.textContent = transcript;		
+			
 
-				p.textContent = transcript;		
+			if (e.results[0].isFinal) {			
 
-				if (e.results[0].isFinal) {
-					
-					var match = comidas.find(comida =>{
-						return comida.nombre == transcript;
-					})
-					
-					if(match && !matchFlag){
-						foodMached(match)
-						console.log(matchFlag)	
-					}
-					else if  (matchFlag){
-						
-						if (transcript == 'calorías' || transcript == 'caloría'){
-							console.log('kcal')
-						}
-						if (transcript == 'gramos' || transcript == 'gramo'){
-							console.log('gramos')
-						}
-						matchFlag = false
-					}
-					else{
-						nofoodMached()		
-					}	
+				//step 1
+				if(match && !step1ok){
+					handlerStep1(match)
+					console.log(step1ok)	
 				}
+				//step 2
+				else if  (step1ok && !step2ok){
+					handlerStep2(transcript)
+				}
+				//step 3
+				else if (step1ok && step2ok){
+					handlerStep3(transcript)
+				}
+				else{
+					console.log('NO');
+					
+					noMatch()		
+				}	
+			}
+
 		});
 
 		recognition.start();
@@ -94,21 +107,38 @@
 
 		
 
-		function foodMached(match){
-
-			p.textContent = match.nombre + " " + match.KCALxGR +" calorias "
-			matchFlag = true;
+		function handlerStep1(match){
+			li = document.createElement('LI');
+			li.innerHTML = `
+			<h3>${match.nombre}</h3>
+			<p>${match.KCALxGR}kcal | ${match.proteina100gr}gr Proteína | ${match.hidratos100gr}gr Hidrato | ${match.grasa100gr}gr Grasa</p>
+			`
+			step1ok = true;
 
 			//render
 			p.classList.add('match')
-			p = document.createElement('p');
-			container.appendChild(p);	
+			lista.appendChild(li);	
 		}
-	
-		function nofoodMached(){
+		function handlerStep2(transcript){
+			if (transcript == 'calorías' || transcript == 'caloría'){
+						console.log('kcal')
+					}
+			else if (transcript == 'gramos' || transcript == 'gramo'){
+				console.log('gramos')
+			}
+			step2ok = true
+		}
+		function handlerStep3(transcript){
+			console.log(transcript)
+			step1ok = false
+			step2ok = false
+		}
+
+
+		function noMatch(){
 			p.textContent = "⚠️ No encontrado"
 			//render
-			container.appendChild(p);
+			feebackSpeech.appendChild(p);
 
 		}
 
@@ -119,15 +149,42 @@
 
 
 <style>
+		*{
+			margin:0;
+			padding: 0;
+		}
 		body{
 			background: #dddddd
 		}
-		.container {
+		.feebackSpeech {
 			max-width: 500px;
 			padding: 10px;
 		}
 		.match{
 			color: green
+		}
+		.feebackSpeech{
+			background: bisque;
+		}
+		.question{
+			text-align: center
+		}
+		.list{
+			list-style: none;
+			padding: 0
+		}
+		.list li{
+			background: #fff;
+			box-shadow: 0 2px 2px #00000011;
+			padding: 20px;
+			border-radius: 3px;
+			max-width: 350px;;
+		}
+		.list h3{
+			margin:0
+		}
+		.list p{
+			font-size: 13px
 		}
 </style>
 
