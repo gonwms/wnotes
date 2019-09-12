@@ -102,7 +102,7 @@ document.addEventListener('DOMContentLoaded',() =>{
 			var label = Array.from(document.querySelectorAll('.label'))
 			label.forEach((item) =>{
 				if(item.textContent == ""){
-					item.style.display = none;
+					item.firstChild.style.display = 'none';
 				}
 				if (config.tieneEtiquetas == false){
 					item.classList.add('nolabel')	
