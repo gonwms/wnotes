@@ -6,10 +6,10 @@
 var config = {
 	cliente:"Gato Dumas",
 	tieneEtiquetas:true,
-	mes:"Agosto 2019",
-	fecha:"2019-08-16", // YYYY-MM-DD
+	mes:"Agosto 2019",  
+	fecha:"2019-08-16", // YYYY-MM-DD elegir la fecha de data.
 	posicionMaxima: 50, // Mostrar palabras hasta el puesto... 
-	peorEvolucion: -2,	// Máximo valor negativo de caida
+	peorEvolucion: -2,  // Máximo valor negativo de caida
 };
 
 //:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -24,11 +24,7 @@ document.addEventListener('DOMContentLoaded',() =>{
 	copa.innerHTML = config.cliente[0];
 	cliente.innerHTML = config.cliente;
 	periodo.innerHTML = config.mes;
-	
-	
-	
-	
-	
+		
 	
 	//importan datos tabla
 	fetch('data.json')
