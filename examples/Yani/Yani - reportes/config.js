@@ -14,8 +14,6 @@ var config = {
 
 //:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-
-
 document.addEventListener('DOMContentLoaded',() =>{
 	//Completar data
 	var cliente = document.querySelector('.cliente');
