@@ -1,0 +1,189 @@
+/*
+SEO
+*/
+
+/*::::::::::::::::::::::::::::::::::::::/ GRAL /::::::::::::::::::::::::::::::::::::::*/
+* {
+      font-family: 'Roboto Slab';
+}
+
+body {
+      background: #51a9f7;
+}
+
+.container {
+      max-width: 900px;
+      margin: 0 auto
+}
+
+
+/*::::::::::::::::::::::::::::::::::::::/ Modulos /::::::::::::::::::::::::::::::::::::::*/
+.mod {
+      background: #fff;
+      border-radius: 2px;
+      margin:20px 0;
+      text-align: center;
+      padding:50px;
+      color: #344a62;
+
+}
+.mod h2{
+      font-size:30px; 
+      font-weight: 400;
+}
+.mod h3{
+      font-size:60px;
+      margin:0
+}
+.mod p{
+      font-size:15px;
+      margin:0
+}
+p.cliente{
+      font-size: 30px;
+}
+.mod p.rendimiento{
+      margin:50px 0;
+      font-size: 20px;
+}
+
+.copa{
+      background: url(imgs/copa.png)center no-repeat ;
+      background-size: contain;
+      width: 100%;
+      display: block;
+      height: 200px;
+      font-size: 80px;
+      font-weight: 700;
+      color:#dd8122;
+      padding-top: 20px;
+}
+.mod ul{
+      display:grid;
+      grid-auto-flow:column;
+      text-align: center;
+      padding:0 100px;
+}
+li{
+   list-style:none;
+}
+
+/*::::::::::::::::::::::::::::::::::::::/ TABLA /::::::::::::::::::::::::::::::::::::::*/
+            
+      #tabla {
+            border-collapse: collapse;
+            font-size: 13px;
+            margin: 0 auto;
+      }
+
+      th {
+            position: sticky;
+            top: 0;
+            text-align: left;
+            box-shadow: 0 0px 3px #00000057
+      }
+
+      .col {
+            background: #fcfafc;
+            padding: 12px 0px;
+      }
+
+      .row:nth-of-type(even) .col {
+            background: #f4f6f7
+      }
+
+      .row .col:first-child, .row .col:last-child {
+            padding: 0 18px;
+      }
+
+      .row:hover .col {
+            background: #75ffb4;
+      }
+
+      .head .col {
+            table-layout: fixed;
+            background: #344a62;
+            color: #ffffff;
+            padding: 20px 10px;
+            font-size: 13px;
+            font-weight: 200;
+      }
+
+      .head .col::before {
+            content: "";
+            width: 20px;
+            height: 20px;
+            display: inline-block;
+            background: red;
+            position: relative;
+            top: 4px;
+            background-size: contain;
+            repeat: no-repeat;
+            margin-right: 5px;
+      }
+
+      .head .label::before {
+            background: url(/imgs/label.png)center no-repeat
+      }
+
+      .head .palabra::before {
+            background: url(imgs/word.png)center no-repeat
+      }
+
+      .head .rank::before {
+            background: url(imgs/rank.png)center no-repeat
+      }
+
+      .head .change::before {
+            background: url(imgs/evolution.png)center no-repeat
+      }
+
+      .head .url::before {
+            background: url(imgs/url.png)center no-repeat
+      }
+
+      .row .label span {
+            background: #7474ff;
+            padding: 5px;
+            color: white;
+            border-radius: 5px;
+            margin: 5px;
+            font-size: 9px;
+            display: block;
+            max-width: max-content;
+
+      }
+
+      .rank, .change {
+            text-align: center
+      }
+
+      .row >.rank::before {
+            content: "#";
+      }
+
+      .up .change::before {
+            content: " +";
+            color: #00d600;
+            font-weight: 600
+      }
+
+      .url {
+            max-width: 300px;
+            word-wrap: break-word
+      }
+
+      .url a {
+            text-decoration: none;
+            font-size: 11px;
+            color: #7296b5;
+            font-weight: 100;
+      }
+
+      .hide .change span {
+            display: none
+      }
+
+      .nolabel {
+            display: none;
+      }
