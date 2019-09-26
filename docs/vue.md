@@ -30,9 +30,10 @@ export default new Vuex.Store({
         
     }
 });
+
 ```
 
-### Component
+### Componentexplorer
 ```javascript
 export default {
 	name: "home",
@@ -64,33 +65,33 @@ export default {
 
 ```
 
-### lifecicle
+### lifecycle 
 ```javascript
-	beforeCreate(){
+beforeCreate(){
 
-	},
-	created() {
-		//Ready data , computed properties, methods, watchers and event callbacks 
-    },
-    beforeMount(){
-		
-	},
-	mounted(){
-		// DOM component ready
-		this.$nextTick(() => {
+},
+created() {
+//Ready data , computed properties, methods, watchers and event callbacks 
+},
+beforeMount(){
+
+},
+mounted(){
+// DOM component ready
+	this.$nextTick(() => {
 		//DOM Ready for de all the childs componenets
- 		})	
-	},
-	beforeUpdate() {
-		// called anytime changes are made to our data and the DOM needs to be updated, right before the DOM is patched
-	},
-	update() {
-		//  hook is fired after a change has been made.
-		//If you want to wait until the entire view has been re-rendered, you can use vm.$nextTick inside of updated:
-  	},
-    beforeDestroy() {
-		//all directives of the Vue instance have been unbound, all event listeners have been removed, and all child Vue instances have also been destroyed.
-        // this.$store.dispatch("unsubscribe");
-    },
+	})	
+},
+beforeUpdate() {
+// called anytime changes are made to our data and the DOM needs to be updated, right before the DOM is patched
+},
+update() {
+//  hook is fired after a change has been made.
+//If you want to wait until the entire view has been re-rendered, you can use vm.$nextTick inside of updated:
+},
+beforeDestroy() {
+//all directives of the Vue instance have been unbound, all event listeners have been removed, and all child Vue instances have also been destroyed.
+// this.$store.dispatch("unsubscribe");
+},
 
 ```
