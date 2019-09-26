@@ -38,7 +38,7 @@ export default new Vuex.Store({
 export default {
 	name: "home",
 	components:{
-		widgte,	sidebar,
+		widgte, sidebar,
 	},
 	data(){
 		return{
