@@ -62,6 +62,10 @@
 			"imgURL": "/docs/file.jpg"
 		},
 		{
+			"name": "VsCode",
+			"imgURL": "/docs/file.jpg"
+		},
+		{
 			"name": "RegEx",
 			"imgURL": "/docs/file.jpg"
 		},

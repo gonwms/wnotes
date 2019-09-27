@@ -7,9 +7,40 @@
 `vue create [proyect name]`
 
 
-## Vuex
+## Vue
+
+### v-bind
+	```javascript
+	<a v-bind:href= item.url ><img v-bind:src= myMethods()></a>
+	```
+
+### v-model
+	create two-way data bindings on form input, textarea, and select elements
+	```javascript
+	<input v-model="message" placeholder="edit me">
+	<p>Message is: {{ message }}</p>
+	```
+
+### v-for
+	```javascript
+	<h1 v-for="user in users" :key="user.name">{{ user.name }}</h1>
+	```
+
+### v-on
+	```javascript
+	<button v-on:click="counter += 1">Add 1</button>
+	<p>The button above has been clicked {{ counter }} times.</p>
+	```
+
+### v-if
+	```javascript
+	<h1 v-for="user in users" :key="user.name">{{ user.name }}</h1>
+	```
+
+## Vuex 
 
 ### Store module
+Vuex getters is to Vue computed as Vuex state is to Vue data.
 
 ```javascript
 import Vue from 'vue'; import Vuex from 'vuex';
@@ -32,6 +63,28 @@ export default new Vuex.Store({
 });
 
 ```
+#### getters mutatios actios example
+
+```javascript
+
+    getters: {
+		getUsers(state) {
+			return state.users;
+		},
+	},
+	mutations: {
+		increment (state) {
+			state.count++
+		}
+	},
+    actions: {
+		increment (context) {
+			context.commit('increment')
+		},
+    }
+});
+
+```
 
 ### Componentexplorer
 ```javascript
@@ -41,12 +94,16 @@ export default {
 		widgte, sidebar,
 	},
 	data(){
-		return{
-			myData:2,
-			otherData:"hello"
-		}
+        return {
+            users: this.$store.state.USER.users,
+            errors: "",
+        };
 	},
 	computed: {
+		users(){ 
+            return this.$store.state.USER.users
+        }
+		// deben ser una función o tener un return
 		myProperty: {
 			get() {
 				return this.$state.getters.my_property;
