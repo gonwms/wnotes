@@ -21,3 +21,9 @@
 ## Cambiar nombre de directorio
 1. En github.com: cambiar nombre de repo en settings
 2. En la pc: cambiar pathname en .git/config
+
+## force pull to overwrite local files
+
+1. git fetch --all
+1. git reset --hard origin/master
+1. git pull origin master
