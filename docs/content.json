@@ -1,44 +1,19 @@
 {
 	"list": [
 		{
-			"name": "DOM",
-			"imgURL": "/docs/file.jpg"
-		},
-		{
-			"name": "GSAP",
-			"imgURL": "/docs/file.jpg"
-		},
-		{
-			"name": "Vue",
-			"imgURL": "/docs/file.jpg"
-		},
-		{
 			"name": "Array",
 			"imgURL": "/docs/file.jpg"
 		},
-		{
-			"name": "Objects",
-			"imgURL": "/docs/file.jpg"
-		},
-		{
-			"name": "Math",
-			"imgURL": "/docs/file.jpg"
-		},
-		{
-			"name": "Strings",
-			"imgURL": "/docs/file.jpg"
-		},
-		{
-			"name": "Es6",
-			"imgURL": "/docs/file.jpg"
-		},
-
 		{
 			"name": "CSS",
 			"imgURL": "/docs/file.jpg"
 		},
 		{
-			"name": "Node",
+			"name": "DOM",
+			"imgURL": "/docs/file.jpg"
+		},
+		{
+			"name": "Es6",
 			"imgURL": "/docs/file.jpg"
 		},
 		{
@@ -50,7 +25,28 @@
 			"imgURL": "/docs/file.jpg"
 		},
 		{
-			"name": "Webpack",
+			"name": "GSAP",
+			"imgURL": "/docs/file.jpg"
+		},
+		{
+			"name": "Math",
+			"imgURL": "/docs/file.jpg"
+		},
+		{
+			"name": "Node",
+			"imgURL": "/docs/file.jpg"
+		},
+		{
+			"name": "notas",
+			"imgURL": "/docs/file.jpg"
+		},
+		{
+			"name": "Objects",
+			"imgURL": "/docs/file.jpg"
+		},
+
+		{
+			"name": "Patterns",
 			"imgURL": "/docs/file.jpg"
 		},
 		{
@@ -58,19 +54,24 @@
 			"imgURL": "/docs/file.jpg"
 		},
 		{
-			"name": "Patterns",
+			"name": "RegEx",
 			"imgURL": "/docs/file.jpg"
 		},
+		{
+			"name": "Strings",
+			"imgURL": "/docs/file.jpg"
+		},
+
 		{
 			"name": "VsCode",
 			"imgURL": "/docs/file.jpg"
 		},
 		{
-			"name": "RegEx",
+			"name": "Vue",
 			"imgURL": "/docs/file.jpg"
 		},
 		{
-			"name": "notas",
+			"name": "Webpack",
 			"imgURL": "/docs/file.jpg"
 		}
 	]
