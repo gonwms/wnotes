@@ -31,7 +31,7 @@
 	<button v-on:click = "consoleador" >saludar</button>
 
 	```
-
+ 
 	```javascript
 	methods: {
         consoleador() {
