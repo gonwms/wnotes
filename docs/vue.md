@@ -74,7 +74,10 @@ export default new Vuex.Store({
 #### getters mutatios actios example
 
 ```javascript
-
+	state:{
+		users:'',
+		count:1,
+	},
     getters: {
 		getUsers(state) {
 			return state.users;
@@ -94,7 +97,8 @@ export default new Vuex.Store({
 
 ```
 
-### Componentexplorer
+### Component
+
 ```javascript
 export default {
 	name: "home",
@@ -108,10 +112,15 @@ export default {
         };
 	},
 	computed: {
-		users(){ 
-            return this.$store.state.USER.users
-        }
-		// deben ser una función o tener un return
+		//forma clasica
+        list(){ 
+            return this.$store.getters.getList
+		},
+		//forma con mapGetters
+        ...mapGetters({
+            user: 'getUser'
+        }),
+		// fotma con get y set (deben ser una función o tener un return)
 		myProperty: {
 			get() {
 				return this.$state.getters.my_property;
@@ -119,11 +128,19 @@ export default {
 			set( value ) {
 				this.$state.dispatch('setMyProperty', value);
 			}
-		}
+		},
+
 	},
 	methods: {
+		// forma común
+		currentUserActive() {
+			//Do someFn
+			this.$store.dispatch('increment');
+		}
+		// forma mapActions
 		...mapActions([
-		'increment', 'decrement', 'reset',
+		'increment',
+		'decrement',
 		]),
 	},		
 }
