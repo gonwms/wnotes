@@ -72,6 +72,8 @@ export default new Vuex.Store({
 
 ```
 #### getters mutatios actios example
+*Dispatch* triggers an action 
+*Commit* triggers a mutation
 
 ```javascript
 	state:{
@@ -84,13 +86,14 @@ export default new Vuex.Store({
 		},
 	},
 	mutations: {
-		increment (state) {
-			state.count++
+		increment (state, payload) {
+			state.count + paylaod
 		}
 	},
     actions: {
+		//Dispatch triggers an action whereas commit triggers a mutation
 		increment (context) {
-			context.commit('increment')
+			context.commit('increment', 20)
 		},
     }
 });
@@ -98,6 +101,9 @@ export default new Vuex.Store({
 ```
 
 ### Component
+*$dispatch* triggers an action 
+*Commit* triggers a mutation
+$dispatch is always used from your methods in routes/components
 
 ```javascript
 export default {
@@ -126,6 +132,7 @@ export default {
 				return this.$state.getters.my_property;
 			},
 			set( value ) {
+				//Dispatch triggers an action whereas commit triggers a mutation
 				this.$state.dispatch('setMyProperty', value);
 			}
 		},
