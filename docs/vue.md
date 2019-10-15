@@ -6,6 +6,8 @@
 
 `vue create [proyect name]`
 
+### add vuetify 
+`vue add vuetify`
 
 ## Vue
 
