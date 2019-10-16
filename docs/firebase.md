@@ -132,3 +132,27 @@ updateAllCampaignsDate: function(newValue, field, campaigns){
           batch.commit();
         },
 ```
+
+```javascript
+// Get a new write batch
+var batch = db.batch();
+
+// Set the value of 'NYC'
+var nycRef = db.collection("cities").doc("NYC");
+batch.set(nycRef, {name: "New York City"});
+
+// Update the population of 'SF'
+var sfRef = db.collection("cities").doc("SF");
+batch.update(sfRef, {"population": 1000000});
+
+// Delete the city 'LA'
+var laRef = db.collection("cities").doc("LA");
+batch.delete(laRef);
+
+// Commit the batch
+batch.commit().then(function () {
+    // ...
+});
+
+
+```
