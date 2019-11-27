@@ -148,62 +148,40 @@ beforeDestroy() {
 ### Store module
 Vuex getters is to Vue computed as Vuex state is to Vue data.
 
+*Dispatch* triggers an action 
+*Commit* triggers a mutation
+
 ```javascript
 import Vue from 'vue'; 
 import Vuex from 'vuex';
 
 Vue.use(Vuex);
 export default new Vuex.Store({	
-
-	state: {
-		count: 2
+	state:{
+		users:'',
+		count:1,
 	},
 	getters: {
-		
+		getUsers(state) {
+			return state.users;
+		},
 	},
 	mutations: {
-		
+		increment (state, payload) {
+			state.count + paylaod
+		}
 	},
 	actions: {
-
+		//Dispatch triggers an action whereas commit triggers a mutation
+		increment (context, payload) {
+			context.commit('increment', payload)
+		},
+		//ejecutar una acción adentro de otra acción, debo incluir un objeto con dispatch como parámetro de la acción
+		logThenIncrement ({ dispatch } ,payload) {
+			console.log('una función tonta antes de otra acción')
+			dispatch("increment",payload);
+		},
 	}
-});
-
-```
-
-
-### Store
-
-#### getters mutatios actios example
-*Dispatch* triggers an action 
-*Commit* triggers a mutation
-
-```javascript
-state:{
-	users:'',
-	count:1,
-},
-getters: {
-	getUsers(state) {
-		return state.users;
-	},
-},
-mutations: {
-	increment (state, payload) {
-		state.count + paylaod
-	}
-},
-actions: {
-	//Dispatch triggers an action whereas commit triggers a mutation
-	increment (context, payload) {
-		context.commit('increment', payload)
-	},
-	//ejecutar una acción adentro de otra acción, debo incluir un objeto con dispatch como parámetro de la acción
-	logThenIncrement ({ dispatch } ,payload) {
-		console.log('una función tonta antes de otra acción')
-		dispatch("increment",payload);
-	},
-}
 });
 
 ```
