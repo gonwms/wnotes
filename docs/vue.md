@@ -10,13 +10,13 @@
 `vue add vuetify`
 
 ## Vue
-
-### v-bind
+### Componenets tags
+#### v-bind
 ```javascript
 <a v-bind:href= item.url ><img v-bind:src= myMethods()></a>
 ```
 
-### v-model
+#### v-model
 create two-way data bindings on form input, textarea, and select elements
 
 ```javascript
@@ -24,12 +24,12 @@ create two-way data bindings on form input, textarea, and select elements
 <p>Message is: {{ message }}</p>
 ```
 
-### v-for
+#### v-for
 ```javascript
 <h1 v-for="user in users" :key="user.name">{{ user.name }}</h1>
 ```
 
-### v-on
+#### v-on
 ```javascript
 <button v-on:click = "saludar" >saludar</button>
 ```
@@ -41,13 +41,29 @@ methods: {
 	},
 }
 ```
-### v-if
+#### v-if
 ```javascript
 <a class="user" v-if="user != null">
 	<img v-bind:src="this.user.photoURL" alt /><span>{{this.user.displayName}}</span>
 </a>
 ```
-
+### Componentes
+### watch
+Watch observa si un dato cambia y ejecuta una acción. El nombre del watch es igual al dato observado.
+```javascript
+	data(){
+		return{
+			alimento:{
+				date: ""
+			}
+		}
+	}
+	watch: {
+		'alimento.date'(){
+			this.$store.dispatch("getFireStoreAgenda",this.alimento.date);
+		}
+	},
+```
 ## Vuex 
 
 ### Store module
