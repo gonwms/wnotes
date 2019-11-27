@@ -172,8 +172,6 @@ export default new Vuex.Store({
 ```
 
 
-
-
 ### Store
 
 #### getters mutatios actios example
