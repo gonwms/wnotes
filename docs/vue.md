@@ -9,8 +9,8 @@
 ### add vuetify 
 `vue add vuetify`
 
-## Vue
-### Componenets tags
+## Component Template
+### Directives
 #### v-bind
 ```javascript
 <a v-bind:href= item.url ><img v-bind:src= myMethods()></a>
@@ -47,83 +47,13 @@ methods: {
 	<img v-bind:src="this.user.photoURL" alt /><span>{{this.user.displayName}}</span>
 </a>
 ```
-### Componentes
-### watch
-Watch observa si un dato cambia y ejecuta una acción. El nombre del watch es igual al dato observado.
-```javascript
-	data(){
-		return{
-			alimento:{
-				date: ""
-			}
-		}
-	}
-	watch: {
-		'alimento.date'(){
-			this.$store.dispatch("getFireStoreAgenda",this.alimento.date);
-		}
-	},
-```
-## Vuex 
 
-### Store module
-Vuex getters is to Vue computed as Vuex state is to Vue data.
-
-```javascript
-import Vue from 'vue'; 
-import Vuex from 'vuex';
-
-Vue.use(Vuex);
-export default new Vuex.Store({	
-
-	state: {
-		count: 2
-	},
-	getters: {
-		
-	},
-	mutations: {
-		
-	},
-	actions: {
-
-	}
-});
-
-```
-#### getters mutatios actios example
-*Dispatch* triggers an action 
-*Commit* triggers a mutation
-
-```javascript
-state:{
-	users:'',
-	count:1,
-},
-getters: {
-	getUsers(state) {
-		return state.users;
-	},
-},
-mutations: {
-	increment (state, payload) {
-		state.count + paylaod
-	}
-},
-actions: {
-	//Dispatch triggers an action whereas commit triggers a mutation
-	increment (context) {
-		context.commit('increment', 20)
-	},
-}
-});
-
-```
+## Component Script
 
 ### Component
 *$dispatch* triggers an action 
 *Commit* triggers a mutation
-$dispatch is always used from your methods in routes/components
+En los componentes siempre debería usar $dispatch
 
 ```javascript
 import { mapActions, mapGetters } from 'vuex'
@@ -135,14 +65,23 @@ data(){
 	return {
 		users: this.$store.getters.getUser,
 		errors: "",
+		alimento:{
+				name: "cacaoate"
+		}
 	};
 },
+//Watch observa si un dato cambia y ejecuta una acción. El nombre del watch es igual al dato observado.
+watch: {
+	'alimento.name'(){
+		this.$store.dispatch("someActionIn$store",this.alimento.name);
+	}
+},
 computed: {
-	//forma clasica
+	//forma clásica
 	list(){ 
 		return this.$store.getters.getList
 	},
-	//forma con mapGetters
+	//forma con mapGetters (se deben importar los Getters)
 	...mapGetters({
 		user: 'getUser'
 	}),
@@ -175,15 +114,14 @@ methods: {
 ```
 
 ### lifecycle 
+
 ```javascript
 beforeCreate(){
-
 },
 created() {
 //Ready data , computed properties, methods, watchers and event callbacks 
 },
 beforeMount(){
-
 },
 mounted(){
 // DOM component ready
@@ -202,5 +140,72 @@ beforeDestroy() {
 //all directives of the Vue instance have been unbound, all event listeners have been removed, and all child Vue instances have also been destroyed.
 // this.$store.dispatch("unsubscribe");
 },
+
+```
+
+## Vuex 
+
+### Store module
+Vuex getters is to Vue computed as Vuex state is to Vue data.
+
+```javascript
+import Vue from 'vue'; 
+import Vuex from 'vuex';
+
+Vue.use(Vuex);
+export default new Vuex.Store({	
+
+	state: {
+		count: 2
+	},
+	getters: {
+		
+	},
+	mutations: {
+		
+	},
+	actions: {
+
+	}
+});
+
+```
+
+
+
+
+### Store
+
+#### getters mutatios actios example
+*Dispatch* triggers an action 
+*Commit* triggers a mutation
+
+```javascript
+state:{
+	users:'',
+	count:1,
+},
+getters: {
+	getUsers(state) {
+		return state.users;
+	},
+},
+mutations: {
+	increment (state, payload) {
+		state.count + paylaod
+	}
+},
+actions: {
+	//Dispatch triggers an action whereas commit triggers a mutation
+	increment (context, payload) {
+		context.commit('increment', payload)
+	},
+	//ejecutar una acción adentro de otra acción, debo incluir un objeto con dispatch como parámetro de la acción
+	logThenIncrement ({ dispatch } ,payload) {
+		console.log('una función tonta antes de otra acción')
+		dispatch("increment",payload);
+	},
+}
+});
 
 ```
