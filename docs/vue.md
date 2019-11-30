@@ -9,7 +9,7 @@
 ### add vuetify 
 `vue add vuetify`
 
-## Component Template
+## Template
 ### Directives
 #### v-bind
 ```javascript
@@ -48,34 +48,42 @@ methods: {
 </a>
 ```
 
-## Component Script
+### componenet script
 
-### Component
-*$dispatch* triggers an action 
-*Commit* triggers a mutation
-En los componentes siempre debería usar $dispatch
-
+#### estructura base
 ```javascript
 import { mapActions, mapGetters } from 'vuex'
-
 export default {
-name: "home",
-components:{ widgte, sidebar,},
+	name: "home",
+	components:{ widgte, sidebar,},
+	data(){
+		return {
+			users: 'gon,
+			}
+		};
+	},
+	methods:{
+		log(){
+			console.log(this.user)
+		}
+	}
+}
+```
+
+#### data
+```javascript
 data(){
 	return {
-		users: this.$store.getters.getUser,
-		errors: "",
-		alimento:{
-				name: "cacaoate"
+			users: this.$store.getters.getUser,
 		}
 	};
 },
-//Watch observa si un dato cambia y ejecuta una acción. El nombre del watch es igual al dato observado.
-watch: {
-	'alimento.name'(){
-		this.$store.dispatch("someActionIn$store",this.alimento.name);
-	}
-},
+```
+#### Computed
+A computed property will only re-evaluate when some of its reactive dependencies have changed
+```javascript
+
+En los componentes siempre debería usar $dispatch
 computed: {
 	//forma clásica
 	list(){ 
@@ -97,6 +105,28 @@ computed: {
 	},
 
 },
+```
+#### watch
+//Watch observa si un dato cambia y ejecuta una acción. El nombre del watch es igual al dato observado. Si el dato es una entrada de un objeto, el nombre del watcher lleva '' comillas
+
+```javascript
+data(){
+	return {
+			users:{
+				name:'gon'
+			}
+		}
+	};
+},
+watch: {
+	'user.name'(){
+		this.$store.dispatch("someActionIn$store",this.users.name);
+	}
+},
+```
+#### methods
+
+```javascript
 methods: {
 	// forma común
 	currentUserActive() {
@@ -109,8 +139,15 @@ methods: {
 	'decrement',
 	]),
 },		
-}
+```
+#### dispatch vs Commit
 
+**dispatch** triggers an action.  
+**$Commit** triggers a mutation.  
+En los componentes siempre debería usar dispatch.
+
+```javascript
+this.$state.dispatch('setMyProperty', value);
 ```
 
 ### lifecycle 
