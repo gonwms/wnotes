@@ -74,8 +74,8 @@ export default {
 ```javascript
 data(){
 	return {
-			users: this.$store.getters.getUser,
-		}
+		users: this.$store.getters.getUser,
+		
 	};
 },
 ```
@@ -106,7 +106,7 @@ computed: {
 
 },
 ```
-#### watch
+#### watchers
 //Watch observa si un dato cambia y ejecuta una acción. El nombre del watch es igual al dato observado. Si el dato es una entrada de un objeto, el nombre del watcher lleva '' comillas
 
 ```javascript
