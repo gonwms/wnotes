@@ -59,8 +59,7 @@ export default {
 	data(){
 		return {
 			users: 'gon,
-			}
-		};
+		}
 	},
 	methods:{
 		log(){
