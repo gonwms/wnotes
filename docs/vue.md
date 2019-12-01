@@ -180,34 +180,60 @@ beforeDestroy() {
 
 ```
 
-## Vuex 
+## Vuex Store
 
-### Store module
+### Estructura Base
 Vuex getters is to Vue computed as Vuex state is to Vue data.
-
 *Dispatch* triggers an action 
 *Commit* triggers a mutation
 
 ```javascript
-import Vue from 'vue'; 
-import Vuex from 'vuex';
+import 'firebase/firestore';
+import firebase from 'firebase/app';
+import {db} from "@/main";
 
-Vue.use(Vuex);
-export default new Vuex.Store({	
+export default{	
 	state:{
-		users:'',
+	},
+	getters: {
+	},
+	mutations: {
+	},
+	actions: {
+	}
+}
+
+```
+
+### State
+```javascript
+	state:{
+		users:[],
 		count:1,
 	},
+```
+### Getters
+Vuex getters is to Vue computed as Vuex state is to Vue data.
+```javascript
 	getters: {
 		getUsers(state) {
 			return state.users;
 		},
 	},
+```
+### Mutations
+```javascript
 	mutations: {
 		increment (state, payload) {
 			state.count + paylaod
 		}
 	},
+```
+### Actions
+*Dispatch* triggers an action 
+*Commit* triggers a mutation
+
+```javascript
 	actions: {
 		//Dispatch triggers an action whereas commit triggers a mutation
 		increment (context, payload) {
@@ -219,6 +245,4 @@ export default new Vuex.Store({
 			dispatch("increment",payload);
 		},
 	}
-});
-
 ```
