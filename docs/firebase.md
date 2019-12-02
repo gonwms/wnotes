@@ -123,6 +123,25 @@ db.collection("cities").where("state", "==", "CA")
 ### batch
 
 ```javascript
+function batchUpload(){
+	var batch = firestore.batch();
+	Object(myJson).forEach(item => {
+			var temp = firestore.collection(collectionName).doc(item.name); // si doc queda vacio, genera automaticamente una ID
+			batch.set(temp, {item} ); //uso SET si el documento no existe //uso UPDATE si el documento ya existe
+	});
+	batch.commit()	
+	.then((res) => {
+		
+		console.log(collectionName + " successfully written!");
+	})
+	.catch((error) => {
+		console.error("Error writing collection:", error);
+	});
+
+}
+```
+
+```javascript
 // Get a new write batch
 var batch = db.batch();
 
@@ -150,12 +169,12 @@ batch.commit().then(function () {
 Ejemplo que me pasó Fer es un update en 
 
 ```javascript
-    updateAllCampaignsDate: function(newValue, field, campaigns){
-          var batch = db.batch();
-          campaigns.forEach((camp) => {
-            var temp = db.collection("campaigns").doc(camp.id);
-            batch.update(temp, {[field]: newValue});
-          });
-          batch.commit();
-        },
+updateAllCampaignsDate: function(newValue, field, campaigns){
+    var batch = db.batch();
+    campaigns.forEach((camp) => {
+        var temp = db.collection("campaigns").doc(camp.id);
+        batch.update(temp, {[field]: newValue});
+    });
+    batch.commit();
+},
 ```

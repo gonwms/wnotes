@@ -221,6 +221,8 @@ Vuex getters is to Vue computed as Vuex state is to Vue data.
 	},
 ```
 ### Mutations
+//Mutations are synchronous
+*Commit* triggers a mutation
 ```javascript
 	mutations: {
 		increment (state, payload) {
@@ -229,8 +231,8 @@ Vuex getters is to Vue computed as Vuex state is to Vue data.
 	},
 ```
 ### Actions
+//actions are Asynchronous
 *Dispatch* triggers an action 
-*Commit* triggers a mutation
 
 ```javascript
 	actions: {
@@ -243,5 +245,23 @@ Vuex getters is to Vue computed as Vuex state is to Vue data.
 			console.log('una función tonta antes de otra acción')
 			dispatch("increment",payload);
 		},
+	}
+```
+### Action inside action
+Si la accion tiene el parametro context, usar el context.dispatch
+```javascript
+getFireStoreAgenda(context, day) {	
+	context.dispatch("increment",payload);
+}  
+
+
+```
+Si la acción no tiene context, incluir un objeto con dispatch como parámetro de la acción
+```javascript
+	actions: {
+		logThenIncrement ({ dispatch } ,payload) {
+			dispatch("increment",payload);
+		},
+
 	}
 ```
