@@ -10,7 +10,7 @@
     "eventemitter2": "^5.0.1"
   },
   "devDependencies": {
-    "highlightjs": "^9.12.0"
+    "highlightjs": "^9.16.2"
   },
   "scripts": {
     "test": "test"
