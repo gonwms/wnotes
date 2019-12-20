@@ -16,10 +16,18 @@ npm install gsap
 ```javascript
 import {TweenMax, CSSPlugin, ScrollToPlugin, Draggable, Elastic} from "gsap/all";
 ```
-## 
+### TweenLite
+
 ```javascript
 TweenLite.to(ELEMENT,SECONDS,{CSS})
 TweenLite.to(container,1,{opacity:0, x:50})
 ```
+### Draggable
+[ejemplo grilla](https://codepen.io/osublake/pen/NrRJwm)
+
+```javascript
+
+```
 
 ##Lottie JS
+after effects to svg
