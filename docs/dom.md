@@ -77,7 +77,23 @@ var data1 = document.querySelectorAll('.inner[data-nombre]')
 var data2 = document.querySelectorAll('[data-nombre="numero3"]')
 var alt = document.querySelector('img[alt]')
 ```
-
+### dataset data-algo
+Dataset attributes (standard para definidos por el usuario data
+```html
+<div id="electriccars"   data-color="red"  data-parent="cars">
+    Tesla
+</div>
+```
+```javascript
+var car =  document.querySelector('#electriccars')
+ // Get
+car.dataset.color //-> red
+car.dataset.parent //-> cars
+  //Set
+car.dataset.color  = 'green'
+car.dataset.parent = 'transporte'
+ ```
+ 
 ### get & set attributes & has
 
 ```javascript 
@@ -94,15 +110,7 @@ alt.hasAttribute('class')
 el.classList.contains('active') 
 ```
 
-### dataset attributes
-Dataset attributes (standard para definidos por el usuario data
-  
-```javascript
- // Get
- document.querySelector('.inner2').dataset.nombre
-  //Set
- document.querySelector('.inner').dataset.nombre='Ramón Castillo'
- ```
+
 
 ### closets
 
