@@ -77,19 +77,22 @@ var data1 = document.querySelectorAll('.inner[data-nombre]')
 var data2 = document.querySelectorAll('[data-nombre="numero3"]')
 var alt = document.querySelector('img[alt]')
 ```
-### dataset data-algo
+### dataset data-
 Dataset attributes (standard para definidos por el usuario data
 ```html
-<div id="electriccars"   data-color="red"  data-parent="cars">
+<div id="electriccars" data-color="red" data-parent="cars" data-active>
     Tesla
 </div>
 ```
 ```javascript
 var car =  document.querySelector('#electriccars')
- // Get
+// Get
 car.dataset.color //-> red
 car.dataset.parent //-> cars
-  //Set
+if(dataset.active){
+    ...
+}
+//Set
 car.dataset.color  = 'green'
 car.dataset.parent = 'transporte'
  ```
