@@ -56,6 +56,17 @@ arr.splice(1,4,"NO","SI") // return [1, 2, 3, 4] (elementos quitados)
 console.log(arr) // [0, "NO", "SI", 5, 6]
 ```
 
+## move
+
+- no nativo
+- sirve para cambiar la posicion de elemento en el array
+
+```javascript
+    Array.prototype.move = function(array, from, to) {
+    array.splice(to, 0, array.splice(from, 1)[0]);
+    }
+```
+
 ## Slice
 - Returns a portion of an array into a new array selected from begin to end (end not included)
 - primer valor incluye el segundo está excluido

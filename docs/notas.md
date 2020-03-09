@@ -35,7 +35,8 @@
 - Unit Test: Jester or Mocha 
 - Aprender React
 - Aprender Stripe (plataforma de pagos)
-
+- VUE
+	-[vue under de hood](https://michaelnthiessen.com/force-re-render/)
 
 ## ToDo app
 - [x] MVC [link](https://www.awwwards.com/build-a-simple-javascript-app-the-mvc-way.html)  
@@ -43,3 +44,4 @@
 - [x] subir a firebase  
 - [x] convertir en WPA [Demo PWA](https://github.com/gokulkrishh/demo-progressive-web-app)  
 - [x] convertir en WPA - Tutorial PWA 130 capitulos  
+- [x] push notificaciones  (https://web-push-book.gauntface.com/demos/notification-examples/)
