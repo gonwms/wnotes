@@ -21,8 +21,8 @@ console.log(buscarPares(arr));   //-> [2, 4, 6]
 ```
 
 ## Map
-
 - convert each item of an array. **No modifica array original**
+- Usar para crear nuevo array con los resultados
 
 ```javascript
 var arr = [1,2,3]  
