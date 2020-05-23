@@ -44,6 +44,17 @@ function fueHaceXDias(){
 }
 fueHaceXDias()
 ```
+#### Fecha del próximo Sábado
+```javascript
+//takes dayIndex from sunday(0) to saturday(6)
+function nextDate(dayIndex) {
+    var today = new Date();
+    today.setDate(today.getDate() + (dayIndex - 1 - today.getDay() + 7) % 7 + 1);
+    return today;
+}
+nextDate(1) //--> Mon May 25 2020 12:34:27 GMT-0300 (hora estándar de Argentina)
+nextDate(5) //--> Fri May 29 2020 12:37:17 GMT-0300 (hora estándar de Argentina)
+```
 
 ### moment.js
 Es un plugin para formatear fechas

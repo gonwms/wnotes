@@ -40,7 +40,7 @@ location.hostname  //   dominio.com
 location.pathname  //   /servicios/diseño 
 location.hash      //   #formulario
 location.href      //   https://dominio.com/servicios/diseño#formulario
-
+window.location.search  // "?post=1234&action=edit"
 ```
 
 ## Selectors
