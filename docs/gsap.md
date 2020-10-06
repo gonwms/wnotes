@@ -2,12 +2,12 @@
 
 ##GSAP
 
-### install
-[link to web](https://greensock.com/get-started-js)
+USAR SERVIDOR LOCAL!
 
+### install
 #### CDN
 ```javascript
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
+
 ```
 #### NPM
 ```
@@ -16,8 +16,8 @@ npm install gsap
 ```javascript
 import {TweenMax, CSSPlugin, ScrollToPlugin, Draggable, Elastic} from "gsap/all";
 ```
-### TweenLite
 
+### TweenLite
 ```javascript
 TweenLite.to(ELEMENT,SECONDS,{CSS})
 TweenLite.to(container,1,{opacity:0, x:50})
@@ -33,4 +33,10 @@ TweenLite.to(container,1,{opacity:0, x:50})
 
 # GSAP 3
 
-## Scroll
+## from, to y fromTo
+
+```javascript
+	gsap.to('.element', {width: 100, opacity: 1, duration: 3}) // indicas a donde termina
+	gsap.from('.element', {width: 0, duration: 3}) // indicas el punto de arranque
+	gsap.fromTo('.element img',{scale:0, x:100} ,{scale: 1.5, x:800, duration: 3}) // 
+```
