@@ -1,6 +1,9 @@
-# Animation
+#Animation
 
-# Intersection Observer
+## Lottie
+https://github.com/airbnb/lottie-web
+
+### Intersection Observer
 
 ```javascript
 function handleIntersection(entries) {
@@ -16,19 +19,13 @@ const observer = new IntersectionObserver(handleIntersection);
 observer.observe(target);
 ```
 
-## Lottie
-
-https://github.com/airbnb/lottie-web
-
-##GSAP
+## GSAP 3
 ### Draggable
 [foro](https://greensock.com/forums/topic/14575-how-to-create-a-sortable-list-with-draggable/)
 [ejemplo grilla](https://codepen.io/osublake/pen/NrRJwm)
 
 
-
-# GSAP 3
-## from, to y fromTo
+### from, to y fromTo
 
 ```javascript
 	gsap.to('.circulo', {width: 100, opacity: 1, duration: 3}) // indicas a donde termina
