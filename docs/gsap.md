@@ -1,6 +1,7 @@
 #Animation
 
 ## Lottie
+
 https://github.com/airbnb/lottie-web
 
 ### Intersection Observer
