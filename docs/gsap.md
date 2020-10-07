@@ -20,9 +20,7 @@ observer.observe(target);
 ```
 
 ## GSAP 3
-### Draggable
-[foro](https://greensock.com/forums/topic/14575-how-to-create-a-sortable-list-with-draggable/)
-[ejemplo grilla](https://codepen.io/osublake/pen/NrRJwm)
+
 
 
 ### from, to y fromTo
@@ -45,3 +43,8 @@ observer.observe(target);
 ```javascript
 x:"random(-100, 100, 5)" //chooses a random number between -100 and 100 for each target, rounding to the closest 5!
 ```
+
+
+### Draggable
+[foro](https://greensock.com/forums/topic/14575-how-to-create-a-sortable-list-with-draggable/)
+[ejemplo grilla](https://codepen.io/osublake/pen/NrRJwm)
