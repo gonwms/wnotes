@@ -236,8 +236,9 @@ function wrapElements(elemento){
         var nuevo = '<div class="mascara">' + e.innerHTML + '</div>'; 
         e.innerHTML = nuevo;
     })
-    wrapElements('.container img' )
 }
+wrapElements('.container img' )
+
 ```
 
 ## Geometria
