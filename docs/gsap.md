@@ -88,11 +88,33 @@ ScrollLottie({
 ```
 
 ## Intersection Observer
-Es una API nativa. Se puede usar para LAZZY LOAD. 
 Es mucho menos versatil que ScrollTrigger de GSAP
+Es una API nativa. Se puede usar para LAZZY LOAD. 
+
+### Lazzy loadAnimation
+
+
+```html
+<!--la url debe estar en data-src-->
+<img data-src="https://images.jps" class="lazyload"/>
+```
+```javascript
+function handleIntersection(entries) {
+  entries.map((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.src = entry.target.dataset.src;
+      entry.target.classList.add(‘loaded’)
+      observer.unobserve(entry.target);
+    }
+  });
+}
+```
+
+
 
 ```javascript
 //no es muy versatil esta opción. 
+const target = document.querySelector('.menu');
 
 function handleIntersection(entries) {
   entries.map((entry) => {
@@ -107,7 +129,85 @@ const observer = new IntersectionObserver(handleIntersection);
 observer.observe(target);
 ```
 
+
+
+
 ## GSAP 3
+
+### timeline
+#### Animar elementos en secciones.
+
+```javascript
+
+		animateIn.to([TARGET],{
+			scaleX:0,
+			y:500
+		}, [POSITION EN LA LINEA DE TIEMPO]);
+
+```
+animar los elementos dentro de modulos iguales (secciones).
+Lo importante es que cada elemento
+
+
+```javascript
+
+// //HIDDEN TEXT ANIMATION
+function AnimarElementosEnSecciones(){
+
+var ElementorSection = document.querySelectorAll('.elementor-section');
+	ElementorSection.forEach(function(ElemetorS) {
+		//ELEMENTOS
+		var hiddenText = Array.from(ElemetorS.querySelectorAll('.hiddentext SPAN'));
+		var parrafo = Array.from(ElemetorS.querySelectorAll('P'));
+		var overlay = Array.from(ElemetorS.querySelectorAll('.overlay'));
+		var origin = "top left";
+
+		//TRIGGER 
+		var animateIn = gsap.timeline({
+			scrollTrigger: {
+				trigger: ElemetorS,
+				start: 'top center',
+				end:'top end',
+				// markers: 'true',
+				toggleActions: 'play none none reverse',
+			}
+		});
+		// ANIMACIONES
+
+		animateIn.fromTo(hiddenText,{
+			y:100
+		}, {
+			y:0,
+			stagger:0.1,
+			duration:1,
+			ease:Expo.easeOut
+		}, 0);
+
+		animateIn.from(parrafo,{
+			display:'block',
+			x:50,
+			opacity:0,
+			stagger:0.1,
+			duration:0.5,
+		}, 0);
+
+	// ANIMACION CON UN CONDICIONAL
+		animateIn.to(overlay,{
+			scaleX:0,
+			duration:1,
+			transformOrigin: () =>{
+				console.log(overlay)
+				if(overlay[0].classList.contains('overlay_2')){
+					return "bottom left";
+				}else{
+					return "bottom right";
+				}
+			}
+		}, 0);
+	});
+}
+
+´´´
 
 ### from, to y fromTo
 
@@ -129,7 +229,7 @@ observer.observe(target);
 ```javascript
 x:"random(-100, 100, 5)" //chooses a random number between -100 and 100 for each target, rounding to the closest 5!
 ```
-
+	
 
 ### Draggable
 [foro](https://greensock.com/forums/topic/14575-how-to-create-a-sortable-list-with-draggable/)
