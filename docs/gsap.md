@@ -89,11 +89,8 @@ ScrollLottie({
 
 ## Intersection Observer
 Es mucho menos versatil que ScrollTrigger de GSAP
-Es una API nativa. Se puede usar para LAZZY LOAD. 
 
 ### Lazzy loadAnimation
-
-
 ```html
 <!--la url debe estar en data-src-->
 <img data-src="https://images.jps" class="lazyload"/>
@@ -109,24 +106,35 @@ function handleIntersection(entries) {
   });
 }
 ```
-
-
-
-```javascript
-//no es muy versatil esta opción. 
-const target = document.querySelector('.menu');
-
-function handleIntersection(entries) {
-  entries.map((entry) => {
-    if (entry.isIntersecting) {
-      console.log('rata tata');
-    } else {
-       console.log('barba parrilla');
-    }
-  });
+### Menu animado fijo on scroll
+```html
+    <div id="menu-big"></div>
+    <div id="menu-little" style="background: #d6d6d6; position:fixed;top:-100px;z-indez:1,width: 100%;" ></div>
+```
+```css
+#menu-little.activo{
+	top:0px;
+	z-index: 99;
 }
-const observer = new IntersectionObserver(handleIntersection);
-observer.observe(target);
+```
+```javascript
+	var menuLitte = document.querySelector('#menu-little');
+	const target = document.querySelector('#menu-big');
+	function handleIntersection(entries) {
+		entries.map((entry) => {
+			// console.log(entry);
+			// si menu big es intersecting -> 
+		  if (entry.isIntersecting) {
+			  menuLitte.classList.remove('activo');
+			} else {
+				menuLitte.classList.add('activo');
+		  }
+		});
+	  }
+	//   .to('.menu',{y:-30, duration:0.3 },'0')
+	const observer = new IntersectionObserver(handleIntersection);
+	observer.observe(target);
+}
 ```
 
 
@@ -135,16 +143,14 @@ observer.observe(target);
 ## GSAP 3
 
 ### timeline
+```javascript
+animateIn.to([TARGET],{
+	scaleX:0,
+	y:500
+}, [POSITION EN LA LINEA DE TIEMPO]);
+```
 #### Animar elementos en secciones.
 
-```javascript
-
-		animateIn.to([TARGET],{
-			scaleX:0,
-			y:500
-		}, [POSITION EN LA LINEA DE TIEMPO]);
-
-```
 animar los elementos dentro de modulos iguales (secciones).
 Lo importante es que cada elemento
 
@@ -153,7 +159,6 @@ Lo importante es que cada elemento
 
 // //HIDDEN TEXT ANIMATION
 function AnimarElementosEnSecciones(){
-
 var ElementorSection = document.querySelectorAll('.elementor-section');
 	ElementorSection.forEach(function(ElemetorS) {
 		//ELEMENTOS
@@ -173,7 +178,6 @@ var ElementorSection = document.querySelectorAll('.elementor-section');
 			}
 		});
 		// ANIMACIONES
-
 		animateIn.fromTo(hiddenText,{
 			y:100
 		}, {
@@ -182,7 +186,6 @@ var ElementorSection = document.querySelectorAll('.elementor-section');
 			duration:1,
 			ease:Expo.easeOut
 		}, 0);
-
 		animateIn.from(parrafo,{
 			display:'block',
 			x:50,
@@ -190,7 +193,6 @@ var ElementorSection = document.querySelectorAll('.elementor-section');
 			stagger:0.1,
 			duration:0.5,
 		}, 0);
-
 	// ANIMACION CON UN CONDICIONAL
 		animateIn.to(overlay,{
 			scaleX:0,
@@ -207,22 +209,20 @@ var ElementorSection = document.querySelectorAll('.elementor-section');
 	});
 }
 
-´´´
+```
 
 ### from, to y fromTo
 
 ```javascript
-	gsap.to('.circulo', {width: 100, opacity: 1, duration: 3}) // indicas a donde termina
+gsap.to('.circulo', {width: 100, opacity: 1, duration: 3}) // indicas a donde termina
+gsap.from('.cuadrado', {width: 0, duration: 3, ease: "elastic"}) // indicas el punto de arranque
+gsap.fromTo('.triangulo',{scale:0, x:100} ,{scale: 1.5, x:800, duration: 3}) // con principio y fin
 
-	gsap.from('.cuadrado', {width: 0, duration: 3, ease: "elastic"}) // indicas el punto de arranque
-
-	gsap.fromTo('.triangulo',{scale:0, x:100} ,{scale: 1.5, x:800, duration: 3}) // con principio y fin
-
-	//now we can control it!
-	tween.pause();
-	tween.seek(2);
-	tween.progress(0.5);
-	tween.play();
+//now we can control it!
+tween.pause();
+tween.seek(2);
+tween.progress(0.5);
+tween.play();
 
 ```
 #### Random
