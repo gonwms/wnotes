@@ -78,7 +78,7 @@
 
 <style>
 .container2{
-	height: 100vh;
+	height: 400px;
 	background: #363636;
 	perspective: 1200px;
 	padding: 0;
@@ -87,8 +87,8 @@
 
 
 .cubo{
-	height: 250px;
-	width: 250px; 
+	height: 70px;
+	width: 70px; 
 	position: absolute;
 	top:calc(50vh - 125px);
 	left:calc(50vw - 125px);
