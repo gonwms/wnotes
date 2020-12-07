@@ -76,5 +76,7 @@ export{
 
 ## server
 `http-server`
+```
 npx http-server "S:\Proyectos\01_Clientes\Gonzalo Williams\2021\deploy" 
+```
 
