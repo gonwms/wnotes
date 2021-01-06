@@ -79,4 +79,7 @@ export{
 ```
 npx http-server "S:\Proyectos\01_Clientes\Gonzalo Williams\2021\deploy" 
 ```
-
+Si estoy en la carpita que quiero deployar
+```
+npx http-server .
+```
