@@ -1,85 +1,87 @@
 {
 	"list": [
 		{
-			"name": "0 Array",
+			"name": "DOM",
 			"imgURL": "/docs/file.jpg"
 		},
 		{
-			"name": "0 CSS",
+			"name": "Es6",
 			"imgURL": "/docs/file.jpg"
 		},
 		{
-			"name": "0 DOM",
+			"name": "Array",
 			"imgURL": "/docs/file.jpg"
 		},
 		{
-			"name": "0 Es6",
+			"name": "Objects",
 			"imgURL": "/docs/file.jpg"
 		},
 		{
-			"name": "3 Firebase",
+			"name": "Strings",
 			"imgURL": "/docs/file.jpg"
 		},
 		{
-			"name": "4 Git",
+			"name": "Math",
 			"imgURL": "/docs/file.jpg"
 		},
 		{
-			"name": "0 SAP",
+			"name": "RegEx",
 			"imgURL": "/docs/file.jpg"
 		},
 		{
-			"name": "0 Math",
+			"name": "CSS",
 			"imgURL": "/docs/file.jpg"
 		},
 		{
-			"name": "4 Node",
+			"name": "GSAP",
 			"imgURL": "/docs/file.jpg"
 		},
 		{
-			"name": "0 Notas",
+			"name": "Firebase",
 			"imgURL": "/docs/file.jpg"
 		},
 		{
-			"name": "0 Objects",
-			"imgURL": "/docs/file.jpg"
-		},
-
-		{
-			"name": "0 Patterns",
+			"name": "Vue",
 			"imgURL": "/docs/file.jpg"
 		},
 		{
-			"name": "0 Reactive RxJs",
+			"name": "Reactive RxJs",
 			"imgURL": "/docs/file.jpg"
 		},
 		{
-			"name": "0 RegEx",
+			"name": "React",
 			"imgURL": "/docs/file.jpg"
 		},
 		{
-			"name": "0 Strings",
-			"imgURL": "/docs/file.jpg"
-		},
-
-		{
-			"name": "4 VsCode",
+			"name": "Graphql",
 			"imgURL": "/docs/file.jpg"
 		},
 		{
-			"name": "3 Vue",
+			"name": "Mongo",
 			"imgURL": "/docs/file.jpg"
 		},
 		{
-			"name": "5 Webpack",
+			"name": "Webpack",
 			"imgURL": "/docs/file.jpg"
 		},
 		{
-			"name": "5 Mongo",
+			"name": "Patterns",
 			"imgURL": "/docs/file.jpg"
 		},
 		{
-			"name": "5 React",
+			"name": "VsCode",
+			"imgURL": "/docs/file.jpg"
+		},
+		{
+			"name": "Git",
+			"imgURL": "/docs/file.jpg"
+		},
+		{
+			"name": "Node",
+			"imgURL": "/docs/file.jpg"
+		},
+		{
+			"name": "Notas",
 			"imgURL": "/docs/file.jpg"
 		}
 	]
