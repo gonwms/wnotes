@@ -85,7 +85,7 @@ class Container extends Component{
 }
 ```
 
-## States
+### State
 
 ```javascript
 
