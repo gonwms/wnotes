@@ -27,3 +27,13 @@
 1. git fetch --all
 1. git reset --hard origin/master
 1. git pull origin master
+
+## Trabajar en equipo
+
+1. Hacer *fork* de proyecto de tercero
+1. Hacer un *$git clone <proyecto> del fork para trabajarlo local 
+1. Hacer modificaciones que querramos
+1. Hacer un push para actualizarlo en la nube
+1. Ir a pestaña *pull request* > crear pull request. 
+1. Github first compares the base fork with yours, and will find nothing if you made no changes, so, click “switching the base”, which will change your fork to the base, and the original to the head fork. 
+1. confirm merge

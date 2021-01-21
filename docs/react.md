@@ -60,7 +60,7 @@ function Container(){
 	)
 }
 ```
-!!Cuando el componenete se definie con una Class, las `props` se llama con `this` y no es necesario agregarla como parámetro. Vienen dentro del extends Componenet
+!!Cuando el componenete se definie con una Class, las **props** se llama con **this.props** y no es necesario agregarla como parámetro. Vienen dentro del **extends Componenet**
 ```javascript
 //imports
 
