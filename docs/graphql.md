@@ -1,8 +1,6 @@
 
 # MongoDB
 
-
-
 ## Creación de Base de datos en *Mongodb.com*
 
 * crear proyecto
@@ -54,6 +52,11 @@ Apollo es un servidor que compila GraphQL.
 ```javascript
 
 const { ApolloServer } = require('apollo-server')
+
+const server = new ApolloServer({
+  typeDefs,
+  resolvers,
+});
 
 server.listen({ port: 5000 })
 	.then(res => { 
