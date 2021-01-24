@@ -226,6 +226,21 @@ d1.insertAdjacentHTML('afterend', '<div id="two">two</div>');
 //<div id="two">two</div>
 ```
 
+### Wrap Element with code
+```javascript
+
+function wrapElements(elemento){
+	var el = document.querySelectorAll(elemento)
+	el.forEach( e =>{
+        console.log(e);
+        var nuevo = '<div class="mascara">' + e.innerHTML + '</div>'; 
+        e.innerHTML = nuevo;
+    })
+}
+wrapElements('.container img' )
+
+```
+
 ## Geometria
 
 ![](docs/imgs/geometry.png "geometry")

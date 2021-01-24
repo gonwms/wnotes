@@ -265,3 +265,82 @@ Si la acción no tiene context, incluir un objeto con dispatch como parámetro d
 
 	}
 ```
+
+## Router
+### Requerir autorización requiresAuth
+Usado en proyecto nomnom. 
+Se le agrega un meta: { requiresAuth: true } a cada ruta que debe tener permiso.
+En main.js se verifica si hay usuario de firebase antes de ir a la ruta.
+
+
+en router.js
+```javascript
+
+export const routes = [
+    {
+      path: '/',
+      name: 'inicio',
+      component: Inicio
+    },
+    {
+      path: '/agenda',
+      name: 'agenda',
+      component: Agenda,
+      meta: { requiresAuth: true }
+    }
+]
+```
+
+En main.js
+```javascript
+//ROUTER
+
+/* Set-up and use the Vue Router and pass in your routes and 
+then Set the mode to use history to remove # from the URL*/
+Vue.use(VueRouter);
+// const bus = new Vue();
+const router = new VueRouter({
+    routes: routes,
+    mode: 'history'
+});
+
+
+/* Check before each page load whether the page requires authentication/
+if it does check whether the user is signed into the web app or
+redirect to the sign-in page to enable them to sign-in */
+router.beforeEach((to, from, next) => {
+
+    var currentUser = FB.auth().currentUser;
+    const requiresAuth = to.matched.some(record => record.meta.requiresAuth);
+
+    if (to.name != 'inicio') {
+        console.log(to);
+    }
+    if (requiresAuth && !currentUser) {
+        console.log(currentUser);
+        next('/login');
+    } 
+    else if (requiresAuth && currentUser) {
+        next();
+    }
+    else {
+        next();
+    }
+
+});
+
+
+// Wrap the vue instance in a FB onAuthStateChanged method
+// This stops the execution of the navigation guard 'beforeEach'
+// method until the FB initialization ends
+FB.auth().onAuthStateChanged(function () {
+
+    new Vue({
+        router,
+        store,
+        vuetify,
+        render: h => h(App)
+    }).$mount('#app');
+});
+
+```
