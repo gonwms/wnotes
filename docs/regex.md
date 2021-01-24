@@ -1,4 +1,24 @@
 #RegExp
+## expresiones
+### comienza con
+```
+^a // 
+```
+
+### a OR b OR c
+```
+(a|b|c)
+```
+
+### cualquier caracter
+```
+. 
+```
+
+###  Matches between zero and unlimited
+```
+*
+```
 
 ## match()
 
