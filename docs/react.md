@@ -126,19 +126,37 @@ class Container extends Component {
 }
 ```
 
-# Hooks
+## Hooks
 
-## useContext
+### useStates
 
-## useStates
+- Solo se pueden usar dentro comoponenetes de function, no de clases
+- no pueden estar dentro if o funciones. tiene que se declarados al principio de la function.
 
-## useRefs
+```javascript
+import React. {useState} from 'react'
 
-## useReducer
+function App(){
+  return
+}
 
-## useCallback
+```
 
-## useEffect
+### useContext
+
+```javascript
+
+```
+
+### useRefs
+
+### useReducer
+
+### useMemo & useCallback
+
+memo returns los valores. Callback retorna la función
+
+### useEffect
 
 Guardar en local storage
 
