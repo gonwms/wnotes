@@ -25,10 +25,6 @@
 			"imgURL": "/docs/file.jpg"
 		},
 		{
-			"name": "Graphql",
-			"imgURL": "/docs/file.jpg"
-		},
-		{
 			"name": "Git",
 			"imgURL": "/docs/file.jpg"
 		},
@@ -37,11 +33,7 @@
 			"imgURL": "/docs/file.jpg"
 		},
 		{
-			"name": "Mongo",
-			"imgURL": "/docs/file.jpg"
-		},
-		{
-			"name": "Node",
+			"name": "MERNG",
 			"imgURL": "/docs/file.jpg"
 		},
 		{
