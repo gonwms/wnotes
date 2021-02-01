@@ -1,116 +1,99 @@
-# MongoDB
+# INICIO DE PROYECTO
 
-## Creación de Base de datos en _Mongodb.com_
+## PASOS GENERALES
+
+1. Creación de Base de datos en Mongo
+2. Crear carpeta **server** e iniciar proyecto.
+3. Crear *index.js*en donde se define el servidor **(apolloServer)**
+4. Crear una carpeta **models** con un archivo por cada Schema ej: User.js, Post.js
+5. Crear una carpeta GraphQL con typeDefs y resolver
+6. Agregar Token
+
+## 01 Creación de Base de datos en _Mongodb.com_
 
 - crear proyecto
 - crear cluster
 - Database Access > add database USER > generar y guardar contraseña.
 - Network Access > add IP ADDRESS > Acceess Anywhere (solo en desarrollo)
-- Cluster > connect > Connect your application > copy string
+- Cluster > connect > Connect your application > copy string y hacer un config.js con el string.
 
-## Crear proyecto
+## 02 Crear proyecto
 
-1. $npm init
+1. $yarb init o $npm init
 2. crear index.js
 3. crear .gitignore
-4. instalar _apollo graphql mongoose_ `$ npm install apollo-server graphql mongoose`
+4. instalar _apollo graphql graphql-tag mongoose_ `$ yarn add apollo-server graphql mongoose nodemon`
+5. agregar SCRIPTS a package.json para ejecutar el servidor.
 
-En index.js
+package.json
 
 ```javascript
-// ejemplo super simple
-const { ApolloServer } = require('apollo-server');
-const gql = require('graphql-tag');
-
-const typeDefs = gql`
-  type Query {
-    sayHi: String!
-  }
-`;
-const resolvers = {
-  Query: {
-    sayHi: () => 'Hello World',
+  "scripts": {
+    "serve": "node index",
+    "start": "nodemon index"
   },
-};
-const server = new ApolloServer({
-  typeDefs,
-  resolvers,
-});
-server.listen({ port: 5000 }).then((res) => {
-  console.log(`Server running at ${res.url}`);
-});
 ```
 
-## BACKEND MERNG
-
-### 01 Apollo server
-
-Apollo es un servidor que compila GraphQL.
+## 03 setup index.js
 
 ```javascript
-const { ApolloServer } = require('apollo-server');
+const { ApolloServer, gql } = require('apollo-server');
+const mongoose = require('mongoose');
+
+const typeDefs = require('./graphql/typeDefs.js');
+const resolvers = require('./graphql/resolvers/');
+const { MONGODB } = require('./config.js');
+
+//process.env.PORT || 5000 means: whatever is in the environment variable PORT, or 3000 if there's nothing there.
+const PORT = process.env.port || 5000;
 
 const server = new ApolloServer({
   typeDefs,
   resolvers,
 });
 
-server.listen({ port: 5000 }).then((res) => {
-  console.log(`Server running at ${res.url}`);
-});
+mongoose
+  .connect(MONGODB, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() => {
+    console.log('MongoDB Connected');
+    return server.listen({ port: PORT });
+  })
+  .then((res) => {
+    console.log(`Server running at ${res.url}`);
+  })
+  .catch((err) => {
+    console.error(err);
+  });
 ```
 
-### Mongoose
+## 04 Mongoose model
 
 Es una biblioteca para definir _Schemas_ y _Modelos_ y contectarse con MongoDB
 Se crea una carpeta _"models"_ y se hace un .js para cada entidad?
 
-Ejemplo
+models/Users.js
 
 ```javascript
 const { model, Schema } = require('mongoose');
 
-const postSchema = new Schema({
-  body: String,
+const usersSchema = new Schema({
   username: String,
+  password: String,
   createdAt: String,
-  comments: [
-    {
-      body: String,
-      username: String,
-      createdAt: String,
-    },
-  ],
-  likes: [
-    {
-      username: String,
-      createdAt: String,
-    },
-  ],
-  user: {
-    type: Schema.Types.ObjectId,
-    ref: 'users',
-  },
+  alias: String,
+  email: String,
 });
-
-module.exports = model('Post', postSchema);
+// el último parametro es opcional, es el nombre de la collección ej: 'users'. Si no está usa por defecto el primero en lowercase y plural en en este caso también sería 'users'
+module.exports = model('User', usersSchema, 'users');
 ```
 
-Al servidor de apollo primero lo contectamos con mongoDB
+## 05 GraphQL > typeDefs y resolver
 
-```javascript
-mongoose.connect(MONGODB, { useNewUrlParser: true }).then(() => {
-  console.log('Se conecto');
-  return server.listen({ port: 5000 });
-});
-```
+1. Crear carpeta graphql
+1. crear typeDefs.js
+1. crear carpeta resolvers y un archivo para cada entidad: ej: posts.js, users.js
 
-### GraphQL
-
-1. _typeDefs_ (Type definitions )
-2. _resolvers_ tiene querys y mutations
-
-1 ejemplo de typeDefs
+graphql/typeDefs.js
 
 ```javascript
 const { gql } = require('apollo-server');
@@ -152,62 +135,86 @@ module.exports = gql`
 `;
 ```
 
-Ejemplo de resolver
+graphql/resolvers/users.js
 
 ```javascript
-const { AuthenticationError } = require('apollo-server');
+const { UserInputError } = require('apollo-server');
+const bcrypt = require('bcrypt');
 
-const Post = require('../../models/Post');
-const checkAuth = require('../../util/check-auth');
+const User = require('../../model/Users.js');
 
 module.exports = {
   Query: {
-    async getPosts() {
+    async getUser(_, { userId }) {
+      console.log('HOLA');
       try {
-        const posts = await Post.find().sort({ createdAt: -1 });
-        return posts;
+        const user = await User.findById(userId);
+        if (user) {
+          console.log(user);
+          return user;
+        } else {
+          console.log('NO');
+          throw new Error('not user found');
+        }
       } catch (error) {
         throw new Error(error);
       }
     },
-    async getPost(_, { postId }) {
-      const post = await Post.findById(postId);
-      if (post) {
-        return post;
-      } else {
-        throw new Error(err);
+    async getUsers() {
+      try {
+        const user = await User.find();
+        if (user) {
+          return user;
+        } else {
+          throw new Error('not user found');
+        }
+      } catch (error) {
+        throw new Error('not user found', error);
       }
     },
   },
   Mutation: {
-    async createPost(_, { body }, context) {
-      const user = checkAuth(context);
+    async register(_, { username, password, email, alias }) {
+      //TODO: chequear que el USER no esté siendo usado
+      //TODO: chequear que el EMAIL no esté siendo usado
+      //TODO: agregar TOKEN
 
-      const newPost = new Post({
-        body,
-        user: user.id,
-        username: user.username,
+      // encripta hash password
+      password = await bcrypt.hash(password, 12);
+
+      const newUser = new User({
+        email,
+        username,
+        password,
+        alias: alias,
         createdAt: new Date().toISOString(),
       });
 
-      const post = await newPost.save();
-
-      return post;
+      const res = await newUser.save();
+      console.log(res._doc);
+      return {
+        ...res._doc,
+        id: res._id,
+      };
     },
-    async deletePost(_, { postId }, context) {
-      const user = checkAuth(context);
 
-      try {
-        const post = await Post.findById(postId);
-        if (user.username === post.username) {
-          await post.delete();
-          return 'Post deleted successfully';
-        } else {
-          throw new AuthenticationError('Action not allowed');
-        }
-      } catch (err) {
-        throw new Error(err);
+    async login(_, { username, password }) {
+      const user = await User.findOne({ username });
+      console.log(user);
+      if (!user) {
+        throw new UserInputError('El usurio no existe');
       }
+
+      // compara password encriptado durante el registro
+      const match = await bcrypt.compare(password, user.password);
+
+      if (!match) {
+        throw new UserInputError('El password no coincide');
+      }
+      return {
+        ...user._doc,
+        id: user._id,
+      };
     },
   },
 };

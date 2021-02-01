@@ -1,6 +1,14 @@
 {
 	"list": [
 		{
+			"name": "Array",
+			"imgURL": "/docs/file.jpg"
+		},
+		{
+			"name": "CSS",
+			"imgURL": "/docs/file.jpg"
+		},
+		{
 			"name": "DOM",
 			"imgURL": "/docs/file.jpg"
 		},
@@ -9,27 +17,7 @@
 			"imgURL": "/docs/file.jpg"
 		},
 		{
-			"name": "Array",
-			"imgURL": "/docs/file.jpg"
-		},
-		{
-			"name": "Objects",
-			"imgURL": "/docs/file.jpg"
-		},
-		{
-			"name": "Strings",
-			"imgURL": "/docs/file.jpg"
-		},
-		{
-			"name": "Math",
-			"imgURL": "/docs/file.jpg"
-		},
-		{
-			"name": "RegEx",
-			"imgURL": "/docs/file.jpg"
-		},
-		{
-			"name": "CSS",
+			"name": "Firebase",
 			"imgURL": "/docs/file.jpg"
 		},
 		{
@@ -37,11 +25,27 @@
 			"imgURL": "/docs/file.jpg"
 		},
 		{
-			"name": "Firebase",
+			"name": "Graphql",
 			"imgURL": "/docs/file.jpg"
 		},
 		{
-			"name": "Vue",
+			"name": "Git",
+			"imgURL": "/docs/file.jpg"
+		},
+		{
+			"name": "Math",
+			"imgURL": "/docs/file.jpg"
+		},
+		{
+			"name": "Mongo",
+			"imgURL": "/docs/file.jpg"
+		},
+		{
+			"name": "Node",
+			"imgURL": "/docs/file.jpg"
+		},
+		{
+			"name": "Notas",
 			"imgURL": "/docs/file.jpg"
 		},
 		{
@@ -53,15 +57,15 @@
 			"imgURL": "/docs/file.jpg"
 		},
 		{
-			"name": "Graphql",
+			"name": "RegEx",
 			"imgURL": "/docs/file.jpg"
 		},
 		{
-			"name": "Mongo",
+			"name": "Strings",
 			"imgURL": "/docs/file.jpg"
 		},
 		{
-			"name": "Webpack",
+			"name": "Objects",
 			"imgURL": "/docs/file.jpg"
 		},
 		{
@@ -73,15 +77,11 @@
 			"imgURL": "/docs/file.jpg"
 		},
 		{
-			"name": "Git",
+			"name": "Vue",
 			"imgURL": "/docs/file.jpg"
 		},
 		{
-			"name": "Node",
-			"imgURL": "/docs/file.jpg"
-		},
-		{
-			"name": "Notas",
+			"name": "Webpack",
 			"imgURL": "/docs/file.jpg"
 		}
 	]
