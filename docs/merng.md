@@ -9,7 +9,9 @@
 5. Crear una carpeta GraphQL con typeDefs y resolver
 6. Agregar Token
 
-### 01 Creación de Base de datos en _Mongodb.com_
+## Paso 01 Base de datos
+
+_Mongodb.com_
 
 - crear proyecto
 - crear cluster
@@ -17,7 +19,7 @@
 - Network Access > add IP ADDRESS > Acceess Anywhere (solo en desarrollo)
 - Cluster > connect > Connect your application > copy string y hacer un config.js con el string.
 
-### 02 Crear proyecto
+## Paso 02 Crear proyecto
 
 1. $yarb init o $npm init
 2. crear index.js
@@ -34,7 +36,9 @@ package.json
   },
 ```
 
-### 03 setup index.js
+## Paso 03 Setup index
+
+index.js
 
 ```javascript
 const { ApolloServer, gql } = require('apollo-server');
@@ -66,7 +70,7 @@ mongoose
   });
 ```
 
-### 04 Mongoose model
+## Paso 04 Mongoose Models
 
 Es una biblioteca para definir _Schemas_ y _Modelos_ y contectarse con MongoDB
 Se crea una carpeta _"models"_ y se hace un .js para cada entidad?
@@ -87,11 +91,15 @@ const usersSchema = new Schema({
 module.exports = model('User', usersSchema, 'users');
 ```
 
-### 05 GraphQL > typeDefs y resolver
+## Paso 05 GraphQL
+
+typeDefs y resolver
 
 1. Crear carpeta graphql
 1. crear typeDefs.js
 1. crear carpeta resolvers y un archivo para cada entidad más un index.js para agruparlos a todos: ej: posts.js, users.js
+
+### typeDefs
 
 ej: graphql/typeDefs.js
 
@@ -134,6 +142,8 @@ module.exports = gql`
   }
 `;
 ```
+
+### Resolvers
 
 ej: graphql/resolvers/users.js
 
@@ -219,6 +229,8 @@ module.exports = {
   },
 };
 ```
+
+### Mergin Resolvers
 
 ej: resolvers/index.js
 
