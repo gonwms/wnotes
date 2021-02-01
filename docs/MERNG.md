@@ -91,9 +91,9 @@ module.exports = model('User', usersSchema, 'users');
 
 1. Crear carpeta graphql
 1. crear typeDefs.js
-1. crear carpeta resolvers y un archivo para cada entidad: ej: posts.js, users.js
+1. crear carpeta resolvers y un archivo para cada entidad más un index.js para agruparlos a todos: ej: posts.js, users.js
 
-graphql/typeDefs.js
+ej: graphql/typeDefs.js
 
 ```javascript
 const { gql } = require('apollo-server');
@@ -135,7 +135,7 @@ module.exports = gql`
 `;
 ```
 
-graphql/resolvers/users.js
+ej: graphql/resolvers/users.js
 
 ```javascript
 const { UserInputError } = require('apollo-server');
@@ -216,6 +216,26 @@ module.exports = {
         id: user._id,
       };
     },
+  },
+};
+```
+
+ej: resolvers/index.js
+
+```javascript
+const postsResolvers = require('./posts');
+const usersResolvers = require('./users');
+const restaurantsResolvers = require('./restaurants');
+
+module.exports = {
+  Query: {
+    ...postsResolvers.Query,
+    ...usersResolvers.Query,
+    ...restaurantsResolvers.Query,
+  },
+  Mutation: {
+    ...usersResolvers.Mutation,
+    ...postsResolvers.Mutation,
   },
 };
 ```
