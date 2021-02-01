@@ -1,6 +1,6 @@
 # INICIO DE PROYECTO
 
-## PASOS GENERALES
+## PASOS GENERALES.
 
 1. Creación de Base de datos en Mongo
 2. Crear carpeta **server** e iniciar proyecto.
