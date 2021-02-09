@@ -361,6 +361,7 @@ import Home from './components/Home';
 import Register from './components/Register';
 import Login from './components/Login';
 
+// definimos el current por defecto segun url path
 const pathname = window.location.pathname;
 const currentPath = pathname === '/' ? 'home' : pathname.substr(1);
 

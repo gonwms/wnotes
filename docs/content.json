@@ -1,80 +1,84 @@
 {
-	"list": [
-		{
-			"name": "Array",
-			"imgURL": "/docs/file.jpg"
-		},
-		{
-			"name": "CSS",
-			"imgURL": "/docs/file.jpg"
-		},
-		{
-			"name": "DOM",
-			"imgURL": "/docs/file.jpg"
-		},
-		{
-			"name": "Es6",
-			"imgURL": "/docs/file.jpg"
-		},
-		{
-			"name": "Firebase",
-			"imgURL": "/docs/file.jpg"
-		},
-		{
-			"name": "GSAP",
-			"imgURL": "/docs/file.jpg"
-		},
-		{
-			"name": "Git",
-			"imgURL": "/docs/file.jpg"
-		},
-		{
-			"name": "Math",
-			"imgURL": "/docs/file.jpg"
-		},
-		{
-			"name": "MERNG",
-			"imgURL": "/docs/file.jpg"
-		},
-		{
-			"name": "Notas",
-			"imgURL": "/docs/file.jpg"
-		},
-		{
-			"name": "Reactive RxJs",
-			"imgURL": "/docs/file.jpg"
-		},
-		{
-			"name": "React",
-			"imgURL": "/docs/file.jpg"
-		},
-		{
-			"name": "RegEx",
-			"imgURL": "/docs/file.jpg"
-		},
-		{
-			"name": "Strings",
-			"imgURL": "/docs/file.jpg"
-		},
-		{
-			"name": "Objects",
-			"imgURL": "/docs/file.jpg"
-		},
-		{
-			"name": "Patterns",
-			"imgURL": "/docs/file.jpg"
-		},
-		{
-			"name": "VsCode",
-			"imgURL": "/docs/file.jpg"
-		},
-		{
-			"name": "Vue",
-			"imgURL": "/docs/file.jpg"
-		},
-		{
-			"name": "Webpack",
-			"imgURL": "/docs/file.jpg"
-		}
-	]
+  "list": [
+    {
+      "name": "Array",
+      "imgURL": "/docs/file.jpg"
+    },
+    {
+      "name": "CSS",
+      "imgURL": "/docs/file.jpg"
+    },
+    {
+      "name": "DOM",
+      "imgURL": "/docs/file.jpg"
+    },
+    {
+      "name": "Es6",
+      "imgURL": "/docs/file.jpg"
+    },
+    {
+      "name": "Firebase",
+      "imgURL": "/docs/file.jpg"
+    },
+    {
+      "name": "GSAP",
+      "imgURL": "/docs/file.jpg"
+    },
+    {
+      "name": "Git",
+      "imgURL": "/docs/file.jpg"
+    },
+    {
+      "name": "Math",
+      "imgURL": "/docs/file.jpg"
+    },
+    {
+      "name": "MERNG",
+      "imgURL": "/docs/file.jpg"
+    },
+    {
+      "name": "Notas",
+      "imgURL": "/docs/file.jpg"
+    },
+    {
+      "name": "Reactive RxJs",
+      "imgURL": "/docs/file.jpg"
+    },
+    {
+      "name": "React",
+      "imgURL": "/docs/file.jpg"
+    },
+    {
+      "name": "RegEx",
+      "imgURL": "/docs/file.jpg"
+    },
+    {
+      "name": "Strings",
+      "imgURL": "/docs/file.jpg"
+    },
+    {
+      "name": "Objects",
+      "imgURL": "/docs/file.jpg"
+    },
+    {
+      "name": "Patterns",
+      "imgURL": "/docs/file.jpg"
+    },
+    {
+      "name": "VsCode",
+      "imgURL": "/docs/file.jpg"
+    },
+    {
+      "name": "Vue",
+      "imgURL": "/docs/file.jpg"
+    },
+    {
+      "name": "Webpack",
+      "imgURL": "/docs/file.jpg"
+    },
+    {
+      "name": "Wordpress",
+      "imgURL": "/docs/file.jpg"
+    }
+  ]
 }
