@@ -14,13 +14,22 @@
 ## plugins
 
 1. Elementor
+1. Elementor custom skins - custom loops
+1. Absolutely Glamorous Custom Admin
 1. Better Search Replace
-1. Smush - compresor imágenes / lazzyload
+
 1. Woocommerce
-1. Yoast SEO
-1. Prevent Browser caching ??
+1. Woolementor
+
 1. Really Simple SSL
+1. Prevent Browser caching ??
+1. Smush - compresor imágenes / lazzyload
+1. Rank Math SEO
+1. Yoast SEO
+
 1. WPML - traductor
+1. Hospital & Doctor Directory
+1. LMS - nombre generico de los plugins de cursos
 
 ## Comercio Avanzado
 
