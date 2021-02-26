@@ -15,10 +15,13 @@
 
 1. Elementor
 1. Elementor custom skins - custom loops
-1. Absolutely Glamorous Custom Admin
+1. Advanced Post Queries
+
+1. AGCA Absolutely Glamorous Custom Admin
 1. Better Search Replace
 
-1. Woocommerce
+1. Serch IQ - plugin de
+
 1. Woolementor
 
 1. Really Simple SSL
