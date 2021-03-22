@@ -21,11 +21,11 @@
       "imgURL": "/docs/file.jpg"
     },
     {
-      "name": "GSAP",
+      "name": "Git",
       "imgURL": "/docs/file.jpg"
     },
     {
-      "name": "Git",
+      "name": "GSAP",
       "imgURL": "/docs/file.jpg"
     },
     {
@@ -34,6 +34,10 @@
     },
     {
       "name": "MERNG",
+      "imgURL": "/docs/file.jpg"
+    },
+    {
+      "name": "Node",
       "imgURL": "/docs/file.jpg"
     },
     {

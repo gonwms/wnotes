@@ -1,5 +1,9 @@
 # Wordpress
 
+## Instalar en localHost
+
+https://themeisle.com/blog/install-xampp-and-wordpress-locally/
+
 ## Migrar sitio
 
 1. Backup de todos los archivos en cpanel
@@ -8,21 +12,47 @@
 4. Subir database con phpmyadmin > importart
 5. En phpmyadmin cambiar el wp-options la URL del sitio.
 6. Ftp wp-config poner nuevos datos de user y db
-7. Entrar con /wp-admin
-8. Pasar better Search & Replace
+7. Chequear que el htacces no esté llamando al host viejo y esas cosas
+8. Entrar con /wp-admin
+9. Pasar better Search & Replace
+
+## Cambiar URL
+
+Agragar en config.php
+
+```
+define( 'WP_HOME', 'http://localhost/devShell/dev/' );
+define( 'WP_SITEURL', 'http://localhost/devShell/dev/' );
+```
+
+Inicio
+Template bloques texto
+Template grilla de iconos
+Template Encuesta
+Template Contacto
 
 ## plugins
 
 1. Elementor
-1. Elementor custom skins - custom loops
-1. Advanced Post Queries
+1. Elementor custom skins - custom loops y grids
+1. JetSmart Filter
+1. Advanced Post Queries - agrega un campo de busqueda avanzada es posts de Elementor
+
+1. svg sanitizer - permite subir SVG de forma segura
+1. code snippets - agregar CSS HTML JS PHP
 
 1. AGCA Absolutely Glamorous Custom Admin
+1. Hide Dashboard Notifications
 1. Better Search Replace
 
-1. Serch IQ - plugin de
+1. Serch IQ - plugin de busqueda con preview de resultados
 
-1. Woolementor
+1. Multi-Step Checkout for WooCommerce
+1. woocommerce pay per post - Permite acceso restringido a post asociando con producto woocommerce
+1. Variation Swatches for WooCommerce - agrega posibilidad de darle estilo a las variaciones
+1. WooCommerce Stock Manager
+1. WebToffee Product Import Export (permite Custom Fields)
+1. Enviopack
 
 1. Really Simple SSL
 1. Prevent Browser caching ??
@@ -30,9 +60,24 @@
 1. Rank Math SEO
 1. Yoast SEO
 
+1. Quiz And Survey Master - encuentas
 1. WPML - traductor
 1. Hospital & Doctor Directory
 1. LMS - nombre generico de los plugins de cursos
+
+
+comadrescba.com.ar
+
+## SSL
+
+Agregar al htacces para forzar que siempre use https
+
+```
+RewriteEngine On
+RewriteCond %{HTTPS} !=on
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301,NE]
+Header always set Content-Security-Policy "upgrade-insecure-requests;"
+```
 
 ## Comercio Avanzado
 
