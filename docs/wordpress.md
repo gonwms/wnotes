@@ -15,6 +15,7 @@ https://themeisle.com/blog/install-xampp-and-wordpress-locally/
 7. Chequear que el htacces no esté llamando al host viejo y esas cosas
 8. Entrar con /wp-admin
 9. Pasar better Search & Replace
+   10.Allow Webp image
 
 ## Cambiar URL
 
@@ -37,9 +38,15 @@ Template Contacto
 1. Elementor custom skins - custom loops y grids
 1. JetSmart Filter
 1. Advanced Post Queries - agrega un campo de busqueda avanzada es posts de Elementor
+1. Updraft plus - se puede descargar el respaldo de archivos y bases directo a la compu
+
+1. Polylang (parece más facil)
+1. WPML - traductor
 
 1. svg sanitizer - permite subir SVG de forma segura
+1. Allow Webp image
 1. code snippets - agregar CSS HTML JS PHP
+1. WP Mail SMTP
 
 1. AGCA Absolutely Glamorous Custom Admin
 1. Hide Dashboard Notifications
@@ -47,12 +54,15 @@ Template Contacto
 
 1. Serch IQ - plugin de busqueda con preview de resultados
 
+1. GDPR Cookie Consent
+
 1. Multi-Step Checkout for WooCommerce
 1. woocommerce pay per post - Permite acceso restringido a post asociando con producto woocommerce
 1. Variation Swatches for WooCommerce - agrega posibilidad de darle estilo a las variaciones
 1. WooCommerce Stock Manager
 1. WebToffee Product Import Export (permite Custom Fields)
 1. Enviopack
+1. Checkout Widgets for Elementor
 
 1. Really Simple SSL
 1. Prevent Browser caching ??
@@ -64,7 +74,6 @@ Template Contacto
 1. WPML - traductor
 1. Hospital & Doctor Directory
 1. LMS - nombre generico de los plugins de cursos
-
 
 comadrescba.com.ar
 

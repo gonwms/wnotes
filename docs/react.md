@@ -160,21 +160,19 @@ memo returns los valores. Callback retorna la función
 
 Guardar en local storage
 
-    ```javascript
-
-    // el segundo argumento es la condición para que pase
-    // si cambiar el array todo se activa y guarda en local
+```javascript
+// el segundo argumento es la condición para que pase
+// si cambiar el array todo se activa y guarda en local
 
 useEffect(() => {
-localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(todos));
+  localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(todos));
 }, [todos]);
 // el segundo argumento es la condición para que pase. No lo entiendo
 //llama de local storage
 useEffect(() => {
-const storedTodos = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY));
-if (localStorage) {
-setTodos(storedTodos);
-}
-},[]);
-
-    ```
+  const storedTodos = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY));
+  if (localStorage) {
+    setTodos(storedTodos);
+  }
+}, []);
+```
