@@ -26,12 +26,6 @@ define( 'WP_HOME', 'http://localhost/devShell/dev/' );
 define( 'WP_SITEURL', 'http://localhost/devShell/dev/' );
 ```
 
-Inicio
-Template bloques texto
-Template grilla de iconos
-Template Encuesta
-Template Contacto
-
 ## plugins
 
 1. Elementor
@@ -39,14 +33,15 @@ Template Contacto
 1. JetSmart Filter
 1. Advanced Post Queries - agrega un campo de busqueda avanzada es posts de Elementor
 1. Updraft plus - se puede descargar el respaldo de archivos y bases directo a la compu
+1. wp rocket - cloudflare
+1. Custom Post Type UI
 
 1. Polylang (parece más facil)
-1. WPML - traductor
 
 1. svg sanitizer - permite subir SVG de forma segura
 1. Allow Webp image
 1. code snippets - agregar CSS HTML JS PHP
-1. WP Mail SMTP
+1. Mail SMTP
 
 1. AGCA Absolutely Glamorous Custom Admin
 1. Hide Dashboard Notifications

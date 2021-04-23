@@ -43,6 +43,32 @@ location.href      //   https://dominio.com/servicios/diseño#formulario
 window.location.search  // "?post=1234&action=edit"
 ```
 
+## Mutation Observer
+```javascript
+    /*definir target a obervar y las opciones*/
+	var targetNode = document.querySelector('#section6')
+	var options = {
+		subtree: true, // ve los cambios de los hijos del target también
+		attributes: true, // ve si hay cambios en los atributos
+	}
+    // función que se ejecuta
+	function callback(mutationsList) {
+		// console.log(mutationsList)
+		mutationsList.forEach(mutation => {
+				if (mutation.attributeName === 'class') {
+						// alert('Ch-ch-ch-changes!')
+						gsap.fromTo('.swiper-slide-active .team-text', {y:0},{y: -100, duration: 1})
+				}
+		})
+	}
+    // crear nuevo mutationObserver
+	
+    const mutationObserver = new MutationObserver(callback)
+    // ejecutarlo con los parametros definidos
+    mutationObserver.observe(targetNode, options);
+
+```
+
 ## Selectors
 
 ### getElementsBy
