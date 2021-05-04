@@ -43,6 +43,32 @@ location.href      //   https://dominio.com/servicios/diseño#formulario
 window.location.search  // "?post=1234&action=edit"
 ```
 
+```javascript
+
+https://example.com/?product=shirt&color=blue&newuser&size=m,
+
+const queryString = window.location.search;
+console.log(queryString);
+
+const product = urlParams.get('product')
+console.log(product);
+// shirt
+
+const color = urlParams.get('color')
+console.log(color);
+// blue
+
+const newUser = urlParams.get('newuser')
+console.log(newUser);
+// empty string
+
+```
+
+
+
+
+
+
 ## Mutation Observer
 ```javascript
     /*definir target a obervar y las opciones*/

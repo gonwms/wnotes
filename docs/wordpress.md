@@ -30,7 +30,6 @@ define( 'WP_SITEURL', 'http://localhost/devShell/dev/' );
 
 1. Elementor
 1. Elementor custom skins - custom loops y grids
-1. JetSmart Filter
 1. Advanced Post Queries - agrega un campo de busqueda avanzada es posts de Elementor
 1. Updraft plus - se puede descargar el respaldo de archivos y bases directo a la compu
 1. wp rocket - cloudflare
