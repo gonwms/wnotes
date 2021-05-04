@@ -1,4 +1,8 @@
 #Animation
+## CheatSheet Gsap
+
+https://greensock.com/cheatsheet/
+
 
 ## LOTTIE + GSAP
 https://github.com/airbnb/lottie-web
