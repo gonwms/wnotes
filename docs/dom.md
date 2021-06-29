@@ -31,6 +31,38 @@ window.addEventListener('scroll', debounce(myfunction(), 300)); //300 es el argu
 ```
 
 
+## SVG links
+
+1. Hacer los trazos en en illustrator y exportar como SVG, es importante que se exporte el doc del mismo tamaño que la imagen.
+Se puede exportar con imagen y después borrarla del svg y llamar al archivo externo.
+
+2. Limpiar svg y dejarlo con un formato limpio.
+
+3. para que funcionen los links hace falta siempre agregar xmlns:xlink="http://www.w3.org/1999/xlink"
+
+Archivo.SVG
+
+```
+<figure id="IMG">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1155 1155" preserveAspectRatio="xMinYMin meet" >
+<defs>
+    <style>
+    .piso{fill:red;
+    opacity:0.5}
+    </style>
+</defs>
+<image width="1155" height="1155" xlink:href="assets/img/edificio_selector.png"></image>
+	<a xlink:href="www.google.com/images" target="_blank">
+		<polygon id="piso_1" class="piso piso-1" points="544 0 884 112 884 223 544 161 230 356 230 293 544 0"/>
+	</a>
+	<a xlink:href="www.google.com" target="_blank">
+		<polygon id="piso_2" class="piso piso-2" points="230 399 648 241 1003 308 1003 384 649 356 230 440 230 399"/>
+	</a>
+	</svg>
+</figure>
+
+```
+
 ## URL Location
 
 ```javascript
