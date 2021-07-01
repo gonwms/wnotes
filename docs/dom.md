@@ -62,6 +62,33 @@ Archivo.SVG
 </figure>
 
 ```
+js para agregarle estado activo al clickear
+```javascript
+document.addEventListener('DOMContentLoaded', function(){
+	var pisos = document.querySelectorAll('.piso')
+		var active;
+		pisos.forEach((piso, i) =>{
+			piso.addEventListener('click', function(){
+					activar(i)
+					active = i
+			})
+		})
+		function activar(index){
+			pisos.forEach((piso, i) =>{
+                if(index ==i){	
+                    piso.classList.add('active')
+                }
+                else{
+                    piso.classList.remove('active')
+                }
+		})
+	}
+
+
+})
+```
+
+
 
 ## URL Location
 
