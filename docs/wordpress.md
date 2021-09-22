@@ -73,7 +73,9 @@ comadrescba.com.ar
 
 ## SSL
 
-Agregar al htacces para forzar que siempre use https
+Agregar al .htaccess para forzar que siempre use https
+
+.htaccess
 
 ```
 RewriteEngine On
