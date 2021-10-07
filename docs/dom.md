@@ -132,24 +132,7 @@ console.log(newUser);
 	dom.innerHTML = str;
 	return dom;
 ```
-ejemplo lightbox Elementor
-```javascript
-/*Seleccionar las flechitas del lightbox*/
-var botones = document.querySelectorAll('.elementor-lightbox .elementor-swiper-button')
-botones.forEach(btn => {
-	btn.addEventListener('click', function(){
 
-		/*CONVERTIR TEXTO A HTML*/
-		setTimeout(() => {
-			var title = document.querySelector('.elementor-slideshow__description')
-			var str = title.textContent
-			title.innerHTML = str
-		}, 300);
-
-
-	})
-})
-```
 
 
 
