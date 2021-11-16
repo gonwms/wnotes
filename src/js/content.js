@@ -18,7 +18,7 @@ var loadDocuments = (function () {
         xhr.onload = function () {
             if (xhr.status === 200) {
 
-                content.innerHTML = marked(xhr.responseText);
+                content.innerHTML = marked.parse(xhr.responseText);
                 titleH2defineChapter();
                 // htmlPluck.init();
                 server.emit('content-Loaded', content);

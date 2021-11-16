@@ -7,13 +7,14 @@
     "example": "examples"
   },
   "dependencies": {
-    "eventemitter2": "^5.0.1"
+    "eventemitter2": "^6.4.5"
   },
   "devDependencies": {
-    "highlightjs": "^9.16.2"
+    "highlightjs": "*"
   },
   "scripts": {
-    "test": "test"
+    "test": "test",
+    "serv": "npx http-server"
   },
   "repository": {
     "type": "git",
