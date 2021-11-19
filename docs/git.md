@@ -2,11 +2,15 @@
 
 ## create new local repository
 
+1. Crear un repo en github
+
+En la terminal del proyecto local seguir estos pasos
 1. echo "# org-js" >> README.md
 1. git init
 1. git add README.md
 1. git commit -m "first commit"
-1. git remote add origin https://github.com/gonwms/TODO-es6.git
+1. git remote add origin https://github.com/your/repository
+1. si ya existe agregar: git remote set-url origin https://github.com/your/repository
 1. git push -u origin master
 
 
