@@ -83,6 +83,10 @@
     {
       "name": "Wordpress",
       "imgURL": "/docs/file.jpg"
+    },
+    {
+      "name": "flash",
+      "imgURL": "/docs/file.jpg"
     }
   ]
 }
