@@ -55,3 +55,11 @@ card.mouseEnabled = true;
 card.visible = true;
 
 ```
+
+
+### Cursor
+
+```javascript
+
+Element.cursor = "pointer";
+```
