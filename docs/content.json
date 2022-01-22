@@ -1,6 +1,10 @@
 {
   "list": [
     {
+      "name": "Animate CC",
+      "imgURL": "/docs/file.jpg"
+    },
+    {
       "name": "Array",
       "imgURL": "/docs/file.jpg"
     },
@@ -83,10 +87,7 @@
     {
       "name": "Wordpress",
       "imgURL": "/docs/file.jpg"
-    },
-    {
-      "name": "Animate CC",
-      "imgURL": "/docs/file.jpg"
     }
+
   ]
 }
