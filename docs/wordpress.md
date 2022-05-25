@@ -29,11 +29,12 @@ define( 'WP_SITEURL', 'http://localhost/devShell/dev/' );
 ## plugins
 
 1. Elementor
-1. Elementor custom skins - custom loops y grids
-1. Advanced Post Queries - agrega un campo de busqueda avanzada es posts de Elementor
-1. Updraft plus - se puede descargar el respaldo de archivos y bases directo a la compu
-1. wp rocket - cloudflare
-1. Custom Post Type UI
+2. TinyMCE - agrega funcionalidades al wysiwyg
+3. Elementor custom skins - custom loops y grids
+4. Advanced Post Queries - agrega un campo de busqueda avanzada es posts de Elementor
+5. Updraft plus - se puede descargar el respaldo de archivos y bases directo a la compu
+6. wp rocket - cloudflare
+7. Custom Post Type UI
 
 1. Polylang (parece más facil)
 
