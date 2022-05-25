@@ -407,7 +407,7 @@ posFrame();
 window.addEventListener('resize', posFrame);
 ```
 
-### Wrap Element with code
+## Wrap Element with code
 
 ```javascript
 function wrapElements(elemento) {
