@@ -1,40 +1,39 @@
 # DOM MANIPULATION
 
-
 ## Debouncing
 
 eventsListener como scroll que pueden consumir muchos recursos
 
-```javascript 
+```javascript
 function debounce(func, wait = 20, immediate = true) {
-    var timeout;
-    return function () {
-        var context = this, args = arguments;
-        var later = function () {
-            timeout = null;
-            if (!immediate) func.apply(context, args);
-        };
-        var callNow = immediate && !timeout;
-        clearTimeout(timeout);
-        timeout = setTimeout(later, wait);
-        if (callNow) func.apply(context, args);
+  var timeout;
+  return function () {
+    var context = this,
+      args = arguments;
+    var later = function () {
+      timeout = null;
+      if (!immediate) func.apply(context, args);
     };
-};
+    var callNow = immediate && !timeout;
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+    if (callNow) func.apply(context, args);
+  };
+}
 
 // llamar a funcion como callback de debounce
 
 function myfunction() {
-    //function here
+  //function here
 }
 
 window.addEventListener('scroll', debounce(myfunction(), 300)); //300 es el argumento de tiempo, por defecto ahora es 20
 ```
 
-
 ## SVG links
 
 1. Hacer los trazos en en illustrator y exportar como SVG, es importante que se exporte el doc del mismo tamaño que la imagen.
-Se puede exportar con imagen y después borrarla del svg y llamar al archivo externo.
+   Se puede exportar con imagen y después borrarla del svg y llamar al archivo externo.
 
 2. Limpiar svg y dejarlo con un formato limpio.
 
@@ -62,44 +61,40 @@ Archivo.SVG
 </figure>
 
 ```
+
 js para agregarle estado activo al clickear
+
 ```javascript
-document.addEventListener('DOMContentLoaded', function(){
-	var pisos = document.querySelectorAll('.piso')
-		var active;
-		pisos.forEach((piso, i) =>{
-			piso.addEventListener('click', function(){
-					activar(i)
-					active = i
-			})
-		})
-		function activar(index){
-			pisos.forEach((piso, i) =>{
-                if(index ==i){	
-                    piso.classList.add('active')
-                }
-                else{
-                    piso.classList.remove('active')
-                }
-		})
-	}
-
-
-})
+document.addEventListener('DOMContentLoaded', function () {
+  var pisos = document.querySelectorAll('.piso');
+  var active;
+  pisos.forEach((piso, i) => {
+    piso.addEventListener('click', function () {
+      activar(i);
+      active = i;
+    });
+  });
+  function activar(index) {
+    pisos.forEach((piso, i) => {
+      if (index == i) {
+        piso.classList.add('active');
+      } else {
+        piso.classList.remove('active');
+      }
+    });
+  }
+});
 ```
-
-
 
 ## URL Location
 
 ```javascript
-
-location.protocol  //   https://
-location.hostname  //   dominio.com
-location.pathname  //   /servicios/diseño 
-location.hash      //   #formulario
-location.href      //   https://dominio.com/servicios/diseño#formulario
-window.location.search  // "?post=1234&action=edit"
+location.protocol; //   https://
+location.hostname; //   dominio.com
+location.pathname; //   /servicios/diseño
+location.hash; //   #formulario
+location.href; //   https://dominio.com/servicios/diseño#formulario
+window.location.search; // "?post=1234&action=edit"
 ```
 
 ```javascript
@@ -123,45 +118,43 @@ console.log(newUser);
 
 ```
 
-
 ## String to HTML
 
 ```javascript
-    var string = '<h1>Hello</h1><p>Your HTML Contents are visible now</p>'
-	var dom = document.createElement('div');
-	dom.innerHTML = str;
-	return dom;
+var string = '<h1>Hello</h1><p>Your HTML Contents are visible now</p>';
+var dom = document.createElement('div');
+dom.innerHTML = str;
+return dom;
 ```
 
-
-
-
-
-
 ## Mutation Observer
-```javascript
-    /*definir target a obervar y las opciones*/
-	var targetNode = document.querySelector('#section6')
-	var options = {
-		subtree: true, // ve los cambios de los hijos del target también
-		attributes: true, // ve si hay cambios en los atributos
-	}
-    // función que se ejecuta
-	function callback(mutationsList) {
-		// console.log(mutationsList)
-		mutationsList.forEach(mutation => {
-				if (mutation.attributeName === 'class') {
-						// alert('Ch-ch-ch-changes!')
-						gsap.fromTo('.swiper-slide-active .team-text', {y:0},{y: -100, duration: 1})
-				}
-		})
-	}
-    // crear nuevo mutationObserver
-	
-    const mutationObserver = new MutationObserver(callback)
-    // ejecutarlo con los parametros definidos
-    mutationObserver.observe(targetNode, options);
 
+```javascript
+/*definir target a obervar y las opciones*/
+var targetNode = document.querySelector('#section6');
+var options = {
+  subtree: true, // ve los cambios de los hijos del target también
+  attributes: true, // ve si hay cambios en los atributos
+};
+// función que se ejecuta
+function callback(mutationsList) {
+  // console.log(mutationsList)
+  mutationsList.forEach((mutation) => {
+    if (mutation.attributeName === 'class') {
+      // alert('Ch-ch-ch-changes!')
+      gsap.fromTo(
+        '.swiper-slide-active .team-text',
+        { y: 0 },
+        { y: -100, duration: 1 }
+      );
+    }
+  });
+}
+// crear nuevo mutationObserver
+
+const mutationObserver = new MutationObserver(callback);
+// ejecutarlo con los parametros definidos
+mutationObserver.observe(targetNode, options);
 ```
 
 ## Selectors
@@ -170,41 +163,49 @@ console.log(newUser);
 
 ```javascript
 // getElementsBy
-var a = document.getElementById('container')
-var b = document.getElementsByTagName('DIV')
-var c = document.getElementsByClassName('inner')
-var d = document.querySelectorAll('.inner')
+var a = document.getElementById('container');
+var b = document.getElementsByTagName('DIV');
+var c = document.getElementsByClassName('inner');
+var d = document.querySelectorAll('.inner');
 
-var e = document.querySelectorAll('[class^="con"]') // todas las clases que empiezan con “con”
-var f = document.querySelectorAll('[id^="con"]') // todos los IDs que empiezan con “con”
-var g = document.querySelectorAll('[rel^="js-"]') // todos los elementos que tienen rel que empieza con “js-”
-var h = document.querySelectorAll('[rel*="js-"]') // todos los elementos que tienen rel que empieza con “js-” sirve si tienen 2 rel y js- es el segundo. 
+var e = document.querySelectorAll('[class^="con"]'); // todas las clases que empiezan con “con”
+var f = document.querySelectorAll('[id^="con"]'); // todos los IDs que empiezan con “con”
+var g = document.querySelectorAll('[rel^="js-"]'); // todos los elementos que tienen rel que empieza con “js-”
+var h = document.querySelectorAll('[rel*="js-"]'); // todos los elementos que tienen rel que empieza con “js-” sirve si tienen 2 rel y js- es el segundo.
 ```
+
 ### elementFromPoint
+
 returns the topmost Element at the specified coordinates (relative to the viewport).
+
 ```javascript
-document.elementFromPoint(e.clientX,e.clientY)
+document.elementFromPoint(e.clientX, e.clientY);
 ```
+
 ### not
 
 ```javascript
-var not =document.querySelector('.inner').closest(":not(.inner2)");
+var not = document.querySelector('.inner').closest(':not(.inner2)');
 ```
 
 ### attributes
 
-```javascript 
-var data1 = document.querySelectorAll('.inner[data-nombre]')
-var data2 = document.querySelectorAll('[data-nombre="numero3"]')
-var alt = document.querySelector('img[alt]')
+```javascript
+var data1 = document.querySelectorAll('.inner[data-nombre]');
+var data2 = document.querySelectorAll('[data-nombre="numero3"]');
+var alt = document.querySelector('img[alt]');
 ```
+
 ### dataset data-
+
 Dataset attributes (standard para definidos por el usuario data
+
 ```html
 <div id="electriccars" data-color="red" data-parent="cars" data-active>
-    Tesla
+  Tesla
 </div>
 ```
+
 ```javascript
 var car =  document.querySelector('#electriccars')
 // Get
@@ -216,58 +217,56 @@ if(dataset.active){
 //Set
 car.dataset.color  = 'green'
 car.dataset.parent = 'transporte'
- ```
- 
+```
+
 ### get & set attributes & has
 
-```javascript 
+```javascript
 // Get
-alt.getAttribute('alt')
+alt.getAttribute('alt');
 //Set
-alt.setAttribute('alt','glegle')
+alt.setAttribute('alt', 'glegle');
 //has
-alt.hasAttribute('class')
+alt.hasAttribute('class');
 ```
+
 ### contains
 
-```javascript 
-el.classList.contains('active') 
+```javascript
+el.classList.contains('active');
 ```
-
-
 
 ### closets
 
-Devuelve el ascendiente más cercano al elemento 
+Devuelve el ascendiente más cercano al elemento
 
 ```javascript
-var closest = document.querySelector('IMG').closest('.inner')
+var closest = document.querySelector('IMG').closest('.inner');
 ```
 
 ### childNodes
+
 ```javascript
 // childNodes
-var divFirstChild = document.querySelector('DIV').childNodes[0] // select first child Element
+var divFirstChild = document.querySelector('DIV').childNodes[0]; // select first child Element
 //firstChild & lastChild
-var divFirstChild = document.querySelector('DIV').firstChild // select first child Element
-
+var divFirstChild = document.querySelector('DIV').firstChild; // select first child Element
 ```
-
 
 ### match
 
-devuelve el ascendiente más cercano al elemento 
-  
+devuelve el ascendiente más cercano al elemento
+
 ```javascript
-var reg = /[\d]+\:/g;  
-var match = element.innerHTML.match(reg)
+var reg = /[\d]+\:/g;
+var match = element.innerHTML.match(reg);
 ```
 
 ## Crear Insertar Elementos
 
 ### Crear Elemento
 
-```javascript  
+```javascript
 var contenedor = document.createElement('DIV');
 var parrafo = document.createElement('P');
 ```
@@ -276,26 +275,28 @@ var parrafo = document.createElement('P');
 
 ```javascript
 parrafo.textContent = 'esto es contenido texto'; // texto plano
-parrafo.innerHTML = '<strong>esto es contenido enriquesido</strong>' //texto HTML
-parrafo.innerHTML = `string text ${expression} string text` //template literal
+parrafo.innerHTML = '<strong>esto es contenido enriquesido</strong>'; //texto HTML
+parrafo.innerHTML = `string text ${expression} string text`; //template literal
 ```
 
 ### Estilo y Clases
 
-
 #### cssText
 
-```javascript 
-parrafo.style.cssText = 'display: block; position: absolute;' // para remplazar =
-parrafo.style.cssText += 'display: block; position: absolute;' // para agregar +=
-``` 
+```javascript
+parrafo.style.cssText = 'display: block; position: absolute;'; // para remplazar =
+parrafo.style.cssText += 'display: block; position: absolute;'; // para agregar +=
+```
+
 #### set, add, remove, toggle
-```javascript 
+
+```javascript
 parrafo.style.color = 'red';
 parrafo.classList.add('parrafo');
 contenedor.classList.remove('container');
 contenedor.classList.toggle('active');
 ```
+
 #### contains
 
 ```javascript
@@ -303,78 +304,136 @@ element.classList.contains('container'); // devuelve true si la contiene, false 
 ```
 
 #### get computed style
+
 ```javascript
-var elemento = document.queryselector('DIV')
-window.getComputedStyle(elemento).position //--> devuelve estilos de elemento párrafo
-window.getComputedStyle(elemento).margin // devuelve string ej: '10px'
+var elemento = document.queryselector('DIV');
+window.getComputedStyle(elemento).position; //--> devuelve estilos de elemento párrafo
+window.getComputedStyle(elemento).margin; // devuelve string ej: '10px'
 ```
 
 #### remove propiedad inline
 
 ```javascript
-element.style.removeProperty('margin')
+element.style.removeProperty('margin');
 ```
-
 
 ### Insertar Node
 
 #### appendChild & insertBefore
+
 ```javascript
-//appendChild 
+//appendChild
 contenedor.appendChild(parrafo);
 body.appendChild(contenedor);
-       
+
 //insertBefore
 contenedor.insertBefore(parrafo, contenedor.firstChild);
 ```
-#### insertAdjacentElement 
 
-```javascript     
+#### insertAdjacentElement
+
+```javascript
 //'beforebegin' | 'afterbegin' | 'beforeend' | 'afterend'
 
-var wiki = document.querySelector('#wikiArticle')
+var wiki = document.querySelector('#wikiArticle');
 wiki.insertAdjacentElement('afterbegin', parrafo);
 ```
+
 #### insertAdjacentHTML
-```javascript   
+
+```javascript
 //'beforebegin' | 'afterbegin' | 'beforeend' | 'afterend'
 
 var d1 = document.getElementById('one');
 d1.insertAdjacentHTML('afterend', '<div id="two">two</div>');
 // <div id="one">one</div>
-    // new structure is:
+// new structure is:
 //<div id="one">one</div>
 //<div id="two">two</div>
 ```
 
-### Wrap Element with code
+## posicionar
+
+posicionar una elemento en Y
+
 ```javascript
+el.getBoundingClientRect().top + window.scrollY;
+```
 
-function wrapElements(elemento){
-	var el = document.querySelectorAll(elemento)
-	el.forEach( e =>{
-        console.log(e);
-        var nuevo = '<div class="mascara">' + e.innerHTML + '</div>'; 
-        e.innerHTML = nuevo;
-    })
+obtener elemento con referencia a su contenerdor. posicion absoluta 0,0 del contenedor
+
+```javascript
+referencePoint.getBoundingClientRect().top + window.scrollY - (containerElement.getBoundingClientRect().top + window.scrollY) ;
+
+Posicionar elemento y ajustarlo onResize
+```
+
+```javascript
+//crear elemento
+var frame = document.createElement('DIV');
+//Elemento contenedor
+var containerElement = document.querySelector('#containerElement');
+// Elemento de referencia de posicion
+var referencePoint = document.querySelector('#texto-header p');
+
+// Estilos a nuevo Elementor
+frame.style.cssText = `display: block; position:absolute; width: 1900px; border: 16px solid white; height: 600px;`;
+frame.id = 'frame';
+
+// Posicionar
+function posFrame() {
+  // calc posY
+  // [[ el.getBoundingClientRect().top + window.scrollY ]] es la mejor forma de calcular el Y de un elemento.
+  // Posición Y de LA REFERNCIA en toda página referencePoint.getBoundingClientRect().top + window.scrollY
+  // Posición Y de DEL CONTENEDOR  en toda página (containerElement.getBoundingClientRect().top + window.scrollY)
+  // calculo ambos porque voy a calcular el top de position absolute, es decir que tengo que partir desde 0,0 del contenedor.
+  const posY =
+    referencePoint.getBoundingClientRect().top +
+    window.scrollY -
+    (containerElement.getBoundingClientRect().top + window.scrollY);
+  // calc posX
+  const posX = referencePoint.getBoundingClientRect().x;
+
+  // Aplico posición y agregos margenes
+  frame.style.top = `${posY - 30}px`;
+  frame.style.left = `${posX - 80}px`;
 }
-wrapElements('.container img' )
 
+//'beforebegin' | 'afterbegin' | 'beforeend' | 'afterend'
+containerElement.insertAdjacentElement('afterbegin', frame);
+posFrame();
+
+// se ajusta on resize
+window.addEventListener('resize', posFrame);
+```
+
+### Wrap Element with code
+
+```javascript
+function wrapElements(elemento) {
+  var el = document.querySelectorAll(elemento);
+  el.forEach((e) => {
+    console.log(e);
+    var nuevo = '<div class="mascara">' + e.innerHTML + '</div>';
+    e.innerHTML = nuevo;
+  });
+}
+wrapElements('.container img');
 ```
 
 ## Geometria
 
-![](docs/imgs/geometry.png "geometry")
+![](docs/imgs/geometry.png 'geometry')
 
 ```javascript
-element.scrollHeight // ENTIRE  content & padding (visible or not)
-element.clientHeight // VISIBLE content & padding
-element.offsetHeight // VISIBLE content & padding + border + scrollbar
+element.scrollHeight; // ENTIRE  content & padding (visible or not)
+element.clientHeight; // VISIBLE content & padding
+element.offsetHeight; // VISIBLE content & padding + border + scrollbar
 ```
 
 ### getBoundingClientRect
 
-- method returns the size of an element and its position relative to the viewport. 
+- method returns the size of an element and its position relative to the viewport.
 
 ```javascript
 elemento.getBoundingClientRect()
@@ -398,7 +457,9 @@ console.log(span.getClientRects().length);
 ```
 
 ## Request Animation Frame
+
 Call it once to kick it off, and your function recursively calls itself
+
 ```javascript
 function repeatOften() {
   // Do whatever
