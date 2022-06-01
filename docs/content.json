@@ -13,6 +13,10 @@
       "imgURL": "/docs/file.jpg"
     },
     {
+      "name": "Cripto",
+      "imgURL": "/docs/file.jpg"
+    },
+    {
       "name": "DOM",
       "imgURL": "/docs/file.jpg"
     },
@@ -38,6 +42,10 @@
     },
     {
       "name": "MERNG",
+      "imgURL": "/docs/file.jpg"
+    },
+    {
+      "name": "Mongo",
       "imgURL": "/docs/file.jpg"
     },
     {
@@ -88,6 +96,5 @@
       "name": "Wordpress",
       "imgURL": "/docs/file.jpg"
     }
-
   ]
 }
