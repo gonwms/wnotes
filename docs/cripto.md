@@ -22,41 +22,41 @@
 ### Limmit
 
 Debajo del precio de mercado  
-LIMIT: Compar a =< valor
+**LIMIT**: Compar a =< valor
 
 ### Stop Limit
 
 Arriba del precio de mercado. Comprar con impulso alcita
 
-STOP: Precio (arriba del valor de mercado)  
-LIMIT: Máximo precio
+**STOP**: Precio (arriba del valor de mercado)  
+**LIMIT**: Máximo precio
 
 ### OCO - One Cancel Other
 
 price es para ganar / stop y limit para no perder
 
-PRICE: Valor debajo del de mercado  
-STOP: Precio (arriba del valor de mercado)  
-LIMIT: Máximo precio
+**PRICE**: Valor debajo del de mercado  
+**STOP**: Precio (arriba del valor de mercado)  
+**LIMIT**: Máximo precio
 
 ## SELL
 
 ### Limmit
 
 Arriba del precio de mercado  
-LIMIT: Vender a => valor
+**LIMIT**: Vender a => valor
 
 ### Stop Limit
 
 Abajo del precio de mercado. Vender cuando empieza a bajar para resguardar
 
-STOP: Precio venta (abajo del valor de mercado)  
-LIMIT: Minimo precio de venta
+**STOP**: Precio venta (abajo del valor de mercado)  
+**LIMIT**: Minimo precio de venta
 
 ### OCO
 
 price es para ganar / stop y limit para no perder
 
-PRICE: Valor arriba del de mercado  
-STOP: Precio venta (abajo del valor de mercado)  
-LIMIT: minimo precio
+**PRICE**: Valor arriba del de mercado  
+**STOP**: Precio venta (abajo del valor de mercado)  
+**LIMIT**: minimo precio
