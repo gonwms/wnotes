@@ -18,3 +18,27 @@
    en Mercado > tu dinero > Está arribita a la derecha del cuadrito de plata disponible. [CVU]
 
 ## Trading
+
+### BUY
+
+#### Limmit
+
+Debajo del precio de mercado  
+**Limit:** Compar a =< valor
+
+#### Stop Limit
+
+Arriba del precio de mercado. Comprar con impulso alcita
+
+**Stop:** Precio (arriba del valor de mercado)  
+**Limit:** Máximo precio
+
+#### OCO - One Cancel Other
+
+### SELL
+
+#### Limmit
+
+#### Stop Limit
+
+#### OCO
