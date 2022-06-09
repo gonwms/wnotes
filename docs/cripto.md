@@ -17,48 +17,46 @@
 5. El vendedor pide el CVU o Alias
    en Mercado > tu dinero > Está arribita a la derecha del cuadrito de plata disponible. [CVU]
 
-## Trading
+## BUY
 
-### BUY
-
-#### Limmit
+### Limmit
 
 Debajo del precio de mercado  
-**Limit:** Compar a =< valor
+LIMIT: Compar a =< valor
 
-#### Stop Limit
+### Stop Limit
 
 Arriba del precio de mercado. Comprar con impulso alcita
 
-**Stop:** Precio (arriba del valor de mercado)  
-**Limit:** Máximo precio
+STOP: Precio (arriba del valor de mercado)  
+LIMIT: Máximo precio
 
-#### OCO - One Cancel Other
+### OCO - One Cancel Other
 
 price es para ganar / stop y limit para no perder
 
-**Price:** Valor debajo del de mercado  
-**Stop:** Precio (arriba del valor de mercado)  
-**Limit:** Máximo precio
+PRICE: Valor debajo del de mercado  
+STOP: Precio (arriba del valor de mercado)  
+LIMIT: Máximo precio
 
-### SELL
+## SELL
 
-#### Limmit
+### Limmit
 
 Arriba del precio de mercado  
-**Limit:** Vender a => valor
+LIMIT: Vender a => valor
 
-#### Stop Limit
+### Stop Limit
 
 Abajo del precio de mercado. Vender cuando empieza a bajar para resguardar
 
-**Stop:** Precio venta (abajo del valor de mercado)  
-**Limit:** Minimo precio de venta
+STOP: Precio venta (abajo del valor de mercado)  
+LIMIT: Minimo precio de venta
 
-#### OCO
+### OCO
 
 price es para ganar / stop y limit para no perder
 
-**Price:** Valor arriba del de mercado  
-**Stop:** Precio venta (abajo del valor de mercado)  
-**Limit:** minimo precio
+PRICE: Valor arriba del de mercado  
+STOP: Precio venta (abajo del valor de mercado)  
+LIMIT: minimo precio
