@@ -1,6 +1,6 @@
 # Crypto
 
-# Cambiar
+## Cambiar
 
 ### COMPRAR USDT
 
@@ -35,10 +35,30 @@ Arriba del precio de mercado. Comprar con impulso alcita
 
 #### OCO - One Cancel Other
 
+price es para ganar / stop y limit para no perder
+
+**Price:** Valor debajo del de mercado  
+**Stop:** Precio (arriba del valor de mercado)  
+**Limit:** Máximo precio
+
 ### SELL
 
 #### Limmit
 
+Arriba del precio de mercado  
+**Limit:** Vender a => valor
+
 #### Stop Limit
 
+Abajo del precio de mercado. Vender cuando empieza a bajar para resguardar
+
+**Stop:** Precio venta (abajo del valor de mercado)  
+**Limit:** Minimo precio de venta
+
 #### OCO
+
+price es para ganar / stop y limit para no perder
+
+**Price:** Valor arriba del de mercado  
+**Stop:** Precio venta (abajo del valor de mercado)  
+**Limit:** minimo precio
