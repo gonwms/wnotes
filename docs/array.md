@@ -1,8 +1,6 @@
 
 # ARRAY METHODS
 
-
-
 ## Filter
 
 1. Creates a new array with all elements that pass the test 
