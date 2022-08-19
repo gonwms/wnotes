@@ -1,7 +1,6 @@
 
 # ARRAY METHODS
 
-
 ## Filter
 
 1. Creates a new array with all elements that pass the test 
@@ -101,6 +100,7 @@ console.log(arr4); //->  ["3", "2", "1", "si", "no", "hola", "chau"]
 ```javascript
 var arr = [1,2,3]
 arr.push("x") //-> 4    // returns the new length of the array
+
 console.log(arr); //-> [1,2,3,"x"]
 ```
 
