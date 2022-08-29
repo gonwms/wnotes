@@ -55,6 +55,16 @@ describe('AddUsers', () => {
 });
 ```
 
+## mocks
+
+### jest.fn
+
+### jest.spyOn
+
+### jest.mock
+
+### WMS
+
 ## Unit Test functions
 
 toEqual == same value
