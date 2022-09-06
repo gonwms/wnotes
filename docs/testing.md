@@ -1,5 +1,8 @@
 # Testing
 
+[Understanding-jest-mocks](https://medium.com/@rickhanlonii/understanding-jest-mocks-f0046c68e53c)
+[videos Bruno](https://www.youtube.com/playlist?list=PLYSZyzpwBEWTBdbfStjqJSGaulqcHoNkT)
+
 ## test.utils.js
 
 Agregar todos los providers
@@ -63,7 +66,7 @@ describe('AddUsers', () => {
 
 ### jest.mock
 
-### WMS
+### MSW
 
 ## Unit Test functions
 
