@@ -2,25 +2,25 @@
 
 ## JSON to Folder
 
-Crear directorios |
+Crear directorios
 
-```
 obj.json
-[
-{
-"name": "carpeta",
-"files": [
-{
-"name": "subcarpeta",
-"files": ["file1.json", "readme.md"]
-},
-{
-"name": "subcarpeta2"
-}
-]
-}
-]
 
+```json
+[
+  {
+    "name": "carpeta",
+    "files": [
+      {
+        "name": "subcarpeta",
+        "files": ["file1.json", "readme.md"]
+      },
+      {
+        "name": "subcarpeta2"
+      }
+    ]
+  }
+]
 ```
 
 ```
