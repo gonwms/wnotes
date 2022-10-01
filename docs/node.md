@@ -23,6 +23,8 @@ obj.json
 ]
 ```
 
+Terminal
+
 ```
 npx json-to-folder create -j="C:\Users\Gonzalo\Desktop\TESTNODE\obj.json"
 ```
