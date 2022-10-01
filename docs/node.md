@@ -1,8 +1,10 @@
 # Node
 
-## Crear directorios | JSON to Folder
+## JSON to Folder
 
-`
+Crear directorios |
+
+```
 obj.json
 [
 {
@@ -19,9 +21,11 @@ obj.json
 }
 ]
 
-` `
+```
+
+```
 npx json-to-folder create -j="C:\Users\Gonzalo\Desktop\TESTNODE\obj.json"
-`
+```
 
 ## list of globally installed packages
 
