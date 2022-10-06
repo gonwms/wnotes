@@ -430,6 +430,18 @@ The sum of the two will give the element position relative to the document:
 element.getBoundingClientRect().top + document.documentElement.scrollTop;
 ```
 
+agregar un elemento en la posición de otro
+
+```javascript
+const elemento = document.querySelector('.elemento');
+const body = document.querySelector('body');
+let positionY = elemento.getBoundingClientRect().top + document.documentElement.scrollTop;
+body.insertAdjacentHTML(
+  'afterbegin',
+  `<div style="position:absolute; top:${positionY}px; z-index:99" >--------------------------------</div>`
+);
+```
+
 ### element
 
 ```javascript
