@@ -142,11 +142,7 @@ function callback(mutationsList) {
   mutationsList.forEach((mutation) => {
     if (mutation.attributeName === 'class') {
       // alert('Ch-ch-ch-changes!')
-      gsap.fromTo(
-        '.swiper-slide-active .team-text',
-        { y: 0 },
-        { y: -100, duration: 1 }
-      );
+      gsap.fromTo('.swiper-slide-active .team-text', { y: 0 }, { y: -100, duration: 1 });
     }
   });
 }
@@ -201,9 +197,7 @@ var alt = document.querySelector('img[alt]');
 Dataset attributes (standard para definidos por el usuario data
 
 ```html
-<div id="electriccars" data-color="red" data-parent="cars" data-active>
-  Tesla
-</div>
+<div id="electriccars" data-color="red" data-parent="cars" data-active>Tesla</div>
 ```
 
 ```javascript
@@ -424,6 +418,19 @@ wrapElements('.container img');
 ## Geometria
 
 ![](docs/imgs/geometry.png 'geometry')
+
+### Position relative to the document
+
+`element.getBoundingClientRect()` retrieve element position relative to the viewport.
+`document.documentElement.scrollTop ` calculate the viewport offset.
+
+The sum of the two will give the element position relative to the document:
+
+```javascript
+element.getBoundingClientRect().top + document.documentElement.scrollTop;
+```
+
+### element
 
 ```javascript
 element.scrollHeight; // ENTIRE  content & padding (visible or not)
