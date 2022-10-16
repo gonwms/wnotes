@@ -49,8 +49,20 @@ function Popup({ width, children }: { width: string; children: JSX.Element }) {
 
 ### extends
 
-```javascript
+```typescript
 export interface IsCar extends Isnew {}
+```
+
+extends multiple
+
+```typescript
+export interface Person extends User, Peronista {}
+```
+
+"extends uno u otro" // uso types en vez de interface para hacer esto.
+
+```typescript
+export type Person = cipayo | Peronista {};
 ```
 
 ### Omit
@@ -64,5 +76,44 @@ export interface IsUserInputProps extends Omit<IsUser, 'id'> {}
 ```javascript
 function updateTodo(todo: Todo, fieldsToUpdate: Partial<Todo>) {
   return { ...todo, ...fieldsToUpdate };
+}
+```
+
+### Generics
+
+#### Dinamyc Object
+
+Recibe cualquier entries pero tiene que tener id si o si.
+
+```Typescript
+interface IsOject<T> {
+  id: string,
+  [key:string]: T
+}
+
+const MyComponent = <T extends IsOject<T>>({ id, data, options }: IsOject<T>):JSX.Element => {
+
+}
+```
+
+#### In operator
+
+```javascript
+interface User {
+    name: string;
+    occupation: string;
+}
+
+interface Admin {
+    name: string;
+    role: string;
+}
+export function logPerson(person: Person) {
+    if ('role' in person) {  // <------ en vez de usar if(person.role)
+       ....
+    } else {
+        ...
+    }
+    console.log(` - ${person.name}, ${person.age}, ${additionalInformation}`);
 }
 ```
