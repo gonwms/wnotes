@@ -1,5 +1,27 @@
 # Typescript
 
+
+## Primitives
+
+### functions
+```javascript 
+type func = (a:string, b:number[]) => string  // como definirla como type
+
+interface func { 
+  (a:string, b:number[]): string   /// como definirla como interface
+}
+
+const fn:func  = (a, b)=>{  
+  console.log(a);
+  console.log(b);
+  return a
+}
+console.log(fn('sa',[]));
+
+
+
+```
+
 ## REACT
 
 ### REDUX TYPES
@@ -57,12 +79,19 @@ extends multiple
 
 ```typescript
 export interface Person extends User, Peronista {}
+export type Person = User & Peronista;
 ```
 
 "extends uno u otro" // uso types en vez de interface para hacer esto.
 
 ```typescript
 export type Person = cipayo | Peronista {};
+
+```
+
+```typescript
+export type unArrayDeCosas = (cipayo | Peronista)[];
+export type unArrayDeCosas = Array<cipayo | Peronista>;
 ```
 
 ### Omit
@@ -84,6 +113,26 @@ function updateTodo(todo: Todo, fieldsToUpdate: Partial<Todo>) {
 #### Dinamyc Object
 
 Recibe cualquier entries pero tiene que tener id si o si.
+
+```Typescript
+type IsValidTypes = string | number
+const fn = <T extends IsValidTypes , U>(value: T, message: U) => {
+	console.log(message)
+	let result: string | number = ''
+	if (typeof value === 'string') {
+		result =  value + value 
+	}
+	else if (typeof value === 'number') {
+		result = value + value 
+	}
+	return result
+
+}
+
+fn([100], 'queso')
+fn(100, [])
+
+```
 
 ```Typescript
 interface IsOject<T> {

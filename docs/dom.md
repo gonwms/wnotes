@@ -96,25 +96,19 @@ location.hash; //   #formulario
 location.href; //   https://dominio.com/servicios/diseño#formulario
 window.location.search; // "?post=1234&action=edit"
 ```
-
+get URL params
 ```javascript
 
-https://example.com/?product=shirt&color=blue&newuser&size=m,
+https://laweb.com/?user_ID=2&user_email=gon.williams@gmail.com&user_alias=Gon
 
-const queryString = window.location.search;
-console.log(queryString);
+	let params = (new URL(document.location)).searchParams;
+	const id = params.get('user_ID')
+	const alias = params.get('user_alias')
+	const email = params.get('user_email')
 
-const product = urlParams.get('product')
-console.log(product);
-// shirt
+	const titulo = 	document.querySelector('.title h2')
 
-const color = urlParams.get('color')
-console.log(color);
-// blue
-
-const newUser = urlParams.get('newuser')
-console.log(newUser);
-// empty string
+	titulo.innerText = alias
 
 ```
 
