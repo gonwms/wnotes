@@ -18,7 +18,8 @@
 }
 ```
 
-## 3D
+## 3D 
+!! el elemento con **perspective** tiene que ser **padre directo** de los elementos desplazados en Z para lograr un efecto parallax
 
 ```html
 	<div class="container">
@@ -74,6 +75,7 @@
 
 ```
 
+```
 
 
 <style>
@@ -133,6 +135,7 @@
 	</div>
 </div>
 
+```
 
 
 ## Grid
