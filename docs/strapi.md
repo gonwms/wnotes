@@ -1,4 +1,4 @@
-#Plugins
+# Plugins
 ## populate deep
 ```
 yarn add strapi-plugin-populate-deep
