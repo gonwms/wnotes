@@ -140,7 +140,44 @@ function handleIntersection(entries) {
 	observer.observe(target);
 }
 ```
+# TIMELINE CONTROL
+```javascript
+document.addEventListener("DOMContentLoaded", ready);
+function ready(){
+	
+  const btn1 = document.querySelector('#btn1')
+  const btn2 = document.querySelector('#btn2')
+	const btn3 = document.querySelector('#btn3')
+	
+  btn1.addEventListener('click', function(){
+    tl.play()
+  })
+  btn2.addEventListener('click', function(){
+    tl.reverse()
+  })
+  btn3.addEventListener('click', function(){
+    tl.play('lobueno')
+  })
 
+  const tl = gsap.timeline({paused:true})
+  .to('h1',{y:200})
+	.addPause()
+	.addLabel('lobueno')
+	.to('h1',{css:{color:"red"}})
+  
+}
+```
+```html
+<body>
+  <h1>CASACA</h1>
+</body>
+
+<div>
+  <a id="btn1">play</a>
+  <a id="btn2">reverse</a>
+	<a id="btn3">goto and play</a>
+</div>
+```
 
 
 
