@@ -38,31 +38,9 @@ async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     setMessages(error);
   }
 }
-console.log(fn("sa", []));
 ```
 
-# Forms
-
-```javascript
-// key the use of currentTarget
-async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
-  e.preventDefault();
-  const { data, error } = await login(
-    e.currentTarget.user.value,
-    e.currentTarget.password.value
-  );
-  // SUCCESS
-  if (data !== null) {
-    sessionStorage.setItem("token", data.jwt);
-    setMessages(["success"]);
-    navigate("/");
-  } else {
-    setMessages(error);
-  }
-}
-```
-
-## REACT
+# REACT
 
 ### REDUX TYPES
 
@@ -114,26 +92,52 @@ function Popup({ width, children }: { width: string; children: JSX.Element }) {
 ### extends
 
 ```typescript
-export interface IsCar extends Isnew {}
+//extends Isnew is the syntax used to indicate that IsCar extends another interface called Isnew. This means that IsCar inherits the properties and methods defined in the Isnew interface, and it can also add its own properties and methods or not.
+
+export interface Isnew {
+  isNew: boolean;
+}
+
+export interface IsCar extends Isnew {} // without own properties
+
+export interface IsCar extends Isnew {
+  //with own properties
+  brand: string;
+}
 ```
 
 extends multiple
 
 ```typescript
-export interface Person extends User, Peronista {}
-export type Person = User & Peronista;
+interface User {
+  name: string;
+}
+
+interface Peronista {
+  marcha: string;
+}
+
+export interface Argentino extends User, Peronista {
+  copasDelMundo: number;
+}
+
+export type Argentino = User & Peronista & { copasDelMundo: number };
 ```
 
 "extends uno u otro" // uso types en vez de interface para hacer esto.
+Person puede ser peronista o cipallo en la segunda le más propiedades
 
 ```typescript
-export type Person = cipayo | Peronista {};
+export type Person = Cipayo | Peronista;
 
+export type Person =
+  | (Cipayo & { culoRoto: boolean })
+  | (Peronista & { copasDelMundo: number });
 ```
 
 ```typescript
-export type unArrayDeCosas = (cipayo | Peronista)[];
-export type unArrayDeCosas = Array<cipayo | Peronista>;
+export type unArrayDeCosas = (Cipayo | Peronista)[];
+export type unArrayDeCosas = Array<Cipayo | Peronista>;
 ```
 
 ### Omit
@@ -150,31 +154,54 @@ function updateTodo(todo: Todo, fieldsToUpdate: Partial<Todo>) {
 }
 ```
 
-### Generics
+### generics
+
+```typescript
+
+type isGuy = {
+  name: string;
+  age: number;
+};
+
+//T must be a subtype of type isGuy
+function processObject<T extends BaseObject, U:string>(guy: T, greet:U): void {
+  // Process the object
+  console.log(greet, guy.name, guy.age);
+  console.log(greet, guy.age);
+}
+
+// Usage
+const obj1 = { name: "John", age: 30 };
+const obj2 = { name: "Jane", age: 25 };
+processObject(obj1, 'hola'); // Output: hola John 30
+processObject(obj2, 'chau'); // Output: chau Jane 25
+
+
+```
 
 #### Dinamyc Object
-
-Recibe cualquier entries pero tiene que tener id si o si.
 
 ```Typescript
 type IsValidTypes = string | number
 const fn = <T extends IsValidTypes , U>(value: T, message: U) => {
-	console.log(message)
+	console.log()
 	let result: string | number = ''
 	if (typeof value === 'string') {
-		result =  value + value
+		result =  value + " " + message
 	}
 	else if (typeof value === 'number') {
-		result = value + value
+		result = value + value + " " + message
 	}
 	return result
 
 }
 
-fn([100], 'queso')
-fn(100, [])
+fn("hola", 'queso') // hola queso
+fn(100, 'caca') // 200 caca
 
 ```
+
+Recibe cualquier entries pero tiene que tener id si o si.
 
 ```Typescript
 interface IsOject<T> {
@@ -185,6 +212,16 @@ interface IsOject<T> {
 const MyComponent = <T extends IsOject<T>>({ id, data, options }: IsOject<T>):JSX.Element => {
 
 }
+
+/*
+interface IsObject<T>: This is an interface declaration that introduces a generic type parameter T. The interface defines an id property of type string, and it allows any additional properties of type T to be present.
+
+const fn = <T extends IsObject<T>>({ id, data, options }: IsObject<T>): void => { ... }: This declares a constant fn that is a function. The function uses a generic type parameter T that extends IsObject<T>, which means that the argument passed to the function must conform to the structure defined by the IsObject<T> interface.
+
+{ id, data, options } is a destructured parameter of type IsObject<T>, where id is of type string, and any additional properties are of type T.
+
+*/
+
 ```
 
 #### _IN_ operator
