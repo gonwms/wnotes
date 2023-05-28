@@ -38,6 +38,28 @@ async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     setMessages(error);
   }
 }
+console.log(fn("sa", []));
+```
+
+# Forms
+
+```javascript
+// key the use of currentTarget
+async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  e.preventDefault();
+  const { data, error } = await login(
+    e.currentTarget.user.value,
+    e.currentTarget.password.value
+  );
+  // SUCCESS
+  if (data !== null) {
+    sessionStorage.setItem("token", data.jwt);
+    setMessages(["success"]);
+    navigate("/");
+  } else {
+    setMessages(error);
+  }
+}
 ```
 
 ## REACT

@@ -267,6 +267,25 @@ parrafo.innerHTML = '<strong>esto es contenido enriquesido</strong>'; //texto HT
 parrafo.innerHTML = `string text ${expression} string text`; //template literal
 ```
 
+## clonar Elemento
+```javascript
+var el2 = el1.cloneNode(true) // means copy al the children too.
+el1.insertAdjacentElement('afterend', el2)
+```
+
+## wrap elements
+```javascript
+// WRAP ELEMENTS wrapElements('.selector-class', 'wrap-class')
+function wrapElements(selector, myClass) {
+  var element = document.querySelectorAll(selector);
+  element.forEach((el) => {
+    var wrapedElement = `<div class="${myClass}"><div class="${myClass}-inner">${el.outerHTML}</div></div>`;
+    el.outerHTML = wrapedElement;
+  });
+}
+wrapElements('.element', 'mask')
+
+```
 ### Estilo y Clases
 
 #### cssText
