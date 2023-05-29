@@ -140,10 +140,21 @@ export type unArrayDeCosas = (Cipayo | Peronista)[];
 export type unArrayDeCosas = Array<Cipayo | Peronista>;
 ```
 
+### Pick
+
+```javascript
+type Todo ={
+  id:number
+  title:string
+  completed: boolean,
+}
+type TodoPreview = Pick<Todo, "title" | "completed">;
+```
+
 ### Omit
 
 ```javascript
-export interface IsUserInputProps extends Omit<IsUser, "id"> {}
+export type IsUserSinId = Omit<IsUser, "id">;
 ```
 
 ### Partial
