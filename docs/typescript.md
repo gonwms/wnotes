@@ -42,7 +42,7 @@ async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
 
 # REACT
 
-### REDUX TYPES
+## REDUX TYPES
 
 ```javascript
 /*types.js*/
@@ -61,7 +61,7 @@ export type mouseEvent = React.MouseEvent<HTMLElement>;
 export type inputEvent = React.ChangeEvent<HTMLInputElement>;
 ```
 
-### REACT
+## REACT
 
 #### useRef
 
@@ -75,6 +75,35 @@ export type inputEvent = React.ChangeEvent<HTMLInputElement>;
 const { status, data, error } = useSelector(
   (state: IsRootState) => state.users
 );
+```
+
+#### pass setState
+
+```javascript
+interface IsProps {
+  items: string
+  id: string
+  setChange: React.Dispatch<React.SetStateAction<IsItem>>
+}
+const function = ({ items, id, setChange }: IsProps) => {
+  //...componenet body
+}
+```
+
+#### pass function OnChange
+
+instead of pass the setState I can pass a function that handle that setState in the parent
+
+```javascript
+export interface IsProps {
+  data: data[] | null
+  _id?: number | string | symbol
+  onChange: (...args: any) => void   //<-- pass a gen funciton
+
+}
+const InvoiceEditorTable = ({ data, value, onChange }: IsProps) => {
+  //...componenet body
+}
 ```
 
 #### Children
@@ -303,3 +332,34 @@ Usage in TypeScript: You can use _typeof value_ to retrieve the type of _value_ 
 
 Meaning: Checks if an object is an instance of a specific class or constructor.
 Usage in TypeScript: You can use it to check if an object is an instance of a particular class or constructor. For example, _object instanceof Constructor_ returns _true_ if _object_ is an instance of _Constructor_.
+
+# Challenges
+
+## PICK
+
+```typescript
+interface isPerson {
+  id: number;
+  name: string;
+  country: string;
+}
+// type isNoCountryPerson = Pick<isPerson,"id" | "name" >;
+
+type MY_PICK<OBJ, K extends keyof OBJ> = {
+  [key in K]: OBJ[key];
+};
+
+// type isNoCountryPerson = MY_PICK<isPerson,"id" | "name" >
+type isNoCountryPerson = MY_PICK<isPerson, "country" | "id" | "name">;
+
+function clog(person: isNoCountryPerson) {
+  console.log(person.id);
+  console.log(person.name);
+  console.log(person.country);
+}
+clog({
+  id: 1,
+  name: "jafar",
+  country: "lionel",
+});
+```
