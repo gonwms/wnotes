@@ -219,6 +219,32 @@ processObject(obj2, 'chau'); // Output: chau Jane 25
 
 ```
 
+### generics prop in Component
+
+```typescript
+interface IsProps {
+  data: IsData[] | null;
+  value: string | null;
+  onChange: (...args: any) => void;
+}
+interface gen<T> {
+  [key: string]: T;
+}
+
+// notar <T,> coma al final para que funcione en .TSX
+const MyComponent = <T>({
+  data,
+  value,
+  onChange,
+  ...rest
+}: gen<T> & IsProps) => {
+  //componenet...
+  // return(
+  //<>  </>
+  //  )
+};
+```
+
 #### Dinamyc Object
 
 ```Typescript
