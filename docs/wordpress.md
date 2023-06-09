@@ -239,6 +239,69 @@ Antes de que empiece el primer DIV
     </script>
 
 ```
+## AUTHENTICATION
+
+1. install JWT **Authentication for WP REST API**
+2. wp-config.php > agregar:  **define('JWT_AUTH_SECRET_KEY', '[ALGUN-STRING-RANDOM]')**
+3. login. leer user y pass del form y hacer un post:
+
+```
+// auth
+async function login(user, pass) {
+  const URL = "https://rubnv73.sg-host.com/wp-json/jwt-auth/v1/token"
+  const headers = {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', },
+    body: JSON.stringify({ identifier: user, password: pass, }),
+  }
+  try {
+    const res = await fetch(URL, headers)
+    const data = await res.json()
+
+    if (res.status === 200) {
+      sessionStorage.token = data.token
+    }
+    else {
+     console.log("error ", data)
+    }
+  } catch (error) {
+    console.log("error catch ", error);
+    
+  }
+}
+login()
+```
+4. get some data using the token
+```
+async function getSomething() {
+  const URL = "https://rubnv73.sg-host.com/wp-json/wp/v2/posts"
+  const headers = {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: sessionStorage.token,
+    },
+  }
+  try {
+    const res = await fetch(URL, headers)
+    const data = await res.json()
+
+    if (res.status === 200) {
+      console.log(data)
+    }
+    else {
+     console.log("error ", data)
+    }
+  } catch (error) {
+    console.log("error catch ", error);
+    
+  }
+}
+
+getSomething()
+
+```
+
 
 ## backdoor
 
