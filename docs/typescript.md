@@ -54,22 +54,22 @@ const dispatch = useDispatch<IsAppDispatch>()
 const { status, data, error } = useSelector((state: IsRootState) => state.users)
 ```
 
-### EVENTS
+## EVENTS
 
 ```javascript
 export type mouseEvent = React.MouseEvent<HTMLElement>;
 export type inputEvent = React.ChangeEvent<HTMLInputElement>;
 ```
 
-## REACT
 
-#### useRef
+
+## useRef
 
 ```javascript
   const slide1 = useRef() as React.MutableRefObject<HTMLInputElement>
 ```
 
-#### useState
+## useState
 
 ```javascript
 const { status, data, error } = useSelector(
@@ -77,7 +77,7 @@ const { status, data, error } = useSelector(
 );
 ```
 
-#### pass setState
+## pass setState
 
 ```javascript
 interface IsProps {
@@ -90,7 +90,7 @@ const function = ({ items, id, setChange }: IsProps) => {
 }
 ```
 
-#### pass function OnChange
+## pass function OnChange
 
 instead of pass the setState I can pass a function that handle that setState in the parent
 
@@ -106,7 +106,7 @@ const InvoiceEditorTable = ({ data, value, onChange }: IsProps) => {
 }
 ```
 
-#### Children
+## Children
 
 ```javascript
 function Popup({ width, children }: { width: string; children: JSX.Element }) {
@@ -114,11 +114,11 @@ function Popup({ width, children }: { width: string; children: JSX.Element }) {
 }
 ```
 
-## UTILITY TYPES
+# UTILITY TYPES
 
 [docs](https://www.typescriptlang.org/docs/handbook/utility-types.html)
 
-### extends
+## extends
 
 ```typescript
 //extends Isnew is the syntax used to indicate that IsCar extends another interface called Isnew. This means that IsCar inherits the properties and methods defined in the Isnew interface, and it can also add its own properties and methods or not.
