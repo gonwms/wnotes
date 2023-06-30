@@ -85,6 +85,10 @@
       "imgURL": "/docs/file.jpg"
     },
     {
+      "name": "Strapi",
+      "imgURL": "/docs/file.jpg"
+    },
+    {
       "name": "testing",
       "imgURL": "/docs/file.jpg"
     },
