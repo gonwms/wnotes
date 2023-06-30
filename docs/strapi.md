@@ -38,11 +38,14 @@ $ yarn strapi import -f MY-EXPORT.tar.gz.enc --key salsaña
 
 ## filter
 
+deep + sort
+
 ```
-//deep + sort + filter
-http://localhost:1337/api/[COLLECTION]/?populate=deep,2&sort=id:desc&filters[item][id][$eq]=245
+http://localhost:1337/api/[COLLECTION]/?populate=deep,2&sort=id:desc
+```
 
+filter
 
-
-
+```
+http://localhost:1337/api/[COLLECTION]/?populate=deep,2&s&filters[item][id][$eq]=245
 ```
