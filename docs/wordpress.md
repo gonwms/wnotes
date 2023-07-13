@@ -1,5 +1,23 @@
 # Wordpress
 
+## GUTTEMBER SUCK
+
+agregar al final de function php
+
+```javascript
+add_action('admin_head', 'guttember_suck');
+function guttember_suck() {
+  echo '<style>
+        .wp-block {
+            border: 1px solid blue;
+            padding: 5px;
+            border-radius: 5px;
+        }
+  </style>';
+}
+
+```
+
 ## Cambiar URL
 
 Agragar en config.php
