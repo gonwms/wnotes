@@ -9,9 +9,9 @@ add_action('admin_head', 'guttember_suck');
 function guttember_suck() {
   echo '<style>
         .wp-block {
-            border: 1px solid blue;
-            padding: 5px;
-            border-radius: 5px;
+      border: 1px solid black;
+    padding: 10px;
+    border-radius: 2px;
         }
   </style>';
 }
