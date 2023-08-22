@@ -2,46 +2,47 @@
 
 ## mixins
 
-### color varialbes
-
-```css
-@mixin create-brightness-variables($color, $variable-name, $steps) {
-  $base-color: $color;
-
-  @for $i from 1 through $steps {
-    $brightness: $i * 100;
-    $new-color: mix(#fff, $base-color, $brightness);
-    $variable-name: $new-color !global;
-  }
-}
-
-@include create-brightness-variables($color-primary, $color-primary-, 5);
-@include create-brightness-variables($color-secondary, $color-secondary-, 5);
-@include create-brightness-variables($color-third, $color-third-, 5);
-```
-
 ### color clases
+
+its not posible to create a variables sass, sólo variables css
+crea classes css, pero no me hace feliz.
 
 ```css
 $colors: (
-  "blue": #0066ff,
-  "purple": #9000ff,
-  "error": #ff00cc,
-  "info": #00ffff,
-  "black": black,
-  "white": white,
-) !default;
+  color-cyan: #08c7e1,
+  color-blue: #237fea,
+  color-green: #83bb10,
+  color-orange: #ff7e54,
+  color-darkgreen: #01120a,
+  color-white: #ffffff,
+  color-black: #000000,
+);
+
+$steps: 20; //--> result 3 lighter + 3 darker
+$multiple: 2;
 
 :root {
+  // bright variations
   @each $key, $val in $colors {
-    --c-#{$key}: #{$val};
-
+    --#{$key}: #{$val};
     @if ($val != black and $val != white) {
-      light variations --c-blue-l10 @for $i from 1 through 9 {
-        --c-#{$key}-l#{$i}: #{mix(white, $val, $i * 9)};
+      @for $i from 1 through $steps {
+        @if ($i != $steps and $i % $multiple == 0) {
+          --#{$key}-l#{calc(((($i - $multiple) / $multiple) + 1) * 100)}: #{mix(
+              #fff,
+              $val,
+              calc($i * 100% / ($steps))
+            )};
+        }
       }
-      dark variations @for $i from 1 through 9 {
-        --c-#{$key}-d#{$i}: #{mix(black, $val, $i * 9)};
+      @for $i from 1 through $steps {
+        @if ($i != $steps and $i % $multiple == 0) {
+          --#{$key}-d#{calc(((($i - $multiple )/ $multiple ) + 1) * 100)}: #{mix(
+              #000,
+              $val,
+              calc($i * 100% / ($steps))
+            )};
+        }
       }
     }
   }

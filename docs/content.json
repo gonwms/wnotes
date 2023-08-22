@@ -1,108 +1,82 @@
 {
   "list": [
     {
-      "name": "Animate CC",
-      "imgURL": "/docs/file.jpg"
+      "name": "Animate CC"
     },
     {
-      "name": "Array",
-      "imgURL": "/docs/file.jpg"
+      "name": "Array"
     },
     {
-      "name": "SCSS",
-      "imgURL": "/docs/file.jpg"
+      "name": "SCSS"
     },
     {
-      "name": "Crypto",
-      "imgURL": "/docs/file.jpg"
+      "name": "Crypto"
     },
     {
-      "name": "DOM",
-      "imgURL": "/docs/file.jpg"
+      "name": "DOM"
     },
     {
-      "name": "Es6",
-      "imgURL": "/docs/file.jpg"
+      "name": "Es6"
     },
     {
-      "name": "Firebase",
-      "imgURL": "/docs/file.jpg"
+      "name": "Firebase"
     },
     {
-      "name": "Git",
-      "imgURL": "/docs/file.jpg"
+      "name": "Git"
     },
     {
-      "name": "GSAP",
-      "imgURL": "/docs/file.jpg"
+      "name": "GSAP"
     },
     {
-      "name": "Math",
-      "imgURL": "/docs/file.jpg"
+      "name": "Math"
     },
     {
-      "name": "MERNG",
-      "imgURL": "/docs/file.jpg"
+      "name": "MERNG"
     },
     {
-      "name": "Mongo",
-      "imgURL": "/docs/file.jpg"
+      "name": "Mongo"
     },
     {
-      "name": "Node",
-      "imgURL": "/docs/file.jpg"
+      "name": "Node"
     },
     {
-      "name": "Notas",
-      "imgURL": "/docs/file.jpg"
+      "name": "Notas"
     },
     {
-      "name": "Objects",
-      "imgURL": "/docs/file.jpg"
+      "name": "Objects"
     },
     {
-      "name": "Patterns",
-      "imgURL": "/docs/file.jpg"
+      "name": "Patterns"
     },
     {
-      "name": "PHP",
-      "imgURL": "/docs/file.jpg"
+      "name": "PHP"
     },
     {
-      "name": "Reactive RxJs",
-      "imgURL": "/docs/file.jpg"
+      "name": "Reactive RxJs"
     },
     {
-      "name": "React",
-      "imgURL": "/docs/file.jpg"
+      "name": "React"
     },
     {
-      "name": "RegEx",
-      "imgURL": "/docs/file.jpg"
+      "name": "RegEx"
     },
     {
-      "name": "Strings",
-      "imgURL": "/docs/file.jpg"
+      "name": "Strings"
     },
     {
-      "name": "Strapi",
-      "imgURL": "/docs/file.jpg"
+      "name": "Strapi"
     },
     {
-      "name": "testing",
-      "imgURL": "/docs/file.jpg"
+      "name": "testing"
     },
     {
-      "name": "typescript",
-      "imgURL": "/docs/file.jpg"
+      "name": "typescript"
     },
     {
-      "name": "VsCode",
-      "imgURL": "/docs/file.jpg"
+      "name": "VsCode"
     },
     {
-      "name": "Wordpress",
-      "imgURL": "/docs/file.jpg"
+      "name": "Wordpress"
     }
   ]
 }
