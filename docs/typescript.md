@@ -61,8 +61,6 @@ export type mouseEvent = React.MouseEvent<HTMLElement>;
 export type inputEvent = React.ChangeEvent<HTMLInputElement>;
 ```
 
-
-
 ## useRef
 
 ```javascript
@@ -114,11 +112,11 @@ function Popup({ width, children }: { width: string; children: JSX.Element }) {
 }
 ```
 
-# UTILITY TYPES
+## UTILITY TYPES
 
 [docs](https://www.typescriptlang.org/docs/handbook/utility-types.html)
 
-## extends
+### extends
 
 ```typescript
 //extends Isnew is the syntax used to indicate that IsCar extends another interface called Isnew. This means that IsCar inherits the properties and methods defined in the Isnew interface, and it can also add its own properties and methods or not.
@@ -245,7 +243,7 @@ const MyComponent = <T>({
 };
 ```
 
-#### Dinamyc Object
+### Dinamyc Object
 
 ```Typescript
 type IsValidTypes = string | number
@@ -290,7 +288,7 @@ const fn = <T extends IsObject<T>>({ id, data, options }: IsObject<T>): void => 
 
 ```
 
-#### _IN_ operator
+### _IN_ operator
 
 ```javascript
 interface User {
@@ -312,7 +310,7 @@ export function logPerson(person: Person) {
 }
 ```
 
-#### _type predicates_
+### _type predicates_
 
 [video](https://www.youtube.com/watch?v=FvSaID3TjhI&list=PLLbNB9i2QOKMgZN0qkSaXqq1SIRs-mU7X&index=3)
 [doc](https://www.typescriptlang.org/docs/handbook/advanced-types.html)
@@ -324,7 +322,7 @@ export function isItemData(item: IsItem | IsItemTitle): item is IsItem {
 }
 ```
 
-#### Words
+## Words
 
 | Keyword      | Meaning                                                                  | Usage in TypeScript                                          |
 | ------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------ |
