@@ -357,9 +357,9 @@ Usage in TypeScript: You can use _typeof value_ to retrieve the type of _value_ 
 Meaning: Checks if an object is an instance of a specific class or constructor.
 Usage in TypeScript: You can use it to check if an object is an instance of a particular class or constructor. For example, _object instanceof Constructor_ returns _true_ if _object_ is an instance of _Constructor_.
 
-# Challenges
+## Challenges
 
-## PICK
+### PICK
 
 ```javascript
 interface isPerson {
