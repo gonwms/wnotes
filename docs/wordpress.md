@@ -1,5 +1,38 @@
 # Wordpress
 
+## Elementor Basic CSS
+
+```css
+
+/*---- GENERAL -----*/
+
+/*body:not(.elementor-editor-active) .hidden,*/
+/*body:not(.elementor-editor-active)  .children-hidden > *{*/
+/*    opacity:0 ;*/
+/*}*/
+
+// OVERFLOW
+[data-elementor-type="wp-page"] {
+    max-width: 100vw ;
+    overflow: hidden; 
+}
+// FONT SIZE
+html{
+    font-size: clamp(18px, 1.1vw , 22px);
+    user-select: none;
+}
+//FIX GSAP PIN PROBLEM
+.elementor .e-con{
+    transition: all 0s;
+}
+
+::selection {
+  color: white;
+  background: #a02f25;
+}
+
+```
+
 ## GUTTEMBER SUCK
 
 agregar al final de function php
