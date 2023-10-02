@@ -118,7 +118,7 @@ function Popup({ width, children }: { width: string; children: JSX.Element }) {
 
 ### extends
 
-```typescript
+```javascript
 //extends Isnew is the syntax used to indicate that IsCar extends another interface called Isnew. This means that IsCar inherits the properties and methods defined in the Isnew interface, and it can also add its own properties and methods or not.
 
 export interface Isnew {
@@ -135,7 +135,7 @@ export interface IsCar extends Isnew {
 
 extends multiple
 
-```typescript
+```javascript
 interface User {
   name: string;
 }
@@ -154,7 +154,7 @@ export type Argentino = User & Peronista & { copasDelMundo: number };
 "extends uno u otro" // uso types en vez de interface para hacer esto.
 Person puede ser peronista o cipallo en la segunda le más propiedades
 
-```typescript
+```javascript
 export type Person = Cipayo | Peronista;
 
 export type Person =
@@ -162,7 +162,7 @@ export type Person =
   | (Peronista & { copasDelMundo: number });
 ```
 
-```typescript
+```javascript
 export type unArrayDeCosas = (Cipayo | Peronista)[];
 export type unArrayDeCosas = Array<Cipayo | Peronista>;
 ```
@@ -194,7 +194,7 @@ function updateTodo(todo: Todo, fieldsToUpdate: Partial<Todo>) {
 
 ### generics
 
-```typescript
+```javascript
 
 type isGuy = {
   name: string;
@@ -219,7 +219,7 @@ processObject(obj2, 'chau'); // Output: chau Jane 25
 
 ### generics prop in Component
 
-```typescript
+```javascript
 interface IsProps {
   data: IsData[] | null;
   value: string | null;
@@ -245,7 +245,7 @@ const MyComponent = <T>({
 
 ### Dinamyc Object
 
-```Typescript
+```javascript
 type IsValidTypes = string | number
 const fn = <T extends IsValidTypes , U>(value: T, message: U) => {
 	console.log()
@@ -267,7 +267,7 @@ fn(100, 'caca') // 200 caca
 
 Recibe cualquier entries pero tiene que tener id si o si.
 
-```Typescript
+```javascript
 interface IsOject<T> {
   id: string,
   [key:string]: T
@@ -361,7 +361,7 @@ Usage in TypeScript: You can use it to check if an object is an instance of a pa
 
 ## PICK
 
-```typescript
+```javascript
 interface isPerson {
   id: number;
   name: string;
