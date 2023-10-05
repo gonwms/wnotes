@@ -67,14 +67,6 @@ export type inputEvent = React.ChangeEvent<HTMLInputElement>;
   const slide1 = useRef() as React.MutableRefObject<HTMLInputElement>
 ```
 
-## useState
-
-```javascript
-const { status, data, error } = useSelector(
-  (state: IsRootState) => state.users
-);
-```
-
 ## pass setState
 
 ```javascript
