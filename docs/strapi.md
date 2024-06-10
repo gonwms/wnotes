@@ -14,6 +14,35 @@ uso
 get http://localhost:1337/api/users/me/?populate=deep,3
 ```
 
+
+## Subir a railway (postgres)
+
+Esto aplica para postgress
+1. En local, la carpeta confing crear una carpetas env\production y dentro database.ts
+este archivo se lee automaticamente por strapi si existe.
+
+```env/production/database.ts
+module.exports = ({ env }) => ({
+  connection: {
+    client: "postgres",
+    connection: {
+      host: env("PGHOST", "127.0.0.1"),
+      password: env("PGPASSWORD", "password"),
+      port: env.int("PGPORT", 5931),
+      database: env("PGDATABASE", "railway"),
+      user: env("PGUSER", "postgres"),
+      ssl: env.bool(true),
+    },
+  },
+});
+
+```
+   
+3. crear un db vacía en railway y copiar los datos variables
+4. deployar el strapi desde el repo de github. una vez creado en railway, agregarle los datos de db nueva. Notar que el nombre de las variables difiere. agregar sin borrar y chequear que estén todas las necesarias
+   
+
+
 ## import/export
 
 _Install_
