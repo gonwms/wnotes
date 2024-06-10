@@ -38,8 +38,8 @@ module.exports = ({ env }) => ({
 
 ```
    
-3. crear un db vacía en railway y copiar los datos variables
-4. deployar el strapi desde el repo de github. una vez creado en railway, agregarle los datos de db nueva. Notar que el nombre de las variables difiere. agregar sin borrar y chequear que estén todas las necesarias
+2. crear un db vacía en railway y copiar los datos variables
+3. deployar el strapi desde el repo de github. una vez creado en railway, agregarle los datos de db nueva. Notar que el nombre de las variables difiere. agregar sin borrar y chequear que estén todas las necesarias
    
 
 
