@@ -36,6 +36,17 @@ _Import_
 $ yarn strapi import -f MY-EXPORT.tar.gz.enc --key salsaña
 ```
 
+
+## transfer
+para transferir de local a remote. Solo transfiere la data. No los usuarios
+1. generear token en el panel admin del strapi remoto
+2. en el CLI local:
+
+```
+yarn strapi transfer --to https://lio-server-production.up.railway.app/admin --to-token [TOKEN]
+```
+   
+
 ## filter
 
 deep + sort
