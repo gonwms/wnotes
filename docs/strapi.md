@@ -45,6 +45,9 @@ module.exports = ({ env }) => ({
 
 ## import/export
 
+https://blog.railway.app/p/postgre-backup
+https://dbdeveloper.medium.com/easy-steps-to-backup-your-postgresql-database-in-2024-15a25a232c7f
+
 _Install_
 
 ```
