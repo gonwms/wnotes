@@ -53,6 +53,10 @@ module.exports = ({ env }) => ({
 2. Formato custom, Clean (drop) database objects before creating
 3. comenzar
 
+## Resetear password
+
+npm run strapi admin:reset-user-password --email=existing@user.com --password=NewPassword
+
 
 ## import/export (vieja forma)
 
