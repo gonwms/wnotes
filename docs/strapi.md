@@ -41,9 +41,20 @@ module.exports = ({ env }) => ({
 2. crear un db vacía en railway y copiar los datos variables
 3. deployar el strapi desde el repo de github. una vez creado en railway, agregarle los datos de db nueva. Notar que el nombre de las variables difiere. agregar sin borrar y chequear que estén todas las necesarias
    
+## import/export con Dbeaver
+
+### backup
+1. En la DB originial click derecho > tools > backup > elegir todas las tablas> next
+2. Elegir formato Custom, coding UTF-8 y
+3. comenzar
+   
+### Restore
+1. En la DB que recibe la data > click derecho > tools > restore
+2. Formato custom, Clean (drop) database objects before creating
+3. comenzar
 
 
-## import/export
+## import/export (vieja forma)
 
 https://blog.railway.app/p/postgre-backup
 https://dbdeveloper.medium.com/easy-steps-to-backup-your-postgresql-database-in-2024-15a25a232c7f
