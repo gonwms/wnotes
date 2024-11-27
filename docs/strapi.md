@@ -55,8 +55,7 @@ module.exports = ({ env }) => ({
 
 ## Resetear password
 
-npm run strapi admin:reset-user-password --email=existing@user.com --password=NewPassword
-
+npm run strapi admin:reset-user-password
 
 ## import/export (vieja forma)
 
